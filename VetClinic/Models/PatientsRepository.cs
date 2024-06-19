@@ -1,4 +1,5 @@
-﻿namespace VetClinic.Models
+﻿
+namespace VetClinic.Models
 {
     public class PatientsRepository
     {
@@ -20,7 +21,7 @@
             new Patient { PatientId = 14, PetId = 4, PatientName = "Sky", Breed = "Cockatiel", Age = 3, OwnerInfo = "Jack White" }
 
         };
-
+        
         public static void AddPatient(Patient patient)
         {
             var maxId = _patients.Max(x => x.PatientId);
@@ -49,6 +50,7 @@
         }
 
 
+
         public static Patient? GetPatientById(int patientId, bool loadPet = false)
         {
             var patient = _patients.FirstOrDefault(x => x.PatientId == patientId);
@@ -69,6 +71,7 @@
                 {
                     patient.Pet = PetsRepository.GetPetById(pat.PetId.Value);
                 }
+                return pat;
             }
             return null;
         }

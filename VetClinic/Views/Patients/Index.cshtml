@@ -1,0 +1,44 @@
+﻿@model List<Patient>
+
+@section title {
+    <h3>Patients</h3>
+}
+
+@if (Model == null)
+{
+    <p>No data available. Model is null.</p>
+}
+else if (!Model.Any())
+{
+    <p>No patients found.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Pet Kind</th>
+                <th>Pet Name</th>
+                <th>Breed</th>
+                <th>Age</th>
+                <th>Owner</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var patient in Model)
+            {
+                <tr>
+                    <td>@patient.Pet?.Name</td>
+                    <td>@patient.PatientName</td>
+                    <td>@patient.Breed</td>
+                    <td>@patient.Age</td>
+                    <td>@patient.OwnerInfo</td>
+                    <td><a class="btn btn-link" asp-controller="patients" asp-action="edit" asp-route-id="@patient.PatientId">Edit</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br />
+    <a class="btn btn-primary" asp-controller="patients" asp-action="add">Add</a>
+}

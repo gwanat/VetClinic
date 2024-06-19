@@ -8,7 +8,7 @@
             new Pet { PetId = 2, Name = "Dogs", Description = "Dog" },
             new Pet { PetId = 3, Name = "Hamsters", Description = "Hamster" },
             new Pet { PetId = 4, Name = "Birds", Description = "Bird" },
-            new Pet { PetId = 4, Name = "Horses", Description = "Horse" }
+            new Pet { PetId = 5, Name = "Horses", Description = "Horse" }
         };
 
         public static void AddPet(Pet pet)
