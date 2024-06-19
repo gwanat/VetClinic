@@ -10,10 +10,11 @@
         <thead>
             <tr>
                 <th>Assigned Doctor</th>
-                <th>Name</th>
+                <th>Species</th>
+                <th>Name</th>                
                 <th>Breed</th>
                 <th>Age</th>
-                <th>Owner Info</th>
+                <th>Owner's Name</th>
                 <th>Diagnosis</th>
                 <th></th>
                 <th></th>
@@ -24,6 +25,7 @@
             {
                 <tr>
                     <td>@(patient.Doctor != null ? patient.Doctor.Name : "Not Assigned")</td>
+                    <td>@patient.Type</td>
                     <td>@patient.PatientName</td>
                     <td>@patient.Breed</td>
                     <td>@patient.Age</td>

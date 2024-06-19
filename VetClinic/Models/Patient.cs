@@ -16,6 +16,9 @@ namespace VetClinic.Models
         public string PatientName { get; set; } = string.Empty;
 
         [Required]
+        public string Type {  get; set; } = string.Empty;
+
+        [Required]
         public string Breed { get; set; } = string.Empty;
 
         [Required]
