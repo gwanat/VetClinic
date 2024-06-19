@@ -9,10 +9,12 @@
     <table class="table table-striped">
         <thead>
             <tr>
+                <th>Assigned Doctor</th>
                 <th>Name</th>
                 <th>Breed</th>
                 <th>Age</th>
                 <th>Owner Info</th>
+                <th>Diagnosis</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -21,10 +23,12 @@
             @foreach (var patient in Model)
             {
                 <tr>
+                    <td>@(patient.Doctor != null ? patient.Doctor.Name : "Not Assigned")</td>
                     <td>@patient.PatientName</td>
                     <td>@patient.Breed</td>
                     <td>@patient.Age</td>
                     <td>@patient.OwnerInfo</td>
+                    <td>@patient.Diagnosis</td>
                     <td><a class="btn btn-link" asp-controller="patients" asp-action="edit" asp-route-id="@patient.PatientId">Edit</a></td>
                     <td><a class="btn btn-link" asp-controller="patients" asp-action="delete" asp-route-id="@patient.PatientId" onclick="return confirmDelete()">Delete</a></td>
                 </tr>

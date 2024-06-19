@@ -24,6 +24,8 @@ namespace VetClinic.Models
         [Required]
         public string OwnerInfo { get; set; } = string.Empty;
 
+        public string Diagnosis { get; set; } = string.Empty;
+
         public Doctor? Doctor { get; set; }
 
     }

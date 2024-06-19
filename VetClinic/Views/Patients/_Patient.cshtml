@@ -10,6 +10,7 @@
     }
 
     <div class="text-danger" asp-validation-summary="All"></div>
+
     <div class="mb-3 row">
         <div class="col-2">
             <label asp-for="Patient.DoctorId" class="col-form-label"></label>
@@ -63,6 +64,16 @@
         <div class="col-6">
             <input type="text" asp-for="Patient.OwnerInfo" class="form-control" />
             <span class="text-danger" asp-validation-for="Patient.OwnerInfo"></span>
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <div class="col-2">
+            <label asp-for="Patient.Diagnosis" class="col-form-label"></label>
+        </div>
+        <div class="col-6">
+            <textarea asp-for="Patient.Diagnosis" class="form-control"></textarea>
+            <span class="text-danger" asp-validation-for="Patient.Diagnosis"></span>
         </div>
     </div>
 
