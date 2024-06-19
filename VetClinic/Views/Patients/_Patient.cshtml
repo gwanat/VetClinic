@@ -12,17 +12,17 @@
     <div class="text-danger" asp-validation-summary="All"></div>
     <div class="mb-3 row">
         <div class="col-2">
-            <label asp-for="Patient.PetId" class="col-form-label"></label>
+            <label asp-for="Patient.DoctorId" class="col-form-label"></label>
         </div>
         <div class="col-6">
-            <select asp-for="Patient.PetId" class="form-control">
+            <select asp-for="Patient.DoctorId" class="form-control">
                 <option value="">- Please Select -</option>
-                @foreach (var pet in Model.Pets)
+                @foreach (var doctor in Model.Doctors)
                 {
-                    <option value="@pet.PetId">@pet.Name</option>
+                    <option value="@doctor.DoctorId">@doctor.Name</option>
                 }
             </select>
-            <span class="text-danger" asp-validation-for="Patient.PetId"></span>
+            <span class="text-danger" asp-validation-for="Patient.DoctorId"></span>
         </div>
     </div>
 

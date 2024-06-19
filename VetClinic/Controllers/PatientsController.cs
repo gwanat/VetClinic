@@ -8,10 +8,9 @@ namespace VetClinic.Controllers
     {
         public IActionResult Index()
         {
-            var patients = PatientsRepository.GetPatients(loadPet: true);
+            var patients = PatientsRepository.GetPatients(loadDoctor: true);
             return View(patients);
         }
-
 
         public IActionResult Add()
         {
@@ -19,7 +18,7 @@ namespace VetClinic.Controllers
 
             var patientViewModel = new PatientViewModel
             {
-                Pets = PetsRepository.GetPets()
+                Doctors = DoctorsRepository.GetDoctors()
             };
 
             return View(patientViewModel);
@@ -35,16 +34,17 @@ namespace VetClinic.Controllers
             }
 
             ViewBag.Action = "add";
-            patientViewModel.Pets = PetsRepository.GetPets();
+            patientViewModel.Doctors = DoctorsRepository.GetDoctors();
             return View(patientViewModel);
         }
+
         public IActionResult Edit(int id)
         {
             ViewBag.Action = "edit";
             var patientViewModel = new PatientViewModel
             {
                 Patient = PatientsRepository.GetPatientById(id) ?? new Patient(),
-                Pets = PetsRepository.GetPets()
+                Doctors = DoctorsRepository.GetDoctors()
             };
 
             return View(patientViewModel);
@@ -60,7 +60,7 @@ namespace VetClinic.Controllers
             }
 
             ViewBag.Action = "edit";
-            patientViewModel.Pets = PetsRepository.GetPets();
+            patientViewModel.Doctors = DoctorsRepository.GetDoctors();
             return View(patientViewModel);
         }
 

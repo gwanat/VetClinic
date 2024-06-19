@@ -4,24 +4,15 @@
     <h3>Patients</h3>
 }
 
-@if (Model == null)
-{
-    <p>No data available. Model is null.</p>
-}
-else if (!Model.Any())
-{
-    <p>No patients found.</p>
-}
-else
+@if (Model != null && Model.Count() > 0)
 {
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Pet Kind</th>
-                <th>Pet Name</th>
+                <th>Name</th>
                 <th>Breed</th>
                 <th>Age</th>
-                <th>Owner</th>
+                <th>Owner Info</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -30,7 +21,6 @@ else
             @foreach (var patient in Model)
             {
                 <tr>
-                    <td>@patient.Pet?.Name</td>
                     <td>@patient.PatientName</td>
                     <td>@patient.Breed</td>
                     <td>@patient.Age</td>
@@ -41,9 +31,9 @@ else
             }
         </tbody>
     </table>
-    <br />
-    <a class="btn btn-primary" asp-controller="patients" asp-action="add">Add</a>
 }
+<br />
+<a class="btn btn-primary" asp-controller="patients" asp-action="add">Add</a>
 @section Scripts {
     <script>
         function confirmDelete() {

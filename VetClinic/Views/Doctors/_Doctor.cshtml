@@ -1,12 +1,12 @@
-﻿@model Pet
+﻿@model Doctor
 @{
     string action = ViewBag.Action ?? string.Empty;
 }
 
-<form method="post" asp-controller="pets" asp-action="@action">
+<form method="post" asp-controller="doctors" asp-action="@action">
     @if (action?.ToLower() == "edit")
     {
-        <input type="hidden" asp-for="PetId" />
+        <input type="hidden" asp-for="DoctorId" />
     }
 
     <div class="text-danger" asp-validation-summary="All"></div>
@@ -38,5 +38,4 @@
         <div class="col-6">
         </div>
     </div>
-
 </form>

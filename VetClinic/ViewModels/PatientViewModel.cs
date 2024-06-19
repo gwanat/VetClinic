@@ -4,7 +4,7 @@ namespace VetClinic.ViewModels
 {
     public class PatientViewModel
     {
-        public IEnumerable<Pet> Pets { get; set; } = new List<Pet>();
+        public IEnumerable<Doctor> Doctors { get; set; } = new List<Doctor>();
         public Patient Patient { get; set; } = new Patient();
     }
 }

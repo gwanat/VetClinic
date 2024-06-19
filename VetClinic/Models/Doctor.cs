@@ -2,9 +2,9 @@
 
 namespace VetClinic.Models
 {
-    public class Pet
+    public class Doctor
     {
-        public int PetId { get; set; }
+        public int DoctorId { get; set; }
         public string Name { get; set; } = string.Empty;
         public string? Description { get; set; } = string.Empty;
     }

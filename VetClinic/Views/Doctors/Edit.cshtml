@@ -1,0 +1,13 @@
+﻿@model Doctor
+
+@section title {
+    @if (Model != null)
+    {
+        <h3>Doctor: @Model.Name</h3>
+    }
+}
+
+@if (Model != null)
+{
+    <partial name="_Doctor" model="@Model" />
+}

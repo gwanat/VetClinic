@@ -9,8 +9,8 @@ namespace VetClinic.Models
         public int PatientId { get; set; }
 
         [Required]
-        [Display(Name = "Pet")]
-        public int? PetId { get; set; }
+        [Display(Name = "Doctor")]
+        public int? DoctorId { get; set; }
 
         [Required]
         public string PatientName { get; set; } = string.Empty;
@@ -24,7 +24,7 @@ namespace VetClinic.Models
         [Required]
         public string OwnerInfo { get; set; } = string.Empty;
 
-        public Pet? Pet { get; set; }
+        public Doctor? Doctor { get; set; }
 
     }
 }

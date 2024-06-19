@@ -3,34 +3,33 @@ using VetClinic.Models;
 
 namespace VetClinic.Controllers
 {
-    public class PetsController : Controller
+    public class DoctorsController : Controller
     {
         public IActionResult Index()
         {
-            var pets = PetsRepository.GetPets();
-            return View(pets);
+            var doctors = DoctorsRepository.GetDoctors();
+            return View(doctors);
         }
-
 
         public IActionResult Edit(int? id)
         {
             ViewBag.Action = "edit";
 
-            var pet = PetsRepository.GetPetById(id.HasValue ? id.Value : 0 );
+            var doctor = DoctorsRepository.GetDoctorById(id.HasValue ? id.Value : 0);
 
-            return View(pet);
+            return View(doctor);
         }
 
         [HttpPost]
-        public IActionResult Edit(Pet pet)
+        public IActionResult Edit(Doctor doctor)
         {
             if (ModelState.IsValid)
             {
-                PetsRepository.UpdatePet(pet.PetId, pet);
+                DoctorsRepository.UpdateDoctor(doctor.DoctorId, doctor);
                 return RedirectToAction(nameof(Index));
             }
             ViewBag.Action = "edit";
-            return View(pet);
+            return View(doctor);
         }
 
         public IActionResult Add()
@@ -41,20 +40,20 @@ namespace VetClinic.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(Pet pet)
+        public IActionResult Add(Doctor doctor)
         {
             if (ModelState.IsValid)
             {
-                PetsRepository.AddPet(pet);
+                DoctorsRepository.AddDoctor(doctor);
                 return RedirectToAction(nameof(Index));
             }
             ViewBag.Action = "add";
-            return View(pet);
+            return View(doctor);
         }
 
-        public IActionResult Delete(int petId)
+        public IActionResult Delete(int doctorId)
         {
-            PetsRepository.DeletePet(petId);
+            DoctorsRepository.DeleteDoctor(doctorId);
             return RedirectToAction(nameof(Index));
         }
     }
