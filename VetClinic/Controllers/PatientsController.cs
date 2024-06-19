@@ -15,6 +15,8 @@ namespace VetClinic.Controllers
 
         public IActionResult Add()
         {
+            ViewBag.Action = "add";
+
             var patientViewModel = new PatientViewModel
             {
                 Pets = PetsRepository.GetPets()
@@ -32,11 +34,13 @@ namespace VetClinic.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
+            ViewBag.Action = "add";
             patientViewModel.Pets = PetsRepository.GetPets();
             return View(patientViewModel);
         }
         public IActionResult Edit(int id)
         {
+            ViewBag.Action = "edit";
             var patientViewModel = new PatientViewModel
             {
                 Patient = PatientsRepository.GetPatientById(id) ?? new Patient(),
@@ -55,8 +59,15 @@ namespace VetClinic.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
+            ViewBag.Action = "edit";
             patientViewModel.Pets = PetsRepository.GetPets();
             return View(patientViewModel);
+        }
+
+        public IActionResult Delete(int id)
+        {
+            PatientsRepository.DeletePatient(id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

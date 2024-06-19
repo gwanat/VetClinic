@@ -29,6 +29,7 @@ namespace VetClinic.Controllers
                 PetsRepository.UpdatePet(pet.PetId, pet);
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.Action = "edit";
             return View(pet);
         }
 
@@ -47,7 +48,7 @@ namespace VetClinic.Controllers
                 PetsRepository.AddPet(pet);
                 return RedirectToAction(nameof(Index));
             }
-
+            ViewBag.Action = "add";
             return View(pet);
         }
 

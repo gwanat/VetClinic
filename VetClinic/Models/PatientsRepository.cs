@@ -24,8 +24,17 @@ namespace VetClinic.Models
         
         public static void AddPatient(Patient patient)
         {
-            var maxId = _patients.Max(x => x.PatientId);
-            patient.PatientId = maxId + 1;
+            if (_patients != null && _patients.Count > 0)
+            {
+                var maxId = _patients.Max(x => x.PatientId);
+                patient.PatientId = maxId + 1;
+            }
+            else
+            {
+                patient.PatientId = 1;
+            }
+
+            if (_patients == null) _patients = new List<Patient>();
             _patients.Add(patient);
         }
 

@@ -1,0 +1,74 @@
+﻿@model PatientViewModel
+@{
+    string action = ViewBag.Action ?? string.Empty;
+}
+
+<form method="post" asp-controller="patients" asp-action="@action">
+    @if (action?.ToLower() == "edit")
+    {
+        <input type="hidden" asp-for="Patient.PatientId" />
+    }
+
+    <div class="text-danger" asp-validation-summary="All"></div>
+    <div class="mb-3 row">
+        <div class="col-2">
+            <label asp-for="Patient.PetId" class="col-form-label"></label>
+        </div>
+        <div class="col-6">
+            <select asp-for="Patient.PetId" class="form-control">
+                <option value="">- Please Select -</option>
+                @foreach (var pet in Model.Pets)
+                {
+                    <option value="@pet.PetId">@pet.Name</option>
+                }
+            </select>
+            <span class="text-danger" asp-validation-for="Patient.PetId"></span>
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <div class="col-2">
+            <label asp-for="Patient.PatientName" class="col-form-label"></label>
+        </div>
+        <div class="col-6">
+            <input type="text" asp-for="Patient.PatientName" class="form-control" />
+            <span class="text-danger" asp-validation-for="Patient.PatientName"></span>
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <div class="col-2">
+            <label asp-for="Patient.Breed" class="col-form-label"></label>
+        </div>
+        <div class="col-6">
+            <input type="text" asp-for="Patient.Breed" class="form-control" />
+            <span class="text-danger" asp-validation-for="Patient.Breed"></span>
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <div class="col-2">
+            <label asp-for="Patient.Age" class="col-form-label"></label>
+        </div>
+        <div class="col-6">
+            <input type="number" asp-for="Patient.Age" class="form-control" min="0" />
+            <span class="text-danger" asp-validation-for="Patient.Age"></span>
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <div class="col-2">
+            <label asp-for="Patient.OwnerInfo" class="col-form-label"></label>
+        </div>
+        <div class="col-6">
+            <input type="text" asp-for="Patient.OwnerInfo" class="form-control" />
+            <span class="text-danger" asp-validation-for="Patient.OwnerInfo"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-2">
+            <input type="submit" class="btn btn-primary" value="Save" />
+        </div>
+    </div>
+</form>

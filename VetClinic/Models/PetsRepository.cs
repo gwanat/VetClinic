@@ -13,8 +13,16 @@
 
         public static void AddPet(Pet pet)
         {
-            var maxId = _pets.Max(x => x.PetId);
-            pet.PetId = maxId + 1;
+            if (_pets != null && _pets.Count > 0)
+            {
+                var maxId = _pets.Max(x => x.PetId);
+                pet.PetId = maxId + 1;
+            }
+            else
+            {
+                pet.PetId = 1;
+            }
+            if (_pets == null) _pets = new List<Pet>();
             _pets.Add(pet);
         }
 
