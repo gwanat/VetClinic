@@ -14,6 +14,8 @@ namespace VetClinic.Controllers
 
         public IActionResult Edit(int? id)
         {
+            ViewBag.Action = "edit";
+
             var pet = PetsRepository.GetPetById(id.HasValue ? id.Value : 0 );
 
             return View(pet);
@@ -32,6 +34,8 @@ namespace VetClinic.Controllers
 
         public IActionResult Add()
         {
+            ViewBag.Action = "add";
+
             return View();
         }
 
