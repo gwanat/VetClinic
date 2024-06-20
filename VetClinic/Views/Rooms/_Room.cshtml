@@ -1,0 +1,52 @@
+﻿@model Room
+@{
+    string action = ViewBag.Action ?? string.Empty;
+}
+
+<form method="post" asp-controller="rooms" asp-action="@action">
+    @if (action?.ToLower() == "edit")
+    {
+        <input type="hidden" asp-for="RoomId" />
+    }
+
+    <div class="text-danger" asp-validation-summary="All"></div>
+    <div class="row mb-3">
+        <div class="col-2">
+            <label asp-for="RoomNumber" class="col-form-label"></label>
+        </div>
+        <div class="col-6">
+            <input type="text" asp-for="RoomNumber" class="form-control" />
+        </div>
+        <div class="col">
+            <span class="text-danger" asp-validation-for="RoomNumber"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-2">
+            <label asp-for="Type" class="col-form-label"></label>
+        </div>
+        <div class="col-6">
+            <input type="text" asp-for="Type" class="form-control" />
+        </div>
+        <div class="col">
+            <span class="text-danger" asp-validation-for="Type"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-2">
+            <label asp-for="Description" class="col-form-label"></label>
+        </div>
+        <div class="col-6">
+            <input type="text" asp-for="Description" class="form-control" />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-2">
+            <input type="submit" class="btn btn-primary" value="Save" />
+        </div>
+        <div class="col-6">
+        </div>
+    </div>
+</form>
