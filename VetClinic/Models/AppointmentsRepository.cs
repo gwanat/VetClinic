@@ -90,6 +90,7 @@ namespace VetClinic.Models
             return appointment;
         }
 
+
         public static void UpdateAppointment(int appointmentId, Appointment appointment)
         {
             var appointmentToUpdate = _appointments.FirstOrDefault(x => x.AppointmentId == appointmentId);
@@ -122,5 +123,6 @@ namespace VetClinic.Models
             appointment.Patient = PatientsRepository.GetPatientById(appointment.PatientId);
             appointment.Room = RoomsRepository.GetRoomById(appointment.RoomId);
         }
+
     }
 }

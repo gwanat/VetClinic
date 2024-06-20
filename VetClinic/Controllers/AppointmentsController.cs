@@ -9,20 +9,21 @@ namespace VetClinic.Controllers
     {
         public IActionResult Index()
         {
-            var appointments = AppointmentsRepository.GetAppointments();
+            var appointments = AppointmentsRepository.GetAppointments(loadRelated: true);
             return View(appointments);
         }
 
         public IActionResult Edit(int id)
         {
             ViewBag.Action = "edit";
-            var appointment = AppointmentsRepository.GetAppointmentById(id);
+            var appointment = AppointmentsRepository.GetAppointmentById(id, loadRelated: true);
             if (appointment == null)
             {
                 return NotFound();
             }
             return View(appointment);
         }
+
 
         [HttpPost]
         public IActionResult Edit(Appointment appointment)
