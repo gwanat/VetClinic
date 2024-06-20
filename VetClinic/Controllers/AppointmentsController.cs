@@ -15,6 +15,7 @@ namespace VetClinic.Controllers
 
         public IActionResult Edit(int id)
         {
+            ViewBag.Action = "edit";
             var appointment = AppointmentsRepository.GetAppointmentById(id);
             if (appointment == null)
             {
@@ -31,11 +32,15 @@ namespace VetClinic.Controllers
                 AppointmentsRepository.UpdateAppointment(appointment.AppointmentId, appointment);
                 return RedirectToAction(nameof(Index));
             }
+
+            ViewBag.Action = "edit";
             return View(appointment);
         }
 
         public IActionResult Add()
         {
+            ViewBag.Action = "add";
+
             return View();
         }
 
@@ -47,6 +52,8 @@ namespace VetClinic.Controllers
                 AppointmentsRepository.AddAppointment(appointment);
                 return RedirectToAction(nameof(Index));
             }
+
+            ViewBag.Action = "add";
             return View(appointment);
         }
 
