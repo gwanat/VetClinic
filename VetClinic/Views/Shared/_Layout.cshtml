@@ -29,6 +29,9 @@
                         <li class="nav-item">
                         <a class="nav-link text-dark" asp-controller="rooms" asp-action="index">Rooms</a>
                         </li>
+                        <li class="nav-item">
+                        <a class="nav-link text-dark" asp-controller="appointments" asp-action="index">Appointments</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -45,4 +48,7 @@
     </div>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+<footer class="bg-bright text-black text-center py-3">
+    <p>&copy; 2024 Wet Clinic - Vet Clinic Management System.</p>
+</footer>
 </html>

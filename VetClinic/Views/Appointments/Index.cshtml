@@ -1,0 +1,52 @@
+﻿@model List<Appointment>
+
+@section title {
+    <h3>Appointments</h3>
+}
+
+@if (Model != null && Model.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Client Name</th>
+                <th>Client Phone Number</th>
+                <th>Doctor</th>
+                <th>Patient Name</th>
+                <th>Room</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var appointment in Model)
+            {
+                <tr>
+                    <td>@appointment.StartTime.ToString("yyyy-MM-dd HH:mm")</td>
+                    <td>@appointment.EndTime.ToString("yyyy-MM-dd HH:mm")</td>
+                    <td>@appointment.ClientName</td>
+                    <td>@appointment.ClientPhoneNumber</td>
+                    <td>@(appointment.Doctor != null ? appointment.Doctor.Name : "N/A")</td>
+                    <td>@(appointment.Patient != null ? appointment.Patient.PatientName : "N/A")</td>
+                    <td>@(appointment.Room != null ? appointment.Room.RoomNumber : "N/A")</td>
+                    <td><a class="btn btn-link" asp-controller="Appointments" asp-action="Edit" asp-route-id="@appointment.AppointmentId">Edit</a></td>
+                    <td><a class="btn btn-link text-danger" asp-controller="Appointments" asp-action="Delete" asp-route-id="@appointment.AppointmentId" onclick="return confirmDelete()">Delete</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No appointments found.</p>
+}
+
+@section Scripts {
+    <script>
+        function confirmDelete() {
+            return confirm("Are you sure you want to delete this appointment?");
+        }
+    </script>
+}
