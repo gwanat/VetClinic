@@ -13,8 +13,6 @@ namespace VetClinic.Models
                 AppointmentId = 1,
                 StartTime = DateTime.Today.AddHours(9),
                 EndTime = DateTime.Today.AddHours(10),
-                ClientName = "John Doe",
-                ClientPhoneNumber = "123-456-7890",
                 DoctorId = 1,
                 PatientId = 1,
                 RoomId = 1
@@ -24,8 +22,6 @@ namespace VetClinic.Models
                 AppointmentId = 2,
                 StartTime = DateTime.Today.AddDays(1).AddHours(14),
                 EndTime = DateTime.Today.AddDays(1).AddHours(15),
-                ClientName = "Jane Smith",
-                ClientPhoneNumber = "987-654-3210",
                 DoctorId = 2,
                 PatientId = 2,
                 RoomId = 2
@@ -35,8 +31,6 @@ namespace VetClinic.Models
                 AppointmentId = 3,
                 StartTime = DateTime.Today.AddDays(2).AddHours(11),
                 EndTime = DateTime.Today.AddDays(2).AddHours(12),
-                ClientName = "Michael Johnson",
-                ClientPhoneNumber = "456-789-0123",
                 DoctorId = 3,
                 PatientId = 3,
                 RoomId = 3
@@ -46,8 +40,6 @@ namespace VetClinic.Models
                 AppointmentId = 4,
                 StartTime = DateTime.Today.AddDays(3).AddHours(13),
                 EndTime = DateTime.Today.AddDays(3).AddHours(14),
-                ClientName = "Emily Brown",
-                ClientPhoneNumber = "321-654-9870",
                 DoctorId = 4,
                 PatientId = 4,
                 RoomId = 4
@@ -90,7 +82,6 @@ namespace VetClinic.Models
             return appointment;
         }
 
-
         public static void UpdateAppointment(int appointmentId, Appointment appointment)
         {
             var appointmentToUpdate = _appointments.FirstOrDefault(x => x.AppointmentId == appointmentId);
@@ -98,8 +89,6 @@ namespace VetClinic.Models
             {
                 appointmentToUpdate.StartTime = appointment.StartTime;
                 appointmentToUpdate.EndTime = appointment.EndTime;
-                appointmentToUpdate.ClientName = appointment.ClientName;
-                appointmentToUpdate.ClientPhoneNumber = appointment.ClientPhoneNumber;
                 appointmentToUpdate.DoctorId = appointment.DoctorId;
                 appointmentToUpdate.PatientId = appointment.PatientId;
                 appointmentToUpdate.RoomId = appointment.RoomId;
@@ -123,6 +112,5 @@ namespace VetClinic.Models
             appointment.Patient = PatientsRepository.GetPatientById(appointment.PatientId);
             appointment.Room = RoomsRepository.GetRoomById(appointment.RoomId);
         }
-
     }
 }

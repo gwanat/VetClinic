@@ -1,16 +1,38 @@
-﻿using VetClinic.Models;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-public class Appointment
+namespace VetClinic.Models
 {
-    public int AppointmentId { get; set; }
-    public DateTime StartTime { get; set; }
-    public DateTime EndTime { get; set; }
-    public string ClientName { get; set; } = string.Empty;
-    public string ClientPhoneNumber { get; set; } = string.Empty;
-    public int DoctorId { get; set; } 
-    public Doctor? Doctor { get; set; } 
-    public int PatientId { get; set; } 
-    public Patient? Patient { get; set; } 
-    public int RoomId { get; set; } 
-    public Room? Room { get; set; } 
+    public class Appointment
+    {
+        public int AppointmentId { get; set; }
+
+        [Required]
+        public DateTime StartTime { get; set; }
+
+        [Required]
+        public DateTime EndTime { get; set; }
+
+        [Required]
+        public int DoctorId { get; set; }
+
+        [ForeignKey("DoctorId")]
+        public Doctor? Doctor { get; set; }
+
+        [Required]
+        public int PatientId { get; set; }
+
+        [ForeignKey("PatientId")]
+        public Patient? Patient { get; set; }
+
+        [Required]
+        public int RoomId { get; set; }
+
+        [ForeignKey("RoomId")]
+        public Room? Room { get; set; }
+
+        [NotMapped]
+        public string ClientName => Patient?.OwnerInfo ?? string.Empty;
+    }
 }

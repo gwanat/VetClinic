@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Components.Forms;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace VetClinic.Models
 {
@@ -16,7 +16,7 @@ namespace VetClinic.Models
         public string PatientName { get; set; } = string.Empty;
 
         [Required]
-        public string Type {  get; set; } = string.Empty;
+        public string Type { get; set; } = string.Empty;
 
         [Required]
         public string Breed { get; set; } = string.Empty;
@@ -29,8 +29,9 @@ namespace VetClinic.Models
 
         public string Diagnosis { get; set; } = string.Empty;
 
+        [ForeignKey("DoctorId")]
         public Doctor? Doctor { get; set; }
 
+        public ICollection<Appointment>? Appointments { get; set; }
     }
 }
-

@@ -12,7 +12,6 @@
                 <th>Start Time</th>
                 <th>End Time</th>
                 <th>Client Name</th>
-                <th>Client Phone Number</th>
                 <th>Doctor</th>
                 <th>Patient Name</th>
                 <th>Room</th>
@@ -27,7 +26,6 @@
                     <td>@appointment.StartTime.ToString("yyyy-MM-dd HH:mm")</td>
                     <td>@appointment.EndTime.ToString("yyyy-MM-dd HH:mm")</td>
                     <td>@appointment.ClientName</td>
-                    <td>@appointment.ClientPhoneNumber</td>
                     <td>@(appointment.Doctor != null ? appointment.Doctor.Name : "N/A")</td>
                     <td>@(appointment.Patient != null ? appointment.Patient.PatientName : "N/A")</td>
                     <td>@(appointment.Room != null ? appointment.Room.RoomNumber : "N/A")</td>
