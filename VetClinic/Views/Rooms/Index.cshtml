@@ -25,15 +25,15 @@
                     <td>@room.Type</td>
                     <td>@(room.IsOccupied ? "Yes" : "No")</td>
                     <td>@room.Description</td>
-                    <td><a class="btn btn-link" asp-controller="rooms" asp-action="edit" asp-route-id="@room.RoomId">Edit</a></td>
-                    <td><a class="btn btn-link" asp-controller="rooms" asp-action="delete" asp-route-id="@room.RoomId" onclick="return confirmDelete()">Delete</a></td>
+                    <td><a class="btn btn-outline-primary" asp-controller="rooms" asp-action="edit" asp-route-id="@room.RoomId">Edit</a></td>
+                    <td><a class="btn btn-outline-danger" asp-controller="rooms" asp-action="delete" asp-route-id="@room.RoomId" onclick="return confirmDelete()">Delete</a></td>
                 </tr>
             }
         </tbody>
     </table>
 }
 <br />
-<a class="btn btn-primary" asp-controller="rooms" asp-action="add">Add Room</a>
+<a class="btn btn-outline-success" asp-controller="rooms" asp-action="add">Add Room</a>
 
 @section Scripts {
     <script>

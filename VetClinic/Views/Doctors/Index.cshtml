@@ -1,7 +1,7 @@
 ﻿@model List<Doctor>
 
 @section title {
-    <h3>Doctors</h3>
+    <h2 style="font-family: 'Times New Roman', Times, serif; ">Doctors</h2>
 }
 
 @if (Model != null && Model.Count() > 0)
@@ -21,15 +21,15 @@
                 <tr>
                     <td>@doctor.Name</td>
                     <td>@doctor.Description</td>
-                    <td><a class="btn btn-link" asp-controller="doctors" asp-action="edit" asp-route-id="@doctor.DoctorId">Edit</a></td>
-                    <td><a class="btn btn-link" asp-controller="doctors" asp-action="delete" asp-route-doctorid="@doctor.DoctorId" onclick="return confirmDelete()">Delete</a></td>
+                    <td><a class="btn btn-outline-primary" asp-controller="doctors" asp-action="edit" asp-route-id="@doctor.DoctorId">Edit</a></td>
+                    <td><a class="btn btn-outline-danger" asp-controller="doctors" asp-action="delete" asp-route-doctorid="@doctor.DoctorId" onclick="return confirmDelete()">Delete</a></td>
                 </tr>
             }
         </tbody>
     </table>
 }
 <br />
-<a class="btn btn-primary" asp-controller="doctors" asp-action="add">Add</a>
+<a class="btn btn-outline-success" asp-controller="doctors" asp-action="add">Add</a>
 
 @section Scripts {
     <script>

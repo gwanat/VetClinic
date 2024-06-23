@@ -13,7 +13,7 @@
 
     <div class="mb-3 row">
         <div class="col-2">
-            <label asp-for="Patient.DoctorId" class="col-form-label"></label>
+            <label asp-for="Patient.DoctorId" class="col-form-label fw-bold"></label>
         </div>
         <div class="col-6">
             <select asp-for="Patient.DoctorId" class="form-control">
@@ -29,25 +29,27 @@
 
     <div class="mb-3 row">
         <div class="col-2">
-            <label asp-for="Patient.PatientName" class="col-form-label"></label>
+            <label asp-for="Patient.PatientName" class="col-form-label fw-bold"></label>
         </div>
         <div class="col-6">
             <input type="text" asp-for="Patient.PatientName" class="form-control" />
             <span class="text-danger" asp-validation-for="Patient.PatientName"></span>
         </div>
     </div>
+
     <div class="mb-3 row">
         <div class="col-2">
-            <label asp-for="Patient.Type" class="col-form-label"></label>
+            <label asp-for="Patient.Type" class="col-form-label fw-bold"></label>
         </div>
         <div class="col-6">
             <input type="text" asp-for="Patient.Type" class="form-control" />
             <span class="text-danger" asp-validation-for="Patient.Type"></span>
         </div>
     </div>
+
     <div class="mb-3 row">
         <div class="col-2">
-            <label asp-for="Patient.Breed" class="col-form-label"></label>
+            <label asp-for="Patient.Breed" class="col-form-label fw-bold"></label>
         </div>
         <div class="col-6">
             <input type="text" asp-for="Patient.Breed" class="form-control" />
@@ -57,7 +59,7 @@
 
     <div class="mb-3 row">
         <div class="col-2">
-            <label asp-for="Patient.Age" class="col-form-label"></label>
+            <label asp-for="Patient.Age" class="col-form-label fw-bold"></label>
         </div>
         <div class="col-6">
             <input type="number" asp-for="Patient.Age" class="form-control" min="0" />
@@ -67,7 +69,7 @@
 
     <div class="mb-3 row">
         <div class="col-2">
-            <label asp-for="Patient.OwnerInfo" class="col-form-label"></label>
+            <label asp-for="Patient.OwnerInfo" class="col-form-label fw-bold"></label>
         </div>
         <div class="col-6">
             <input type="text" asp-for="Patient.OwnerInfo" class="form-control" />
@@ -77,7 +79,7 @@
 
     <div class="mb-3 row">
         <div class="col-2">
-            <label asp-for="Patient.Diagnosis" class="col-form-label"></label>
+            <label asp-for="Patient.Diagnosis" class="col-form-label fw-bold"></label>
         </div>
         <div class="col-6">
             <textarea asp-for="Patient.Diagnosis" class="form-control"></textarea>
@@ -87,7 +89,7 @@
 
     <div class="row mb-3">
         <div class="col-2">
-            <input type="submit" class="btn btn-primary" value="Save" />
+            <input type="submit" class="btn btn-outline-primary" value="Save" />
         </div>
     </div>
 </form>

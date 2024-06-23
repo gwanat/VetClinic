@@ -29,8 +29,8 @@
                     <td>@(appointment.Doctor != null ? appointment.Doctor.Name : "N/A")</td>
                     <td>@(appointment.Patient != null ? appointment.Patient.PatientName : "N/A")</td>
                     <td>@(appointment.Room != null ? appointment.Room.RoomNumber : "N/A")</td>
-                    <td><a class="btn btn-link" asp-controller="Appointments" asp-action="Edit" asp-route-id="@appointment.AppointmentId">Edit</a></td>
-                    <td><a class="btn btn-link text-danger" asp-controller="Appointments" asp-action="Delete" asp-route-id="@appointment.AppointmentId" onclick="return confirmDelete()">Delete</a></td>
+                    <td><a class="btn btn-outline-primary" asp-controller="Appointments" asp-action="Edit" asp-route-id="@appointment.AppointmentId">Edit</a></td>
+                    <td><a class="btn btn-outline-danger" asp-controller="Appointments" asp-action="Delete" asp-route-id="@appointment.AppointmentId" onclick="return confirmDelete()">Delete</a></td>
                 </tr>
             }
         </tbody>
@@ -40,7 +40,7 @@ else
 {
     <p>No appointments found.</p>
 }
-<a class="btn btn-primary" asp-controller="appointments" asp-action="add">Add</a>
+<a class="btn btn-outline-success" asp-controller="appointments" asp-action="add">Add</a>
 
 @section Scripts {
     <script>

@@ -4,6 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vet Clinic Managament System</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css"/>
 </head>
@@ -11,29 +13,30 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Wet Clinic 🥵💦</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Vet Clinic</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="home" asp-action="index">Home</a>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link text-muted" asp-controller="home" asp-action="index"><i class="bi bi-house-fill"></i> Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="doctors" asp-action="index">Doctors</a>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link text-muted" asp-controller="doctors" asp-action="index"><i class="bi bi-person-fill"></i> Doctors</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="patients" asp-action="index">Patients</a>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link text-muted" asp-controller="patients" asp-action="index"><i class="bi bi-bug-fill"></i> Patients</a>
                         </li>
-                        <li class="nav-item">
-                        <a class="nav-link text-dark" asp-controller="rooms" asp-action="index">Rooms</a>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link text-muted" asp-controller="rooms" asp-action="index"><i class="bi bi-door-closed-fill"></i> Rooms</a>
                         </li>
-                        <li class="nav-item">
-                        <a class="nav-link text-dark" asp-controller="appointments" asp-action="index">Appointments</a>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link text-muted" asp-controller="appointments" asp-action="index"><i class="bi bi-file-earmark-medical-fill"></i> Appointments</a>
                         </li>
                     </ul>
+
                 </div>
             </div>
         </nav>
@@ -49,7 +52,7 @@
     </div>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
-<footer class="bg-bright text-black text-center py-3">
-    <p>&copy; 2024 Wet Clinic - Vet Clinic Management System.</p>
+<footer class="bg-bright text-secondary text-center py-3">
+    <p>&copy; 2024 Vet Clinic - Vet Clinic Management System.</p>
 </footer>
 </html>
