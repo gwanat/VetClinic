@@ -9,7 +9,7 @@
         <input type="hidden" asp-for="AppointmentId" />
     }
 
-    <div class="text-danger" asp-validation-summary="All"></div>
+    
 
     <div class="row mb-3">
         <div class="col-2">
@@ -38,6 +38,36 @@
         <div class="col-6">
             <input type="text" asp-for="ClientName" class="form-control" />
             <span class="text-danger" asp-validation-for="ClientName"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-2">
+            <label asp-for="Doctor" class="col-form-label fw-bold"></label>
+        </div>
+        <div class="col-6">
+            <input type="text" asp-for="Doctor" class="form-control" />
+            <span class="text-danger" asp-validation-for="Doctor"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-2">
+            <label asp-for="Patient" class="col-form-label fw-bold"></label>
+        </div>
+        <div class="col-6">
+            <input type="text" asp-for="Patient" class="form-control" />
+            <span class="text-danger" asp-validation-for="Patient"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-2">
+            <label asp-for="Room" class="col-form-label fw-bold"></label>
+        </div>
+        <div class="col-6">
+            <input type="text" asp-for="Room" class="form-control" />
+            <span class="text-danger" asp-validation-for="Room"></span>
         </div>
     </div>
 
