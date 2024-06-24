@@ -7,6 +7,7 @@ namespace VetClinic.Controllers
 {
     public class PatientsController : Controller
     {
+        
         public IActionResult Index(string searchPatientName, string searchOwnerName)
         {
             var patients = PatientsRepository.GetPatients(loadDoctor: true);

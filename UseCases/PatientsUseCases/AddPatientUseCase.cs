@@ -9,7 +9,7 @@ using CoreBusiness;
 
 namespace UseCases.PatientsUseCases
 {
-    public class AddPatientUseCase
+    public class AddPatientUseCase : IAddPatientUseCase
     {
         private readonly IPatientsRepository patientsRepository;
 
