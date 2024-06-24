@@ -20,15 +20,12 @@ namespace VetClinic.Models
         [Required]
         public int DoctorId { get; set; }
 
-        
         [ForeignKey("DoctorId")]
         public Doctor? Doctor { get; set; }
 
-        
         [Required]
         public int PatientId { get; set; }
 
-        
         [ForeignKey("PatientId")]
         public Patient? Patient { get; set; }
 
@@ -42,5 +39,9 @@ namespace VetClinic.Models
         [DisplayName("Owner of the pet")]
         [NotMapped]
         public string ClientName => Patient?.OwnerInfo ?? string.Empty;
+
+        [NotMapped]
+        [DisplayName("Patient Name")]
+        public string? PatientName { get; set; }
     }
 }

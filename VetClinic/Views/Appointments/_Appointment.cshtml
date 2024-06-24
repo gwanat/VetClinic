@@ -9,6 +9,8 @@
         <input type="hidden" asp-for="AppointmentId" />
     }
 
+    <div asp-validation-summary="None" class="text-danger"></div>
+
     <div class="row mb-3">
         <div class="col-2">
             <label asp-for="StartTime" class="col-form-label fw-bold"></label>
@@ -35,10 +37,10 @@
 
     <div class="row mb-3">
         <div class="col-2">
-            <label asp-for="DoctorId" class="col-form-label fw-bold">Doctor ID</label>
+            <label asp-for="DoctorId" class="col-form-label fw-bold"></label>
         </div>
         <div class="col-6">
-            <input type="number" asp-for="DoctorId" class="form-control" />
+            <select asp-for="DoctorId" class="form-control" asp-items="ViewBag.Doctors"></select>
         </div>
         <div class="col mt-2">
             <span class="text-danger" asp-validation-for="DoctorId"></span>
@@ -47,22 +49,22 @@
 
     <div class="row mb-3">
         <div class="col-2">
-            <label asp-for="PatientId" class="col-form-label fw-bold">Patient ID</label>
+            <label asp-for="PatientName" class="col-form-label fw-bold"></label>
         </div>
         <div class="col-6">
-            <input type="number" asp-for="PatientId" class="form-control" />
+            <input type="text" asp-for="PatientName" class="form-control" />
         </div>
         <div class="col mt-2">
-            <span class="text-danger" asp-validation-for="PatientId"></span>
+            <span class="text-danger" asp-validation-for="PatientName"></span>
         </div>
     </div>
 
     <div class="row mb-3">
         <div class="col-2">
-            <label asp-for="RoomId" class="col-form-label fw-bold">Room ID</label>
+            <label asp-for="RoomId" class="col-form-label fw-bold"></label>
         </div>
         <div class="col-6">
-            <input type="number" asp-for="RoomId" class="form-control" />
+            <select asp-for="RoomId" class="form-control" asp-items="ViewBag.Rooms"></select>
         </div>
         <div class="col mt-2">
             <span class="text-danger" asp-validation-for="RoomId"></span>
