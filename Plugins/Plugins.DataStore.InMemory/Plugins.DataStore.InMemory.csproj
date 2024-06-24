@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CoreBusiness\CoreBusiness.csproj" />
+    <ProjectReference Include="..\..\CoreBusiness\CoreBusiness.csproj" />
+    <ProjectReference Include="..\..\UseCases\UseCases.csproj" />
+    <ProjectReference Include="..\..\VetClinic\VetClinic.csproj" />
   </ItemGroup>
 
 </Project>
