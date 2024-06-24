@@ -63,6 +63,7 @@ namespace VetClinic.Models
             _appointments.Add(appointment);
         }
 
+
         public static List<Appointment> GetAppointments(bool loadRelated = false)
         {
             if (loadRelated)

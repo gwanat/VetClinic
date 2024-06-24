@@ -29,7 +29,8 @@ namespace VetClinic.Models
         [Display(Name = "Owner's Name")]
         [Required(ErrorMessage = "Owner's name is required")]
         public string OwnerInfo { get; set; } = string.Empty;
-
+        
+        [Required(ErrorMessage = "Diagnosis is required")]
         public string Diagnosis { get; set; } = string.Empty;
 
         [ForeignKey("DoctorId")]

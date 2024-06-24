@@ -1,15 +1,13 @@
-﻿@model Appointment
+﻿@model VetClinic.Models.Appointment
 @{
     string action = ViewBag.Action ?? string.Empty;
 }
 
-<form method="post" asp-controller="appointments" asp-action="@action">
+<form method="post" asp-controller="Appointments" asp-action="@action">
     @if (action?.ToLower() == "edit")
     {
         <input type="hidden" asp-for="AppointmentId" />
     }
-
-    
 
     <div class="row mb-3">
         <div class="col-2">
@@ -18,7 +16,7 @@
         <div class="col-6">
             <input type="datetime-local" asp-for="StartTime" class="form-control" />
         </div>
-        <div class="col  mt-2">
+        <div class="col mt-2">
             <span class="text-danger" asp-validation-for="StartTime"></span>
         </div>
     </div>
@@ -30,56 +28,44 @@
         <div class="col-6">
             <input type="datetime-local" asp-for="EndTime" class="form-control" />
         </div>
-        <div class="col  mt-2">
+        <div class="col mt-2">
             <span class="text-danger" asp-validation-for="EndTime"></span>
         </div>
     </div>
 
     <div class="row mb-3">
         <div class="col-2">
-            <label asp-for="ClientName" class="col-form-label fw-bold"></label>
+            <label asp-for="DoctorId" class="col-form-label fw-bold">Doctor ID</label>
         </div>
         <div class="col-6">
-            <input type="text" asp-for="ClientName" class="form-control" />
+            <input type="number" asp-for="DoctorId" class="form-control" />
         </div>
-        <div class="col  mt-2">
-            <span class="text-danger" asp-validation-for="ClientName"></span>
+        <div class="col mt-2">
+            <span class="text-danger" asp-validation-for="DoctorId"></span>
         </div>
     </div>
 
     <div class="row mb-3">
         <div class="col-2">
-            <label asp-for="Doctor.Name" class="col-form-label fw-bold">Doctor</label>
+            <label asp-for="PatientId" class="col-form-label fw-bold">Patient ID</label>
         </div>
         <div class="col-6">
-            <input type="text" asp-for="Doctor.Name" class="form-control" />
+            <input type="number" asp-for="PatientId" class="form-control" />
         </div>
-        <div class="col  mt-2">
-            <span class="text-danger" asp-validation-for="Doctor.Name"></span>
+        <div class="col mt-2">
+            <span class="text-danger" asp-validation-for="PatientId"></span>
         </div>
     </div>
 
     <div class="row mb-3">
         <div class="col-2">
-            <label asp-for="Patient.PatientName" class="col-form-label fw-bold">Pet's name</label>
+            <label asp-for="RoomId" class="col-form-label fw-bold">Room ID</label>
         </div>
         <div class="col-6">
-            <input type="text" asp-for="Patient.PatientName" class="form-control" />
+            <input type="number" asp-for="RoomId" class="form-control" />
         </div>
-        <div class="col  mt-2">
-            <span class="text-danger" asp-validation-for="Patient.PatientName"></span>
-        </div>
-    </div>
-
-    <div class="row mb-3">
-        <div class="col-2">
-            <label asp-for="Room.RoomNumber" class="col-form-label fw-bold"></label>
-        </div>
-        <div class="col-6">
-            <input type="text" asp-for="Room.RoomNumber" class="form-control" />
-        </div>
-        <div class="col  mt-2">
-            <span class="text-danger" asp-validation-for="Room.RoomNumber"></span>
+        <div class="col mt-2">
+            <span class="text-danger" asp-validation-for="RoomId"></span>
         </div>
     </div>
 
@@ -87,7 +73,6 @@
         <div class="col-2">
             <input type="submit" class="btn btn-outline-primary" value="Save" />
         </div>
-        <div class="col-6">
-        </div>
+        <div class="col-6"></div>
     </div>
 </form>
