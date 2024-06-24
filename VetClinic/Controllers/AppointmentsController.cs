@@ -22,7 +22,7 @@ namespace VetClinic.Controllers
                 return NotFound();
             }
 
-            appointment.PatientName = appointment.Patient?.PatientName; 
+            appointment.PatientName = appointment.Patient?.PatientName;
             PopulateDropDowns();
             return View(appointment);
         }
@@ -30,6 +30,11 @@ namespace VetClinic.Controllers
         [HttpPost]
         public IActionResult Edit(Appointment appointment)
         {
+            if (appointment.EndTime <= appointment.StartTime)
+            {
+                ModelState.AddModelError("EndTime", "End time must be later than start time");
+            }
+
             if (ModelState.IsValid)
             {
                 var patient = PatientsRepository.GetPatients().FirstOrDefault(p => p.PatientName == appointment.PatientName);
@@ -60,6 +65,11 @@ namespace VetClinic.Controllers
         [HttpPost]
         public IActionResult Add(Appointment appointment)
         {
+            if (appointment.EndTime <= appointment.StartTime)
+            {
+                ModelState.AddModelError("EndTime", "End time must be later than start time");
+            }
+
             if (ModelState.IsValid)
             {
                 var patient = PatientsRepository.GetPatients().FirstOrDefault(p => p.PatientName == appointment.PatientName);
