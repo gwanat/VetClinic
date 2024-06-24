@@ -8,28 +8,31 @@
 {
     <table class="table table-striped">
         <thead>
-            <tr>
+            <tr class="text-center">
                 <th>Name</th>
                 <th>Specialty</th>
-                <th></th>
-                <th></th>
+                <th>Actions</th>
+                
             </tr>
         </thead>
         <tbody>
             @foreach (var doctor in Model)
             {
                 <tr>
-                    <td>@doctor.Name</td>
-                    <td>@doctor.Specialty</td>
-                    <td><a class="btn btn-outline-primary" asp-controller="doctors" asp-action="edit" asp-route-id="@doctor.DoctorId">Edit</a></td>
-                    <td><a class="btn btn-outline-danger" asp-controller="doctors" asp-action="delete" asp-route-doctorid="@doctor.DoctorId" onclick="return confirmDelete()">Delete</a></td>
+                    <td class="align-middle text-center">@doctor.Name</td>
+                    <td class="align-middle text-center">@doctor.Specialty</td>
+                    <td class="align-middle text-center">
+                        <a class="btn btn-outline-primary" asp-controller="doctors" asp-action="edit" asp-route-id="@doctor.DoctorId"><i class="bi bi-pencil-square"></i> Edit</a>
+                        <a class="btn btn-outline-danger" asp-controller="doctors" asp-action="delete" asp-route-doctorid="@doctor.DoctorId" onclick="return confirmDelete()"><i class="bi bi-trash"></i> Delete </a>
+                    </td>
+                    
                 </tr>
             }
         </tbody>
     </table>
 }
 <br />
-<a class="btn btn-outline-success" asp-controller="doctors" asp-action="add">Add</a>
+<a class="btn btn-outline-success" asp-controller="doctors" asp-action="add"><i class="bi bi-plus-circle"></i> Add Doctor</a>
 
 @section Scripts {
     <script>

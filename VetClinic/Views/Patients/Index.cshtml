@@ -8,7 +8,7 @@
 {
     <table class="table table-striped">
         <thead>
-            <tr>
+            <tr class="text-center">
                 <th>Owner's Name</th>
                 <th>Pet's name</th>
                 <th>Species</th>     
@@ -16,30 +16,33 @@
                 <th>Age</th>
                 <th>Assigned Doctor</th>
                 <th>Diagnosis</th>
-                <th></th>
-                <th></th>
+                <th>Actions</th>
+                
             </tr>
         </thead>
         <tbody>
             @foreach (var patient in Model)
             {
                 <tr>
-                    <td>@patient.OwnerInfo</td>
-                    <td>@patient.PatientName</td>
-                    <td>@patient.Type</td>
-                    <td>@patient.Breed</td>
-                    <td>@patient.Age</td>
-                    <td>@(patient.Doctor != null ? patient.Doctor.Name : "Not Assigned")</td>
-                    <td>@patient.Diagnosis</td>
-                    <td><a class="btn btn-outline-primary" asp-controller="patients" asp-action="edit" asp-route-id="@patient.PatientId">Edit</a></td>
-                    <td><a class="btn btn-outline-danger" asp-controller="patients" asp-action="delete" asp-route-id="@patient.PatientId" onclick="return confirmDelete()">Delete</a></td>
+                    <td class="align-middle text-center">@patient.OwnerInfo</td>
+                    <td class="align-middle text-center">@patient.PatientName</td>
+                    <td class="align-middle text-center">@patient.Type</td>
+                    <td class="align-middle text-center">@patient.Breed</td>
+                    <td class="align-middle text-center">@patient.Age</td>
+                    <td class="align-middle text-center">@(patient.Doctor != null ? patient.Doctor.Name : "Not Assigned")</td>
+                    <td class="align-middle text-center">@patient.Diagnosis</td>
+                    <td class="align-middle text-center">
+                        <a class="btn btn-outline-primary" asp-controller="patients" asp-action="edit" asp-route-id="@patient.PatientId"><i class="bi bi-pencil-square"></i> Edit</a>
+                        <a class="btn btn-outline-danger" asp-controller="patients" asp-action="delete" asp-route-id="@patient.PatientId" onclick="return confirmDelete()"><i class="bi bi-trash"></i> Delete</a>
+                    </td>
+                   
                 </tr>
             }
         </tbody>
     </table>
 }
 <br />
-<a class="btn btn-outline-success" asp-controller="patients" asp-action="add">Add</a>
+<a class="btn btn-outline-success" asp-controller="patients" asp-action="add"><i class="bi bi-plus-circle"></i> Add Patient</a>
 @section Scripts {
     <script>
         function confirmDelete() {

@@ -8,29 +8,30 @@
 {
     <table class="table table-striped">
         <thead>
-            <tr>
+            <tr class="text-center">
                 <th>Start time</th>
                 <th>End time</th>
                 <th>Owner of the pet</th>
                 <th>Doctor</th>
                 <th>Pet's name</th>
                 <th>Room number</th>
-                <th></th>
-                <th></th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var appointment in Model)
             {
                 <tr>
-                    <td>@appointment.StartTime.ToString("yyyy-MM-dd HH:mm")</td>
-                    <td>@appointment.EndTime.ToString("yyyy-MM-dd HH:mm")</td>
-                    <td>@appointment.ClientName</td>
-                    <td>@(appointment.Doctor != null ? appointment.Doctor.Name : "N/A")</td>
-                    <td>@(appointment.Patient != null ? appointment.Patient.PatientName : "N/A")</td>
-                    <td>@(appointment.Room != null ? appointment.Room.RoomNumber : "N/A")</td>
-                    <td><a class="btn btn-outline-primary" asp-controller="Appointments" asp-action="Edit" asp-route-id="@appointment.AppointmentId">Edit</a></td>
-                    <td><a class="btn btn-outline-danger" asp-controller="Appointments" asp-action="Delete" asp-route-id="@appointment.AppointmentId" onclick="return confirmDelete()">Delete</a></td>
+                    <td class="align-middle text-center">@appointment.StartTime.ToString("yyyy-MM-dd HH:mm")</td>
+                    <td class="align-middle text-center">@appointment.EndTime.ToString("yyyy-MM-dd HH:mm")</td>
+                    <td class="align-middle text-center">@appointment.ClientName</td>
+                    <td class="align-middle text-center">@(appointment.Doctor != null ? appointment.Doctor.Name : "N/A")</td>
+                    <td class="align-middle text-center">@(appointment.Patient != null ? appointment.Patient.PatientName : "N/A")</td>
+                    <td class="align-middle text-center">@(appointment.Room != null ? appointment.Room.RoomNumber : "N/A")</td>
+                    <td class="align-middle text-center">
+                        <a class="btn btn-outline-primary" asp-controller="Appointments" asp-action="Edit" asp-route-id="@appointment.AppointmentId"><i class="bi bi-pencil-square"></i> Edit</a>
+                        <a class="btn btn-outline-danger" asp-controller="Appointments" asp-action="Delete" asp-route-id="@appointment.AppointmentId" onclick="return confirmDelete()"><i class="bi bi-trash"></i> Delete</a>
+                    </td>
                 </tr>
             }
         </tbody>
@@ -40,7 +41,7 @@ else
 {
     <p>No appointments found.</p>
 }
-<a class="btn btn-outline-success" asp-controller="appointments" asp-action="add">Add</a>
+<a class="btn btn-outline-success" asp-controller="appointments" asp-action="add"><i class="bi bi-plus-circle"></i> Add Appointment</a>
 
 @section Scripts {
     <script>
