@@ -13,7 +13,21 @@ namespace VetClinic.Models
             new Room { RoomId = 4, RoomNumber = "D104", Type = "Hospitalization Room", IsOccupied = true, Description = "Fourth floor hospitalization room" },
             new Room { RoomId = 5, RoomNumber = "E201", Type = "Examination Room", IsOccupied = false, Description = "Second floor examination room" }
         };
+        public static List<Room> GetRooms()
+        {
+            _rooms.ForEach(room => room.UpdateOccupationStatus());
+            return _rooms;
+        }
 
+        public static Room? GetRoomById(int roomId)
+        {
+            var room = _rooms.FirstOrDefault(r => r.RoomId == roomId);
+            if (room != null)
+            {
+                room.UpdateOccupationStatus();
+            }
+            return room;
+        }
         public static void AddRoom(Room room)
         {
             if (_rooms != null && _rooms.Count > 0)
@@ -32,26 +46,6 @@ namespace VetClinic.Models
             }
 
             _rooms.Add(room);
-        }
-
-        public static List<Room> GetRooms() => _rooms;
-
-        public static Room GetRoomById(int roomId)
-        {
-            var room = _rooms.FirstOrDefault(x => x.RoomId == roomId);
-            if (room != null)
-            {
-                return new Room
-                {
-                    RoomId = room.RoomId,
-                    RoomNumber = room.RoomNumber,
-                    Type = room.Type,
-                    IsOccupied = room.IsOccupied,
-                    Description = room.Description
-                };
-            }
-
-            return null;
         }
 
         public static void UpdateRoom(int roomId, Room room)

@@ -61,14 +61,18 @@ namespace VetClinic.Models
             LoadRelatedEntities(appointment);
 
             _appointments.Add(appointment);
+            UpdateRoomOccupationStatus(appointment.RoomId);
         }
-
 
         public static List<Appointment> GetAppointments(bool loadRelated = false)
         {
             if (loadRelated)
             {
                 _appointments.ForEach(LoadRelatedEntities);
+                foreach (var appointment in _appointments)
+                {
+                    UpdateRoomOccupationStatus(appointment.RoomId);
+                }
             }
             return _appointments;
         }
@@ -79,6 +83,7 @@ namespace VetClinic.Models
             if (appointment != null && loadRelated)
             {
                 LoadRelatedEntities(appointment);
+                UpdateRoomOccupationStatus(appointment.RoomId);
             }
             return appointment;
         }
@@ -95,6 +100,7 @@ namespace VetClinic.Models
                 appointmentToUpdate.RoomId = appointment.RoomId;
 
                 LoadRelatedEntities(appointmentToUpdate);
+                UpdateRoomOccupationStatus(appointmentToUpdate.RoomId);
             }
         }
 
@@ -104,6 +110,7 @@ namespace VetClinic.Models
             if (appointment != null)
             {
                 _appointments.Remove(appointment);
+                UpdateRoomOccupationStatus(appointment.RoomId);
             }
         }
 
@@ -112,6 +119,16 @@ namespace VetClinic.Models
             appointment.Doctor = DoctorsRepository.GetDoctorById(appointment.DoctorId);
             appointment.Patient = PatientsRepository.GetPatientById(appointment.PatientId);
             appointment.Room = RoomsRepository.GetRoomById(appointment.RoomId);
+        }
+
+        private static void UpdateRoomOccupationStatus(int roomId)
+        {
+            var room = RoomsRepository.GetRoomById(roomId);
+            if (room != null)
+            {
+                room.Appointments = _appointments.Where(a => a.RoomId == roomId).ToList();
+                room.UpdateOccupationStatus();
+            }
         }
     }
 }
