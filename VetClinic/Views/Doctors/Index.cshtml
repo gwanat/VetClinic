@@ -10,7 +10,7 @@
         <thead>
             <tr>
                 <th>Name</th>
-                <th>Speciality</th>
+                <th>Specialty</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -20,7 +20,7 @@
             {
                 <tr>
                     <td>@doctor.Name</td>
-                    <td>@doctor.Description</td>
+                    <td>@doctor.Specialty</td>
                     <td><a class="btn btn-outline-primary" asp-controller="doctors" asp-action="edit" asp-route-id="@doctor.DoctorId">Edit</a></td>
                     <td><a class="btn btn-outline-danger" asp-controller="doctors" asp-action="delete" asp-route-doctorid="@doctor.DoctorId" onclick="return confirmDelete()">Delete</a></td>
                 </tr>

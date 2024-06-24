@@ -8,23 +8,26 @@ namespace VetClinic.Models
     {
         public int PatientId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Doctor's name is required")]
         [Display(Name = "Doctor")]
         public int? DoctorId { get; set; }
 
-        [Required]
+        [Display(Name = "Pet's Name")]
+        [Required(ErrorMessage = "Pet's name is required")]
         public string PatientName { get; set; } = string.Empty;
 
-        [Required]
+        [Display(Name = "Species")]
+        [Required(ErrorMessage = "Pet's species is required")]
         public string Type { get; set; } = string.Empty;
 
-        [Required]
+        [Required(ErrorMessage = "Pet's breed is required")]
         public string Breed { get; set; } = string.Empty;
 
-        [Required]
+        [Required(ErrorMessage = "Pet's age is required")]
         public int Age { get; set; }
 
-        [Required]
+        [Display(Name = "Owner's Name")]
+        [Required(ErrorMessage = "Owner's name is required")]
         public string OwnerInfo { get; set; } = string.Empty;
 
         public string Diagnosis { get; set; } = string.Empty;

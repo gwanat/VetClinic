@@ -17,6 +17,8 @@
         </div>
         <div class="col-6">
             <input type="datetime-local" asp-for="StartTime" class="form-control" />
+        </div>
+        <div class="col  mt-2">
             <span class="text-danger" asp-validation-for="StartTime"></span>
         </div>
     </div>
@@ -27,6 +29,8 @@
         </div>
         <div class="col-6">
             <input type="datetime-local" asp-for="EndTime" class="form-control" />
+        </div>
+        <div class="col  mt-2">
             <span class="text-danger" asp-validation-for="EndTime"></span>
         </div>
     </div>
@@ -37,37 +41,45 @@
         </div>
         <div class="col-6">
             <input type="text" asp-for="ClientName" class="form-control" />
+        </div>
+        <div class="col  mt-2">
             <span class="text-danger" asp-validation-for="ClientName"></span>
         </div>
     </div>
 
     <div class="row mb-3">
         <div class="col-2">
-            <label asp-for="Doctor" class="col-form-label fw-bold"></label>
+            <label asp-for="Doctor.Name" class="col-form-label fw-bold">Doctor</label>
         </div>
         <div class="col-6">
-            <input type="text" asp-for="Doctor" class="form-control" />
-            <span class="text-danger" asp-validation-for="Doctor"></span>
+            <input type="text" asp-for="Doctor.Name" class="form-control" />
+        </div>
+        <div class="col  mt-2">
+            <span class="text-danger" asp-validation-for="Doctor.Name"></span>
         </div>
     </div>
 
     <div class="row mb-3">
         <div class="col-2">
-            <label asp-for="Patient" class="col-form-label fw-bold"></label>
+            <label asp-for="Patient.PatientName" class="col-form-label fw-bold">Pet's name</label>
         </div>
         <div class="col-6">
-            <input type="text" asp-for="Patient" class="form-control" />
-            <span class="text-danger" asp-validation-for="Patient"></span>
+            <input type="text" asp-for="Patient.PatientName" class="form-control" />
+        </div>
+        <div class="col  mt-2">
+            <span class="text-danger" asp-validation-for="Patient.PatientName"></span>
         </div>
     </div>
 
     <div class="row mb-3">
         <div class="col-2">
-            <label asp-for="Room" class="col-form-label fw-bold"></label>
+            <label asp-for="Room.RoomNumber" class="col-form-label fw-bold"></label>
         </div>
         <div class="col-6">
-            <input type="text" asp-for="Room" class="form-control" />
-            <span class="text-danger" asp-validation-for="Room"></span>
+            <input type="text" asp-for="Room.RoomNumber" class="form-control" />
+        </div>
+        <div class="col  mt-2">
+            <span class="text-danger" asp-validation-for="Room.RoomNumber"></span>
         </div>
     </div>
 

@@ -11,7 +11,7 @@
             <tr>
                 <th>Room Number</th>
                 <th>Type</th>
-                <th>Occupied</th>
+                <th>Status</th>
                 <th>Description</th>
                 <th></th>
                 <th></th>
@@ -23,7 +23,7 @@
                 <tr>
                     <td>@room.RoomNumber</td>
                     <td>@room.Type</td>
-                    <td>@(room.IsOccupied ? "Yes" : "No")</td>
+                    <td>@(room.IsOccupied ? "Occupied" : "Not occupied")</td>
                     <td>@room.Description</td>
                     <td><a class="btn btn-outline-primary" asp-controller="rooms" asp-action="edit" asp-route-id="@room.RoomId">Edit</a></td>
                     <td><a class="btn btn-outline-danger" asp-controller="rooms" asp-action="delete" asp-route-id="@room.RoomId" onclick="return confirmDelete()">Delete</a></td>

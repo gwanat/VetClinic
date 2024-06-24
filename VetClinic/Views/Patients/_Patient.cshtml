@@ -11,17 +11,13 @@
 
     <div class="mb-3 row">
         <div class="col-2">
-            <label asp-for="Patient.DoctorId" class="col-form-label fw-bold"></label>
+            <label asp-for="Patient.OwnerInfo" class="col-form-label fw-bold"></label>
         </div>
         <div class="col-6">
-            <select asp-for="Patient.DoctorId" class="form-control">
-                <option value="">- Please Select -</option>
-                @foreach (var doctor in Model.Doctors)
-                {
-                    <option value="@doctor.DoctorId">@doctor.Name</option>
-                }
-            </select>
-            <span class="text-danger" asp-validation-for="Patient.DoctorId"></span>
+            <input type="text" asp-for="Patient.OwnerInfo" class="form-control" />
+        </div>
+        <div class="col mt-2">
+            <span class="text-danger" asp-validation-for="Patient.OwnerInfo"></span>
         </div>
     </div>
 
@@ -31,6 +27,8 @@
         </div>
         <div class="col-6">
             <input type="text" asp-for="Patient.PatientName" class="form-control" />
+        </div>
+        <div class="col mt-2">
             <span class="text-danger" asp-validation-for="Patient.PatientName"></span>
         </div>
     </div>
@@ -41,6 +39,8 @@
         </div>
         <div class="col-6">
             <input type="text" asp-for="Patient.Type" class="form-control" />
+        </div>
+        <div class="col mt-2">
             <span class="text-danger" asp-validation-for="Patient.Type"></span>
         </div>
     </div>
@@ -51,6 +51,8 @@
         </div>
         <div class="col-6">
             <input type="text" asp-for="Patient.Breed" class="form-control" />
+        </div>
+        <div class="col mt-2">
             <span class="text-danger" asp-validation-for="Patient.Breed"></span>
         </div>
     </div>
@@ -61,17 +63,27 @@
         </div>
         <div class="col-6">
             <input type="number" asp-for="Patient.Age" class="form-control" min="0" />
+        </div>
+        <div class="col mt-2">
             <span class="text-danger" asp-validation-for="Patient.Age"></span>
         </div>
     </div>
 
     <div class="mb-3 row">
         <div class="col-2">
-            <label asp-for="Patient.OwnerInfo" class="col-form-label fw-bold"></label>
+            <label asp-for="Patient.DoctorId" class="col-form-label fw-bold"></label>
         </div>
         <div class="col-6">
-            <input type="text" asp-for="Patient.OwnerInfo" class="form-control" />
-            <span class="text-danger" asp-validation-for="Patient.OwnerInfo"></span>
+            <select asp-for="Patient.DoctorId" class="form-control">
+                <option value="">- Please Select -</option>
+                @foreach (var doctor in Model.Doctors)
+                {
+                    <option value="@doctor.DoctorId">@doctor.Name</option>
+                }
+            </select>
+        </div>
+        <div class="col mt-2">
+            <span class="text-danger" asp-validation-for="Patient.DoctorId"></span>
         </div>
     </div>
 
@@ -81,7 +93,6 @@
         </div>
         <div class="col-6">
             <textarea asp-for="Patient.Diagnosis" class="form-control"></textarea>
-            <span class="text-danger" asp-validation-for="Patient.Diagnosis"></span>
         </div>
     </div>
 

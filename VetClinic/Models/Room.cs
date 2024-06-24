@@ -6,14 +6,16 @@ namespace VetClinic.Models
     {
         public int RoomId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Room number is required")]
         [Display(Name = "Room Number")]
         public string RoomNumber { get; set; } = string.Empty;
 
-        [Required]
+        [Required(ErrorMessage ="Room type is required")]
         public string Type { get; set; } = string.Empty;
 
+        [Display(Name = "Status")]
         public bool IsOccupied { get; set; }
+
 
         public string? Description { get; set; } = string.Empty;
 

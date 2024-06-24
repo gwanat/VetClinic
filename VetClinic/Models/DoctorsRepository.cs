@@ -4,11 +4,11 @@
     {
         private static List<Doctor> _doctors = new List<Doctor>()
         {
-            new Doctor { DoctorId = 1, Name = "Dr. Gregory House", Description = "Diagnostic Medicine" },
-            new Doctor { DoctorId = 2, Name = "Dr. Meredith Grey", Description = "General Surgery" },
-            new Doctor { DoctorId = 3, Name = "Dr. John Watson", Description = "General Practice" },
-            new Doctor { DoctorId = 4, Name = "Dr. Stephen Strange", Description = "Neurosurgery" },
-            new Doctor { DoctorId = 5, Name = "Dr. Miranda Bailey", Description = "General Surgery" }
+            new Doctor { DoctorId = 1, Name = "Dr. Gregory House", Specialty = "Diagnostic Medicine" },
+            new Doctor { DoctorId = 2, Name = "Dr. Meredith Grey", Specialty = "General Surgery" },
+            new Doctor { DoctorId = 3, Name = "Dr. John Watson", Specialty = "General Practice" },
+            new Doctor { DoctorId = 4, Name = "Dr. Stephen Strange", Specialty = "Neurosurgery" },
+            new Doctor { DoctorId = 5, Name = "Dr. Miranda Bailey", Specialty = "General Surgery" }
         };
 
         public static void AddDoctor(Doctor doctor)
@@ -37,7 +37,7 @@
                 {
                     DoctorId = doctor.DoctorId,
                     Name = doctor.Name,
-                    Description = doctor.Description,
+                    Specialty = doctor.Specialty,
                 };
             }
 
@@ -52,7 +52,7 @@
             if (doctorToUpdate != null)
             {
                 doctorToUpdate.Name = doctor.Name;
-                doctorToUpdate.Description = doctor.Description;
+                doctorToUpdate.Specialty = doctor.Specialty;
             }
         }
 
