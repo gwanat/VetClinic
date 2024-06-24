@@ -6,9 +6,23 @@ namespace VetClinic.Controllers
 {
     public class PatientsController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Index(string searchPatientName, string searchOwnerName)
         {
             var patients = PatientsRepository.GetPatients(loadDoctor: true);
+
+            if (!string.IsNullOrEmpty(searchPatientName))
+            {
+                patients = patients.Where(p => p.PatientName.Contains(searchPatientName, StringComparison.OrdinalIgnoreCase)).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(searchOwnerName))
+            {
+                patients = patients.Where(p => p.OwnerInfo.Contains(searchOwnerName, StringComparison.OrdinalIgnoreCase)).ToList();
+            }
+
+            ViewBag.SearchPatientName = searchPatientName;
+            ViewBag.SearchOwnerName = searchOwnerName;
+
             return View(patients);
         }
 

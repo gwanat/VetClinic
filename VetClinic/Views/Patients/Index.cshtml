@@ -1,52 +1,100 @@
 ﻿@model List<Patient>
 
 @section title {
-    <h2 style="font-family: 'Times New Roman', Times, serif; ">Patients</h2>
+    <h2 style="font-family: 'Times New Roman', Times, serif;">Patients</h2>
 }
 
-@if (Model != null && Model.Count() > 0)
+<div id="searcharea">
+    <form method="get" asp-controller="patients" asp-action="index">
+        <div class="mb-3 row">
+            <div class="col-3">
+                <input type="text" name="searchPatientName" class="form-control" placeholder="Search by pet's name" value="@ViewBag.SearchPatientName" />
+            </div>
+            <div class="col-3">
+                <input type="text" name="searchOwnerName" class="form-control" placeholder="Search by owner's name" value="@ViewBag.SearchOwnerName" />
+            </div>
+            <div class="col-2">
+                <button type="submit" class="btn btn-outline-primary">Search</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+@if (Model != null && Model.Count > 0)
 {
-    <table class="table table-striped">
-        <thead>
-            <tr class="text-center">
-                <th>Owner's Name</th>
-                <th>Pet's name</th>
-                <th>Species</th>     
-                <th>Breed</th>
-                <th>Age</th>
-                <th>Assigned Doctor</th>
-                <th>Diagnosis</th>
-                <th>Actions</th>
-                
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var patient in Model)
-            {
-                <tr>
-                    <td class="align-middle text-center">@patient.OwnerInfo</td>
-                    <td class="align-middle text-center">@patient.PatientName</td>
-                    <td class="align-middle text-center">@patient.Type</td>
-                    <td class="align-middle text-center">@patient.Breed</td>
-                    <td class="align-middle text-center">@patient.Age</td>
-                    <td class="align-middle text-center">@(patient.Doctor != null ? patient.Doctor.Name : "Not Assigned")</td>
-                    <td class="align-middle text-center">@patient.Diagnosis</td>
-                    <td class="align-middle text-center">
-                        <a class="btn btn-outline-primary" asp-controller="patients" asp-action="edit" asp-route-id="@patient.PatientId"><i class="bi bi-pencil-square"></i> Edit</a>
-                        <a class="btn btn-outline-danger" asp-controller="patients" asp-action="delete" asp-route-id="@patient.PatientId" onclick="return confirmDelete()"><i class="bi bi-trash"></i> Delete</a>
-                    </td>
-                   
+    <div id="printarea">
+        <table class="table table-striped">
+            <thead>
+                <tr class="text-center">
+                    <th>Owner's Name</th>
+                    <th>Pet's name</th>
+                    <th>Species</th>
+                    <th>Breed</th>
+                    <th>Age</th>
+                    <th>Assigned Doctor</th>
+                    <th>Diagnosis</th>
+                    <th class="action-column">Actions</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var patient in Model)
+                {
+                    <tr>
+                        <td class="align-middle text-center">@patient.OwnerInfo</td>
+                        <td class="align-middle text-center">@patient.PatientName</td>
+                        <td class="align-middle text-center">@patient.Type</td>
+                        <td class="align-middle text-center">@patient.Breed</td>
+                        <td class="align-middle text-center">@patient.Age</td>
+                        <td class="align-middle text-center">@(patient.Doctor != null ? patient.Doctor.Name : "Not Assigned")</td>
+                        <td class="align-middle text-center">@patient.Diagnosis</td>
+                        <td class="align-middle text-center action-column">
+                            <div class="button-container">
+                                <a class="btn btn-outline-primary" asp-controller="patients" asp-action="edit" asp-route-id="@patient.PatientId"><i class="bi bi-pencil-square"></i> Edit</a>
+                                <a class="btn btn-outline-danger" asp-controller="patients" asp-action="delete" asp-route-id="@patient.PatientId" onclick="return confirmDelete()"><i class="bi bi-trash"></i> Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 }
 <br />
-<a class="btn btn-outline-success" asp-controller="patients" asp-action="add"><i class="bi bi-plus-circle"></i> Add Patient</a>
+<div>
+    <a class="btn btn-outline-success" asp-controller="patients" asp-action="add"><i class="bi bi-plus-circle"></i> Add Patient</a>
+    <button class="btn btn-outline-secondary" onclick="printPatients()"><i class="bi bi-printer"></i> Print</button>
+</div>
+
 @section Scripts {
     <script>
         function confirmDelete() {
             return confirm("Are you sure you want to delete this patient?");
         }
+
+        function printPatients() {
+            var actionColumns = document.getElementsByClassName('action-column');
+            for (var i = 0; i < actionColumns.length; i++) {
+                actionColumns[i].style.display = 'none';
+            }
+
+            var printContent = document.getElementById('printarea').innerHTML;
+            var originalContent = document.body.innerHTML;
+            document.body.innerHTML = printContent;
+            window.print();
+            document.body.innerHTML = originalContent;
+            location.reload();
+
+            for (var i = 0; i < actionColumns.length; i++) {
+                actionColumns[i].style.display = '';
+            }
+        }
     </script>
 }
+
+<style>
+    .button-container {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+    }
+</style>
