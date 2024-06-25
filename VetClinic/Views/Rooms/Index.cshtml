@@ -24,7 +24,7 @@
                     <td class="align-middle text-center">@room.Type</td>
                     <td class="align-middle text-center">@(room.IsOccupied ? "Occupied" : "Not occupied")</td>
                     <td class="align-middle text-center">@room.Description</td>
-                    <td>
+                    <td class="align-middle text-center">
                         <a class="btn btn-outline-primary" asp-controller="rooms" asp-action="edit" asp-route-id="@room.RoomId"><i class="bi bi-pencil-square"></i> Edit</a>
                         <a class="btn btn-outline-danger" asp-controller="rooms" asp-action="delete" asp-route-id="@room.RoomId" onclick="return confirmDelete()"><i class="bi bi-trash"></i> Delete</a>
                     </td>
