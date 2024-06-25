@@ -6,7 +6,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace CoreBusiness
 {
     public class Appointment
-    {
+    {   
+        
         public int AppointmentId { get; set; }
 
         [DisplayName("Start time")]

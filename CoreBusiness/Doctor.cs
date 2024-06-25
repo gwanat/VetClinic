@@ -10,11 +10,11 @@ namespace CoreBusiness
 
         [DisplayName("Name")]
         [Required(ErrorMessage = "Doctor's name is required")]
-        public string Name { get; set; } = string.Empty;
+        public string Name { get; set; }
 
         [DisplayName("Specialty")]
         [Required(ErrorMessage = "Doctor's specialty is required")]
-        public string? Specialty { get; set; } = string.Empty;
+        public string? Specialty { get; set; }
 
         public ICollection<Patient>? Patients { get; set; }
         public ICollection<Appointment>? Appointments { get; set; }
