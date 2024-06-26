@@ -19,6 +19,11 @@ namespace UseCases.DoctorsUseCases
 
         public void Execute(Doctor doctor)
         {
+            if (doctor == null)
+            {
+                throw new ArgumentNullException(nameof(doctor));
+            }
+
             doctorsRepository.AddDoctor(doctor);
         }
     }
