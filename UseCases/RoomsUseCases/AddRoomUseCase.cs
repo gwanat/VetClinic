@@ -19,6 +19,9 @@ namespace UseCases.RoomsUseCases
 
         public void Execute(Room room)
         {
+            if (room == null)
+                throw new ArgumentNullException(nameof(room));
+
             roomsRepository.AddRoom(room);
         }
     }
