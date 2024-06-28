@@ -19,6 +19,11 @@ namespace UseCases.AppointmentsUseCases
 
         public void Execute(int appointmentId, Appointment appointment)
         {
+            if (appointment == null)
+            {
+                throw new ArgumentNullException(nameof(appointment));
+            }
+
             appointmentsRepository.UpdateAppointment(appointmentId, appointment);
         }
     }

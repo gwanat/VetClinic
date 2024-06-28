@@ -19,6 +19,9 @@ namespace UseCases.PatientsUseCases
 
         public void Execute(int patientId, Patient patient)
         {
+            if (patient == null)
+                throw new ArgumentNullException(nameof(patient));
+
             patientsRepository.UpdatePatient(patientId, patient);
         }
     }

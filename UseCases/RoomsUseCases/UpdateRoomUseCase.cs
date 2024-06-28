@@ -19,6 +19,12 @@ namespace UseCases.RoomsUseCases
 
         public void Execute(int roomId, Room room)
         {
+            if (room == null)
+                throw new ArgumentNullException(nameof(room));
+
+            if (roomId <= 0)
+                throw new ArgumentException("Invalid room ID", nameof(roomId));
+
             roomsRepository.UpdateRoom(roomId, room);
         }
     }
