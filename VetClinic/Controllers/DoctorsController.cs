@@ -2,9 +2,11 @@
 using VetClinic.Models;
 using VetClinic.ViewModels;
 using System;
+using Microsoft.AspNetCore.Authorization;
 
 namespace VetClinic.Controllers
 {
+    [Authorize]
     public class DoctorsController : Controller
     {
         private readonly VetClinicContext _context;

@@ -4,9 +4,11 @@ using VetClinic.Models;
 using System;
 using System.Linq;
 using VetClinic.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace VetClinic.Controllers
 {
+    [Authorize]
     public class AppointmentsController : Controller
     {
         private readonly VetClinicContext _context;
