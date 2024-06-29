@@ -5,16 +5,22 @@ namespace VetClinic.Controllers
 {
     public class RoomsController : Controller
     {
+        private readonly VetClinicContext _context;
+
+        public RoomsController(VetClinicContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
-            var rooms = RoomsRepository.GetRooms();
+            var rooms = RoomsRepository.GetRooms(_context);
             return View(rooms);
         }
 
         public IActionResult Add()
         {
             ViewBag.Action = "add";
-
             return View();
         }
 
@@ -23,7 +29,7 @@ namespace VetClinic.Controllers
         {
             if (ModelState.IsValid)
             {
-                RoomsRepository.AddRoom(room);
+                RoomsRepository.AddRoom(_context, room);
                 return RedirectToAction(nameof(Index));
             }
 
@@ -34,7 +40,7 @@ namespace VetClinic.Controllers
         public IActionResult Edit(int id)
         {
             ViewBag.Action = "edit";
-            var room = RoomsRepository.GetRoomById(id);
+            var room = RoomsRepository.GetRoomById(_context, id);
             if (room == null)
             {
                 return NotFound();
@@ -48,7 +54,7 @@ namespace VetClinic.Controllers
         {
             if (ModelState.IsValid)
             {
-                RoomsRepository.UpdateRoom(room.RoomId, room);
+                RoomsRepository.UpdateRoom(_context, room.RoomId, room);
                 return RedirectToAction(nameof(Index));
             }
 
@@ -58,7 +64,7 @@ namespace VetClinic.Controllers
 
         public IActionResult Delete(int id)
         {
-            RoomsRepository.DeleteRoom(id);
+            RoomsRepository.DeleteRoom(_context, id);
             return RedirectToAction(nameof(Index));
         }
     }

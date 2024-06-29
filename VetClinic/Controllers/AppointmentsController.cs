@@ -7,16 +7,23 @@ namespace VetClinic.Controllers
 {
     public class AppointmentsController : Controller
     {
+        private readonly VetClinicContext _context;
+
+        public AppointmentsController(VetClinicContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
-            var appointments = AppointmentsRepository.GetAppointments(loadRelated: true);
+            var appointments = AppointmentsRepository.GetAppointments(loadRelated: true, context: _context);
             return View(appointments);
         }
 
         public IActionResult Edit(int id)
         {
             ViewBag.Action = "edit";
-            var appointment = AppointmentsRepository.GetAppointmentById(id, loadRelated: true);
+            var appointment = AppointmentsRepository.GetAppointmentById(id, loadRelated: true, context: _context);
             if (appointment == null)
             {
                 return NotFound();
@@ -37,7 +44,7 @@ namespace VetClinic.Controllers
 
             if (ModelState.IsValid)
             {
-                var patient = PatientsRepository.GetPatients().FirstOrDefault(p => p.PatientName == appointment.PatientName);
+                var patient = _context.Patients.FirstOrDefault(p => p.PatientName == appointment.PatientName);
                 if (patient == null)
                 {
                     ModelState.AddModelError("PatientName", "Patient not found");
@@ -46,7 +53,7 @@ namespace VetClinic.Controllers
                 }
 
                 appointment.PatientId = patient.PatientId;
-                AppointmentsRepository.UpdateAppointment(appointment.AppointmentId, appointment);
+                AppointmentsRepository.UpdateAppointment(appointment.AppointmentId, appointment, _context);
                 return RedirectToAction(nameof(Index));
             }
 
@@ -72,7 +79,7 @@ namespace VetClinic.Controllers
 
             if (ModelState.IsValid)
             {
-                var patient = PatientsRepository.GetPatients().FirstOrDefault(p => p.PatientName == appointment.PatientName);
+                var patient = _context.Patients.FirstOrDefault(p => p.PatientName == appointment.PatientName);
                 if (patient == null)
                 {
                     ModelState.AddModelError("PatientName", "Patient not found");
@@ -81,7 +88,7 @@ namespace VetClinic.Controllers
                 }
 
                 appointment.PatientId = patient.PatientId;
-                AppointmentsRepository.AddAppointment(appointment);
+                AppointmentsRepository.AddAppointment(appointment, _context);
                 return RedirectToAction(nameof(Index));
             }
 
@@ -92,14 +99,14 @@ namespace VetClinic.Controllers
 
         public IActionResult Delete(int id)
         {
-            AppointmentsRepository.DeleteAppointment(id);
+            AppointmentsRepository.DeleteAppointment(id, _context);
             return RedirectToAction(nameof(Index));
         }
 
         private void PopulateDropDowns()
         {
-            ViewBag.Doctors = new SelectList(DoctorsRepository.GetDoctors(), "DoctorId", "Name");
-            ViewBag.Rooms = new SelectList(RoomsRepository.GetRooms(), "RoomId", "RoomNumber");
+            ViewBag.Doctors = new SelectList(_context.Doctors, "DoctorId", "Name");
+            ViewBag.Rooms = new SelectList(_context.Rooms, "RoomId", "RoomNumber");
         }
     }
 }

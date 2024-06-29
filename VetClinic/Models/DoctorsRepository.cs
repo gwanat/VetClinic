@@ -1,67 +1,44 @@
-﻿namespace VetClinic.Models
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace VetClinic.Models
 {
     public static class DoctorsRepository
     {
-        private static List<Doctor> _doctors = new List<Doctor>()
+        public static void AddDoctor(VetClinicContext context, Doctor doctor)
         {
-            new Doctor { DoctorId = 1, Name = "Dr. Gregory House", Specialty = "Diagnostic Medicine" },
-            new Doctor { DoctorId = 2, Name = "Dr. Meredith Grey", Specialty = "General Surgery" },
-            new Doctor { DoctorId = 3, Name = "Dr. John Watson", Specialty = "General Practice" },
-            new Doctor { DoctorId = 4, Name = "Dr. Stephen Strange", Specialty = "Neurosurgery" },
-            new Doctor { DoctorId = 5, Name = "Dr. Miranda Bailey", Specialty = "General Surgery" }
-        };
-
-        public static void AddDoctor(Doctor doctor)
-        {
-            if (_doctors != null && _doctors.Count > 0)
-            {
-                var maxId = _doctors.Max(x => x.DoctorId);
-                doctor.DoctorId = maxId + 1;
-            }
-            else
-            {
-                doctor.DoctorId = 1;
-            }
-            if (_doctors == null) _doctors = new List<Doctor>();
-            _doctors.Add(doctor);
+            context.Doctors.Add(doctor);
+            context.SaveChanges();
         }
 
-        public static List<Doctor> GetDoctors() => _doctors;
-
-        public static Doctor? GetDoctorById(int doctorId)
+        public static List<Doctor> GetDoctors(VetClinicContext context)
         {
-            var doctor = _doctors.FirstOrDefault(x => x.DoctorId == doctorId);
-            if (doctor != null)
-            {
-                return new Doctor
-                {
-                    DoctorId = doctor.DoctorId,
-                    Name = doctor.Name,
-                    Specialty = doctor.Specialty,
-                };
-            }
-
-            return null;
+            return context.Doctors.ToList();
         }
 
-        public static void UpdateDoctor(int doctorId, Doctor doctor)
+        public static Doctor GetDoctorById(VetClinicContext context, int doctorId)
         {
-            if (doctorId != doctor.DoctorId) return;
+            return context.Doctors.FirstOrDefault(d => d.DoctorId == doctorId);
+        }
 
-            var doctorToUpdate = _doctors.FirstOrDefault(x => x.DoctorId == doctorId);
+        public static void UpdateDoctor(VetClinicContext context, int doctorId, Doctor doctor)
+        {
+            var doctorToUpdate = context.Doctors.FirstOrDefault(d => d.DoctorId == doctorId);
             if (doctorToUpdate != null)
             {
                 doctorToUpdate.Name = doctor.Name;
                 doctorToUpdate.Specialty = doctor.Specialty;
+                context.SaveChanges();
             }
         }
 
-        public static void DeleteDoctor(int doctorId)
+        public static void DeleteDoctor(VetClinicContext context, int doctorId)
         {
-            var doctor = _doctors.FirstOrDefault(x => x.DoctorId == doctorId);
-            if (doctor != null)
+            var doctorToDelete = context.Doctors.FirstOrDefault(d => d.DoctorId == doctorId);
+            if (doctorToDelete != null)
             {
-                _doctors.Remove(doctor);
+                context.Doctors.Remove(doctorToDelete);
+                context.SaveChanges();
             }
         }
     }

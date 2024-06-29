@@ -5,69 +5,43 @@ namespace VetClinic.Models
 {
     public static class RoomsRepository
     {
-        private static List<Room> _rooms = new List<Room>()
+        public static void AddRoom(VetClinicContext context, Room room)
         {
-            new Room { RoomId = 1, RoomNumber = "A101", Type = "Examination Room", IsOccupied = false, Description = "First floor examination room" },
-            new Room { RoomId = 2, RoomNumber = "B205", Type = "Operating Theater", IsOccupied = true, Description = "Second floor operating theater" },
-            new Room { RoomId = 3, RoomNumber = "C302", Type = "Examination Room", IsOccupied = false, Description = "Third floor examination room" },
-            new Room { RoomId = 4, RoomNumber = "D104", Type = "Hospitalization Room", IsOccupied = true, Description = "Fourth floor hospitalization room" },
-            new Room { RoomId = 5, RoomNumber = "E201", Type = "Examination Room", IsOccupied = false, Description = "Second floor examination room" }
-        };
-        public static List<Room> GetRooms()
-        {
-            _rooms.ForEach(room => room.UpdateOccupationStatus());
-            return _rooms;
+            context.Rooms.Add(room);
+            context.SaveChanges();
         }
 
-        public static Room? GetRoomById(int roomId)
+        public static List<Room> GetRooms(VetClinicContext context)
         {
-            var room = _rooms.FirstOrDefault(r => r.RoomId == roomId);
-            if (room != null)
-            {
-                room.UpdateOccupationStatus();
-            }
-            return room;
-        }
-        public static void AddRoom(Room room)
-        {
-            if (_rooms != null && _rooms.Count > 0)
-            {
-                var maxId = _rooms.Max(x => x.RoomId);
-                room.RoomId = maxId + 1;
-            }
-            else
-            {
-                room.RoomId = 1;
-            }
-
-            if (_rooms == null)
-            {
-                _rooms = new List<Room>();
-            }
-
-            _rooms.Add(room);
+            return context.Rooms.ToList();
         }
 
-        public static void UpdateRoom(int roomId, Room room)
+        public static Room GetRoomById(VetClinicContext context, int roomId)
         {
-            if (roomId != room.RoomId) return;
+            return context.Rooms.FirstOrDefault(r => r.RoomId == roomId);
+        }
 
-            var roomToUpdate = _rooms.FirstOrDefault(x => x.RoomId == roomId);
+        public static void UpdateRoom(VetClinicContext context, int roomId, Room room)
+        {
+            var roomToUpdate = context.Rooms.FirstOrDefault(r => r.RoomId == roomId);
             if (roomToUpdate != null)
             {
                 roomToUpdate.RoomNumber = room.RoomNumber;
                 roomToUpdate.Type = room.Type;
                 roomToUpdate.IsOccupied = room.IsOccupied;
                 roomToUpdate.Description = room.Description;
+
+                context.SaveChanges();
             }
         }
 
-        public static void DeleteRoom(int roomId)
+        public static void DeleteRoom(VetClinicContext context, int roomId)
         {
-            var room = _rooms.FirstOrDefault(x => x.RoomId == roomId);
-            if (room != null)
+            var roomToDelete = context.Rooms.FirstOrDefault(r => r.RoomId == roomId);
+            if (roomToDelete != null)
             {
-                _rooms.Remove(room);
+                context.Rooms.Remove(roomToDelete);
+                context.SaveChanges();
             }
         }
     }

@@ -5,9 +5,16 @@ namespace VetClinic.Controllers
 {
     public class DoctorsController : Controller
     {
+        private readonly VetClinicContext _context;
+
+        public DoctorsController(VetClinicContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
-            var doctors = DoctorsRepository.GetDoctors();
+            var doctors = DoctorsRepository.GetDoctors(_context);
             return View(doctors);
         }
 
@@ -15,7 +22,7 @@ namespace VetClinic.Controllers
         {
             ViewBag.Action = "edit";
 
-            var doctor = DoctorsRepository.GetDoctorById(id.HasValue ? id.Value : 0);
+            var doctor = DoctorsRepository.GetDoctorById(_context, id.HasValue ? id.Value : 0);
 
             return View(doctor);
         }
@@ -25,7 +32,7 @@ namespace VetClinic.Controllers
         {
             if (ModelState.IsValid)
             {
-                DoctorsRepository.UpdateDoctor(doctor.DoctorId, doctor);
+                DoctorsRepository.UpdateDoctor(_context, doctor.DoctorId, doctor);
                 return RedirectToAction(nameof(Index));
             }
             ViewBag.Action = "edit";
@@ -44,7 +51,7 @@ namespace VetClinic.Controllers
         {
             if (ModelState.IsValid)
             {
-                DoctorsRepository.AddDoctor(doctor);
+                DoctorsRepository.AddDoctor(_context, doctor);
                 return RedirectToAction(nameof(Index));
             }
             ViewBag.Action = "add";
@@ -53,7 +60,7 @@ namespace VetClinic.Controllers
 
         public IActionResult Delete(int doctorId)
         {
-            DoctorsRepository.DeleteDoctor(doctorId);
+            DoctorsRepository.DeleteDoctor(_context, doctorId);
             return RedirectToAction(nameof(Index));
         }
     }
