@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace VetClinic.Models
@@ -7,41 +8,81 @@ namespace VetClinic.Models
     {
         public static void AddRoom(VetClinicContext context, Room room)
         {
-            context.Rooms.Add(room);
-            context.SaveChanges();
+            try
+            {
+                context.Rooms.Add(room);
+                context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in AddRoom: {ex.Message}");
+                throw;
+            }
         }
 
         public static List<Room> GetRooms(VetClinicContext context)
         {
-            return context.Rooms.ToList();
+            try
+            {
+                return context.Rooms.ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in GetRooms: {ex.Message}");
+                throw;
+            }
         }
 
         public static Room GetRoomById(VetClinicContext context, int roomId)
         {
-            return context.Rooms.FirstOrDefault(r => r.RoomId == roomId);
+            try
+            {
+                return context.Rooms.FirstOrDefault(r => r.RoomId == roomId);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in GetRoomById: {ex.Message}");
+                throw;
+            }
         }
 
         public static void UpdateRoom(VetClinicContext context, int roomId, Room room)
         {
-            var roomToUpdate = context.Rooms.FirstOrDefault(r => r.RoomId == roomId);
-            if (roomToUpdate != null)
+            try
             {
-                roomToUpdate.RoomNumber = room.RoomNumber;
-                roomToUpdate.Type = room.Type;
-                roomToUpdate.IsOccupied = room.IsOccupied;
-                roomToUpdate.Description = room.Description;
+                var roomToUpdate = context.Rooms.FirstOrDefault(r => r.RoomId == roomId);
+                if (roomToUpdate != null)
+                {
+                    roomToUpdate.RoomNumber = room.RoomNumber;
+                    roomToUpdate.Type = room.Type;
+                    roomToUpdate.IsOccupied = room.IsOccupied;
+                    roomToUpdate.Description = room.Description;
 
-                context.SaveChanges();
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in UpdateRoom: {ex.Message}");
+                throw;
             }
         }
 
         public static void DeleteRoom(VetClinicContext context, int roomId)
         {
-            var roomToDelete = context.Rooms.FirstOrDefault(r => r.RoomId == roomId);
-            if (roomToDelete != null)
+            try
             {
-                context.Rooms.Remove(roomToDelete);
-                context.SaveChanges();
+                var roomToDelete = context.Rooms.FirstOrDefault(r => r.RoomId == roomId);
+                if (roomToDelete != null)
+                {
+                    context.Rooms.Remove(roomToDelete);
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in DeleteRoom: {ex.Message}");
+                throw;
             }
         }
     }
