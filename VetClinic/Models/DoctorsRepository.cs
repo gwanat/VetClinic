@@ -1,67 +1,85 @@
-﻿namespace VetClinic.Models
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace VetClinic.Models
 {
     public static class DoctorsRepository
     {
-        private static List<Doctor> _doctors = new List<Doctor>()
+        public static void AddDoctor(VetClinicContext context, Doctor doctor)
         {
-            new Doctor { DoctorId = 1, Name = "Dr. Gregory House", Specialty = "Diagnostic Medicine" },
-            new Doctor { DoctorId = 2, Name = "Dr. Meredith Grey", Specialty = "General Surgery" },
-            new Doctor { DoctorId = 3, Name = "Dr. John Watson", Specialty = "General Practice" },
-            new Doctor { DoctorId = 4, Name = "Dr. Stephen Strange", Specialty = "Neurosurgery" },
-            new Doctor { DoctorId = 5, Name = "Dr. Miranda Bailey", Specialty = "General Surgery" }
-        };
-
-        public static void AddDoctor(Doctor doctor)
-        {
-            if (_doctors != null && _doctors.Count > 0)
+            try
             {
-                var maxId = _doctors.Max(x => x.DoctorId);
-                doctor.DoctorId = maxId + 1;
+                context.Doctors.Add(doctor);
+                context.SaveChanges();
             }
-            else
+            catch (Exception ex)
             {
-                doctor.DoctorId = 1;
+                Console.WriteLine($"Error in AddDoctor: {ex.Message}");
+                throw;
             }
-            if (_doctors == null) _doctors = new List<Doctor>();
-            _doctors.Add(doctor);
         }
 
-        public static List<Doctor> GetDoctors() => _doctors;
-
-        public static Doctor? GetDoctorById(int doctorId)
+        public static List<Doctor> GetDoctors(VetClinicContext context)
         {
-            var doctor = _doctors.FirstOrDefault(x => x.DoctorId == doctorId);
-            if (doctor != null)
+            try
             {
-                return new Doctor
+                return context.Doctors.ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in GetDoctors: {ex.Message}");
+                throw;
+            }
+        }
+
+        public static Doctor GetDoctorById(VetClinicContext context, int doctorId)
+        {
+            try
+            {
+                return context.Doctors.FirstOrDefault(d => d.DoctorId == doctorId);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in GetDoctorById: {ex.Message}");
+                throw;
+            }
+        }
+
+        public static void UpdateDoctor(VetClinicContext context, int doctorId, Doctor doctor)
+        {
+            try
+            {
+                var doctorToUpdate = context.Doctors.FirstOrDefault(d => d.DoctorId == doctorId);
+                if (doctorToUpdate != null)
                 {
-                    DoctorId = doctor.DoctorId,
-                    Name = doctor.Name,
-                    Specialty = doctor.Specialty,
-                };
+                    doctorToUpdate.Name = doctor.Name;
+                    doctorToUpdate.Specialty = doctor.Specialty;
+                    context.SaveChanges();
+                }
             }
-
-            return null;
-        }
-
-        public static void UpdateDoctor(int doctorId, Doctor doctor)
-        {
-            if (doctorId != doctor.DoctorId) return;
-
-            var doctorToUpdate = _doctors.FirstOrDefault(x => x.DoctorId == doctorId);
-            if (doctorToUpdate != null)
+            catch (Exception ex)
             {
-                doctorToUpdate.Name = doctor.Name;
-                doctorToUpdate.Specialty = doctor.Specialty;
+                Console.WriteLine($"Error in UpdateDoctor: {ex.Message}");
+                throw;
             }
         }
 
-        public static void DeleteDoctor(int doctorId)
+        public static void DeleteDoctor(VetClinicContext context, int doctorId)
         {
-            var doctor = _doctors.FirstOrDefault(x => x.DoctorId == doctorId);
-            if (doctor != null)
+            try
             {
-                _doctors.Remove(doctor);
+                var doctorToDelete = context.Doctors.FirstOrDefault(d => d.DoctorId == doctorId);
+                if (doctorToDelete != null)
+                {
+                    context.Doctors.Remove(doctorToDelete);
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in DeleteDoctor: {ex.Message}");
+                throw;
             }
         }
     }

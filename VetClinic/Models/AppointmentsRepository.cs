@@ -1,133 +1,129 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace VetClinic.Models
 {
     public static class AppointmentsRepository
     {
-        private static List<Appointment> _appointments = new List<Appointment>()
+        public static void AddAppointment(Appointment appointment, VetClinicContext context)
         {
-            new Appointment
+            try
             {
-                AppointmentId = 1,
-                StartTime = DateTime.Today.AddHours(9),
-                EndTime = DateTime.Today.AddHours(10),
-                DoctorId = 1,
-                PatientId = 1,
-                RoomId = 1
-            },
-            new Appointment
-            {
-                AppointmentId = 2,
-                StartTime = DateTime.Today.AddDays(1).AddHours(14),
-                EndTime = DateTime.Today.AddDays(1).AddHours(15),
-                DoctorId = 2,
-                PatientId = 2,
-                RoomId = 2
-            },
-            new Appointment
-            {
-                AppointmentId = 3,
-                StartTime = DateTime.Today.AddDays(2).AddHours(11),
-                EndTime = DateTime.Today.AddDays(2).AddHours(12),
-                DoctorId = 3,
-                PatientId = 3,
-                RoomId = 3
-            },
-            new Appointment
-            {
-                AppointmentId = 4,
-                StartTime = DateTime.Today.AddDays(3).AddHours(13),
-                EndTime = DateTime.Today.AddDays(3).AddHours(14),
-                DoctorId = 4,
-                PatientId = 4,
-                RoomId = 4
+                context.Appointments.Add(appointment);
+                context.SaveChanges();
+                UpdateRoomOccupationStatus(appointment.RoomId, context);
             }
-        };
-
-        public static void AddAppointment(Appointment appointment)
-        {
-            if (_appointments.Any())
+            catch (Exception ex)
             {
-                var maxId = _appointments.Max(x => x.AppointmentId);
-                appointment.AppointmentId = maxId + 1;
+                Console.WriteLine($"Error in AddAppointment: {ex.Message}");
+                throw;
             }
-            else
-            {
-                appointment.AppointmentId = 1;
-            }
-
-            LoadRelatedEntities(appointment);
-
-            _appointments.Add(appointment);
-            UpdateRoomOccupationStatus(appointment.RoomId);
         }
 
-        public static List<Appointment> GetAppointments(bool loadRelated = false)
+        public static List<Appointment> GetAppointments(bool loadRelated = false, VetClinicContext context = null)
         {
-            if (loadRelated)
+            try
             {
-                _appointments.ForEach(LoadRelatedEntities);
-                foreach (var appointment in _appointments)
+                var appointments = context.Appointments.Include(a => a.Doctor).Include(a => a.Patient).Include(a => a.Room).ToList();
+
+                if (loadRelated)
                 {
-                    UpdateRoomOccupationStatus(appointment.RoomId);
+                    appointments.ForEach(a => UpdateRoomOccupationStatus(a.RoomId, context));
+                }
+                return appointments;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in GetAppointments: {ex.Message}");
+                throw;
+            }
+        }
+
+        public static Appointment GetAppointmentById(int appointmentId, bool loadRelated = false, VetClinicContext context = null)
+        {
+            try
+            {
+                var appointment = context.Appointments
+                    .Include(a => a.Doctor)
+                    .Include(a => a.Patient)
+                    .Include(a => a.Room)
+                    .FirstOrDefault(a => a.AppointmentId == appointmentId);
+
+                if (appointment != null && loadRelated)
+                {
+                    UpdateRoomOccupationStatus(appointment.RoomId, context);
+                }
+                return appointment;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in GetAppointmentById: {ex.Message}");
+                throw;
+            }
+        }
+
+        public static void UpdateAppointment(int appointmentId, Appointment appointment, VetClinicContext context)
+        {
+            try
+            {
+                var appointmentToUpdate = context.Appointments.Find(appointmentId);
+                if (appointmentToUpdate != null)
+                {
+                    appointmentToUpdate.StartTime = appointment.StartTime;
+                    appointmentToUpdate.EndTime = appointment.EndTime;
+                    appointmentToUpdate.DoctorId = appointment.DoctorId;
+                    appointmentToUpdate.PatientId = appointment.PatientId;
+                    appointmentToUpdate.RoomId = appointment.RoomId;
+
+                    context.SaveChanges();
+                    UpdateRoomOccupationStatus(appointmentToUpdate.RoomId, context);
                 }
             }
-            return _appointments;
-        }
-
-        public static Appointment GetAppointmentById(int appointmentId, bool loadRelated = false)
-        {
-            var appointment = _appointments.FirstOrDefault(x => x.AppointmentId == appointmentId);
-            if (appointment != null && loadRelated)
+            catch (Exception ex)
             {
-                LoadRelatedEntities(appointment);
-                UpdateRoomOccupationStatus(appointment.RoomId);
-            }
-            return appointment;
-        }
-
-        public static void UpdateAppointment(int appointmentId, Appointment appointment)
-        {
-            var appointmentToUpdate = _appointments.FirstOrDefault(x => x.AppointmentId == appointmentId);
-            if (appointmentToUpdate != null)
-            {
-                appointmentToUpdate.StartTime = appointment.StartTime;
-                appointmentToUpdate.EndTime = appointment.EndTime;
-                appointmentToUpdate.DoctorId = appointment.DoctorId;
-                appointmentToUpdate.PatientId = appointment.PatientId;
-                appointmentToUpdate.RoomId = appointment.RoomId;
-
-                LoadRelatedEntities(appointmentToUpdate);
-                UpdateRoomOccupationStatus(appointmentToUpdate.RoomId);
+                Console.WriteLine($"Error in UpdateAppointment: {ex.Message}");
+                throw;
             }
         }
 
-        public static void DeleteAppointment(int appointmentId)
+        public static void DeleteAppointment(int appointmentId, VetClinicContext context)
         {
-            var appointment = _appointments.FirstOrDefault(x => x.AppointmentId == appointmentId);
-            if (appointment != null)
+            try
             {
-                _appointments.Remove(appointment);
-                UpdateRoomOccupationStatus(appointment.RoomId);
+                var appointment = context.Appointments.Find(appointmentId);
+                if (appointment != null)
+                {
+                    context.Appointments.Remove(appointment);
+                    context.SaveChanges();
+                    UpdateRoomOccupationStatus(appointment.RoomId, context);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in DeleteAppointment: {ex.Message}");
+                throw;
             }
         }
 
-        private static void LoadRelatedEntities(Appointment appointment)
+        private static void UpdateRoomOccupationStatus(int roomId, VetClinicContext context)
         {
-            appointment.Doctor = DoctorsRepository.GetDoctorById(appointment.DoctorId);
-            appointment.Patient = PatientsRepository.GetPatientById(appointment.PatientId);
-            appointment.Room = RoomsRepository.GetRoomById(appointment.RoomId);
-        }
-
-        private static void UpdateRoomOccupationStatus(int roomId)
-        {
-            var room = RoomsRepository.GetRoomById(roomId);
-            if (room != null)
+            try
             {
-                room.Appointments = _appointments.Where(a => a.RoomId == roomId).ToList();
-                room.UpdateOccupationStatus();
+                var room = context.Rooms
+                    .Include(r => r.Appointments)
+                    .FirstOrDefault(r => r.RoomId == roomId);
+                if (room != null)
+                {
+                    room.UpdateOccupationStatus();
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in UpdateRoomOccupationStatus: {ex.Message}");
+                throw;
             }
         }
     }

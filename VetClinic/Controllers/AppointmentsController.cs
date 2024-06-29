@@ -1,105 +1,170 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using VetClinic.Models;
+using System;
 using System.Linq;
+using VetClinic.ViewModels;
 
 namespace VetClinic.Controllers
 {
     public class AppointmentsController : Controller
     {
+        private readonly VetClinicContext _context;
+
+        public AppointmentsController(VetClinicContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
-            var appointments = AppointmentsRepository.GetAppointments(loadRelated: true);
-            return View(appointments);
+            try
+            {
+                var appointments = AppointmentsRepository.GetAppointments(loadRelated: true, context: _context);
+                return View(appointments);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in Index: {ex.Message}");
+                return View("Error", new ErrorViewModel { ErrorMessage = "An error occurred while retrieving appointments." });
+            }
         }
 
         public IActionResult Edit(int id)
         {
-            ViewBag.Action = "edit";
-            var appointment = AppointmentsRepository.GetAppointmentById(id, loadRelated: true);
-            if (appointment == null)
+            try
             {
-                return NotFound();
-            }
+                ViewBag.Action = "edit";
+                var appointment = AppointmentsRepository.GetAppointmentById(id, loadRelated: true, context: _context);
+                if (appointment == null)
+                {
+                    return NotFound();
+                }
 
-            appointment.PatientName = appointment.Patient?.PatientName;
-            PopulateDropDowns();
-            return View(appointment);
+                appointment.PatientName = appointment.Patient?.PatientName;
+                PopulateDropDowns();
+                return View(appointment);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in Edit (GET): {ex.Message}");
+                return View("Error", new ErrorViewModel { ErrorMessage = "An error occurred while preparing the edit appointment form." });
+            }
         }
 
         [HttpPost]
         public IActionResult Edit(Appointment appointment)
         {
-            if (appointment.EndTime <= appointment.StartTime)
+            try
             {
-                ModelState.AddModelError("EndTime", "End time must be later than start time");
-            }
-
-            if (ModelState.IsValid)
-            {
-                var patient = PatientsRepository.GetPatients().FirstOrDefault(p => p.PatientName == appointment.PatientName);
-                if (patient == null)
+                if (appointment.EndTime <= appointment.StartTime)
                 {
-                    ModelState.AddModelError("PatientName", "Patient not found");
-                    PopulateDropDowns();
-                    return View(appointment);
+                    ModelState.AddModelError("EndTime", "End time must be later than start time");
                 }
 
-                appointment.PatientId = patient.PatientId;
-                AppointmentsRepository.UpdateAppointment(appointment.AppointmentId, appointment);
-                return RedirectToAction(nameof(Index));
-            }
+                if (ModelState.IsValid)
+                {
+                    var patient = _context.Patients.FirstOrDefault(p => p.PatientName == appointment.PatientName);
+                    if (patient == null)
+                    {
+                        ModelState.AddModelError("PatientName", "Patient not found");
+                        PopulateDropDowns();
+                        return View(appointment);
+                    }
 
-            ViewBag.Action = "edit";
-            PopulateDropDowns();
-            return View(appointment);
+                    appointment.PatientId = patient.PatientId;
+                    AppointmentsRepository.UpdateAppointment(appointment.AppointmentId, appointment, _context);
+                    return RedirectToAction(nameof(Index));
+                }
+
+                ViewBag.Action = "edit";
+                PopulateDropDowns();
+                return View(appointment);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in Edit (POST): {ex.Message}");
+                return View("Error", new ErrorViewModel { ErrorMessage = "An error occurred while updating the appointment." });
+            }
         }
 
         public IActionResult Add()
         {
-            ViewBag.Action = "add";
-            PopulateDropDowns();
-            return View();
+            try
+            {
+                ViewBag.Action = "add";
+                PopulateDropDowns();
+                return View();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in Add (GET): {ex.Message}");
+                return View("Error", new ErrorViewModel { ErrorMessage = "An error occurred while preparing the add appointment form." });
+            }
         }
 
         [HttpPost]
         public IActionResult Add(Appointment appointment)
         {
-            if (appointment.EndTime <= appointment.StartTime)
+            try
             {
-                ModelState.AddModelError("EndTime", "End time must be later than start time");
-            }
-
-            if (ModelState.IsValid)
-            {
-                var patient = PatientsRepository.GetPatients().FirstOrDefault(p => p.PatientName == appointment.PatientName);
-                if (patient == null)
+                if (appointment.EndTime <= appointment.StartTime)
                 {
-                    ModelState.AddModelError("PatientName", "Patient not found");
-                    PopulateDropDowns();
-                    return View(appointment);
+                    ModelState.AddModelError("EndTime", "End time must be later than start time");
                 }
 
-                appointment.PatientId = patient.PatientId;
-                AppointmentsRepository.AddAppointment(appointment);
-                return RedirectToAction(nameof(Index));
-            }
+                if (ModelState.IsValid)
+                {
+                    var patient = _context.Patients.FirstOrDefault(p => p.PatientName == appointment.PatientName);
+                    if (patient == null)
+                    {
+                        ModelState.AddModelError("PatientName", "Patient not found");
+                        PopulateDropDowns();
+                        return View(appointment);
+                    }
 
-            ViewBag.Action = "add";
-            PopulateDropDowns();
-            return View(appointment);
+                    appointment.PatientId = patient.PatientId;
+                    AppointmentsRepository.AddAppointment(appointment, _context);
+                    return RedirectToAction(nameof(Index));
+                }
+
+                ViewBag.Action = "add";
+                PopulateDropDowns();
+                return View(appointment);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in Add (POST): {ex.Message}");
+                return View("Error", new ErrorViewModel { ErrorMessage = "An error occurred while adding the appointment." });
+            }
         }
 
         public IActionResult Delete(int id)
         {
-            AppointmentsRepository.DeleteAppointment(id);
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                AppointmentsRepository.DeleteAppointment(id, _context);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in Delete: {ex.Message}");
+                return View("Error", new ErrorViewModel { ErrorMessage = "An error occurred while deleting the appointment." });
+            }
         }
 
         private void PopulateDropDowns()
         {
-            ViewBag.Doctors = new SelectList(DoctorsRepository.GetDoctors(), "DoctorId", "Name");
-            ViewBag.Rooms = new SelectList(RoomsRepository.GetRooms(), "RoomId", "RoomNumber");
+            try
+            {
+                ViewBag.Doctors = new SelectList(_context.Doctors, "DoctorId", "Name");
+                ViewBag.Rooms = new SelectList(_context.Rooms, "RoomId", "RoomNumber");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in PopulateDropDowns: {ex.Message}");
+                throw;
+            }
         }
     }
 }

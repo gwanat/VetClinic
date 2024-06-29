@@ -1,60 +1,116 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using VetClinic.Models;
+using VetClinic.ViewModels;
+using System;
 
 namespace VetClinic.Controllers
 {
     public class DoctorsController : Controller
     {
+        private readonly VetClinicContext _context;
+
+        public DoctorsController(VetClinicContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
-            var doctors = DoctorsRepository.GetDoctors();
-            return View(doctors);
+            try
+            {
+                var doctors = DoctorsRepository.GetDoctors(_context);
+                return View(doctors);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in Index: {ex.Message}");
+                return View("Error", new ErrorViewModel { ErrorMessage = "An error occurred while retrieving doctors." });
+            }
         }
 
         public IActionResult Edit(int? id)
         {
-            ViewBag.Action = "edit";
-
-            var doctor = DoctorsRepository.GetDoctorById(id.HasValue ? id.Value : 0);
-
-            return View(doctor);
+            try
+            {
+                ViewBag.Action = "edit";
+                var doctor = DoctorsRepository.GetDoctorById(_context, id.HasValue ? id.Value : 0);
+                return View(doctor);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in Edit (GET): {ex.Message}");
+                return View("Error", new ErrorViewModel { ErrorMessage = "An error occurred while preparing the edit doctor form." });
+            }
         }
 
         [HttpPost]
         public IActionResult Edit(Doctor doctor)
         {
-            if (ModelState.IsValid)
+            try
             {
-                DoctorsRepository.UpdateDoctor(doctor.DoctorId, doctor);
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    DoctorsRepository.UpdateDoctor(_context, doctor.DoctorId, doctor);
+                    return RedirectToAction(nameof(Index));
+                }
+
+                ViewBag.Action = "edit";
+                return View(doctor);
             }
-            ViewBag.Action = "edit";
-            return View(doctor);
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in Edit (POST): {ex.Message}");
+                return View("Error", new ErrorViewModel { ErrorMessage = "An error occurred while updating the doctor." });
+            }
         }
 
         public IActionResult Add()
         {
-            ViewBag.Action = "add";
-
-            return View();
+            try
+            {
+                ViewBag.Action = "add";
+                return View();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in Add (GET): {ex.Message}");
+                return View("Error", new ErrorViewModel { ErrorMessage = "An error occurred while preparing the add doctor form." });
+            }
         }
 
         [HttpPost]
         public IActionResult Add(Doctor doctor)
         {
-            if (ModelState.IsValid)
+            try
             {
-                DoctorsRepository.AddDoctor(doctor);
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    DoctorsRepository.AddDoctor(_context, doctor);
+                    return RedirectToAction(nameof(Index));
+                }
+
+                ViewBag.Action = "add";
+                return View(doctor);
             }
-            ViewBag.Action = "add";
-            return View(doctor);
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in Add (POST): {ex.Message}");
+                return View("Error", new ErrorViewModel { ErrorMessage = "An error occurred while adding the doctor." });
+            }
         }
 
         public IActionResult Delete(int doctorId)
         {
-            DoctorsRepository.DeleteDoctor(doctorId);
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                DoctorsRepository.DeleteDoctor(_context, doctorId);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in Delete: {ex.Message}");
+                return View("Error", new ErrorViewModel { ErrorMessage = "An error occurred while deleting the doctor." });
+            }
         }
     }
 }
