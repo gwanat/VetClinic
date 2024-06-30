@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace VetClinic.Controllers
 {
-    [Authorize]
+    [Authorize(Policy ="AdminOrDoctor")]
     public class PatientsController : Controller
     {
         private readonly VetClinicContext _context;

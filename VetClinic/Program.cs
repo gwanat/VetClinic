@@ -22,6 +22,13 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.R
 
 builder.Services.AddRazorPages();
 
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("Admin", p => p.RequireClaim("Position", "Admin"));
+    options.AddPolicy("Doctors", p => p.RequireClaim("Position", "Doctor"));
+    options.AddPolicy("AdminOrDoctor", p => p.RequireClaim("Position", "Admin", "Doctor"));
+});
+
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())

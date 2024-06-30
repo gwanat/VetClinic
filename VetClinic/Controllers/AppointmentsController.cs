@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace VetClinic.Controllers
 {
-    [Authorize]
+    [Authorize(Policy = "AdminOrDoctor")]
     public class AppointmentsController : Controller
     {
         private readonly VetClinicContext _context;
