@@ -5,6 +5,7 @@ using System;
 using System.Linq;
 using VetClinic.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using System.Collections.Generic;
 
 namespace VetClinic.Controllers
 {
@@ -18,11 +19,23 @@ namespace VetClinic.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? doctorId, int? patientId)
         {
             try
             {
                 var appointments = AppointmentsRepository.GetAppointments(loadRelated: true, context: _context);
+
+                if (doctorId.HasValue)
+                {
+                    appointments = appointments.Where(a => a.DoctorId == doctorId.Value).ToList();
+                }
+
+                if (patientId.HasValue)
+                {
+                    appointments = appointments.Where(a => a.PatientId == patientId.Value).ToList();
+                }
+
+                PopulateDropDowns();
                 return View(appointments);
             }
             catch (Exception ex)
@@ -160,6 +173,7 @@ namespace VetClinic.Controllers
             try
             {
                 ViewBag.Doctors = new SelectList(_context.Doctors, "DoctorId", "Name");
+                ViewBag.Patients = new SelectList(_context.Patients, "PatientId", "PatientName");
                 ViewBag.Rooms = new SelectList(_context.Rooms, "RoomId", "RoomNumber");
             }
             catch (Exception ex)
