@@ -1,8 +1,36 @@
 ﻿@model List<Appointment>
 
 @section title {
-    <h2 style ="font-family: 'Times New Roman', Times, serif; ">Appointments</h2>
+    <h2 style="font-family: 'Times New Roman', Times, serif;">Appointments</h2>
 }
+
+<form method="get" asp-action="Index">
+    <div class="row mb-3">
+        <div class="col-4">
+            <label for="doctorFilter" class="col-form-label fw-bold">Filter by Doctor</label>
+            <select id="doctorFilter" name="doctorId" class="form-control">
+                <option value="">All</option>
+                @foreach (var doctor in ViewBag.Doctors)
+                {
+                    <option value="@doctor.Value">@doctor.Text</option>
+                }
+            </select>
+        </div>
+        <div class="col-4">
+            <label for="patientFilter" class="col-form-label fw-bold">Filter by Patient</label>
+            <select id="patientFilter" name="patientId" class="form-control">
+                <option value="">All</option>
+                @foreach (var patient in ViewBag.Patients)
+                {
+                    <option value="@patient.Value">@patient.Text</option>
+                }
+            </select>
+        </div>
+        <div class="col-4 mt-4">
+            <button type="submit" class="btn btn-primary mt-2">Filter</button>
+        </div>
+    </div>
+</form>
 
 @if (Model != null && Model.Any())
 {
