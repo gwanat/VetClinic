@@ -117,20 +117,38 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AboutUs" xml:space="preserve">
+    <value>About Us</value>
+  </data>
+  <data name="AccessDetailed" xml:space="preserve">
+    <value>Access detailed health histories and treatment plans for every pet in seconds.</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>Actions</value>
   </data>
   <data name="AddRoom" xml:space="preserve">
     <value>Add Room</value>
   </data>
+  <data name="AppointmentManagement" xml:space="preserve">
+    <value>Appointment Management</value>
+  </data>
   <data name="Appointments" xml:space="preserve">
     <value>Appointments</value>
   </data>
-  <data name="carousel1header1" xml:space="preserve">
-    <value />
+  <data name="AppointmentScheduling" xml:space="preserve">
+    <value>Appointment Scheduling</value>
+  </data>
+  <data name="BusyVets" xml:space="preserve">
+    <value>Busy Vets</value>
   </data>
   <data name="CheckAvail" xml:space="preserve">
     <value>Check availability and manage rooms for treatments and surgeries</value>
+  </data>
+  <data name="Comprehensive" xml:space="preserve">
+    <value>Comprehensive</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>Contact Us</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Delete</value>
@@ -144,11 +162,27 @@
   <data name="Edit" xml:space="preserve">
     <value>Edit</value>
   </data>
+  <data name="EfficientTools" xml:space="preserve">
+    <value>Efficient tools to track, organize, and prioritize urgent cases, ensuring pets get the
+care they need right on time.</value>
+  </data>
+  <data name="EffOrg" xml:space="preserve">
+    <value>Efficiently organize and manage client bookings with real-time availability updates.</value>
+  </data>
+  <data name="EmergencyCases" xml:space="preserve">
+    <value>Manage Emergencies with Ease</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>Error</value>
   </data>
   <data name="ErrorOccurred" xml:space="preserve">
     <value>An error occurred</value>
+  </data>
+  <data name="FAQ" xml:space="preserve">
+    <value>FAQ</value>
+  </data>
+  <data name="For" xml:space="preserve">
+    <value>For</value>
   </data>
   <data name="Hello" xml:space="preserve">
     <value>Hello</value>
@@ -159,11 +193,20 @@
   <data name="KeepTrack" xml:space="preserve">
     <value>Keep track of all patients under care.</value>
   </data>
+  <data name="LEARNMORE" xml:space="preserve">
+    <value>LEARN MORE</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>Login</value>
   </data>
   <data name="Logout" xml:space="preserve">
     <value>Logout</value>
+  </data>
+  <data name="Manage" xml:space="preserve">
+    <value>Manage vet schefules and appointments, keeping your team and clients informed and prepared.</value>
+  </data>
+  <data name="ManageAll" xml:space="preserve">
+    <value>Manage all pet medical records in one covienient platform.</value>
   </data>
   <data name="ManageAppointments" xml:space="preserve">
     <value>Manage Appointments</value>
@@ -177,11 +220,47 @@
   <data name="ManageRooms" xml:space="preserve">
     <value>Manage Rooms</value>
   </data>
+  <data name="Monitor" xml:space="preserve">
+    <value>Monitor staff schedules to avoid overlaps and delays.</value>
+  </data>
+  <data name="Optimized" xml:space="preserve">
+    <value>Optimized Schedules, Better Care</value>
+  </data>
+  <data name="OurStaff" xml:space="preserve">
+    <value>Our Stafff</value>
+  </data>
+  <data name="OurSystem" xml:space="preserve">
+    <value>Our system streamilnes your clinic's operations so you can focus in delivering the best care for every pet.</value>
+  </data>
+  <data name="OurVeterinary" xml:space="preserve">
+    <value>Our sytem streamlines operations, ensuring efficient scheduling, patient care, and record-keeping for veterinarians. We help clicics enhance productivity, improve client communication, and provide exceptional service to pets and their owners.</value>
+  </data>
+  <data name="PatientRecords" xml:space="preserve">
+    <value>Patient Records</value>
+  </data>
   <data name="Patients" xml:space="preserve">
     <value>Patients</value>
   </data>
+  <data name="Payments" xml:space="preserve">
+    <value>Payments</value>
+  </data>
+  <data name="PetHealth" xml:space="preserve">
+    <value>Pet Health</value>
+  </data>
+  <data name="Procedures" xml:space="preserve">
+    <value>Procedures</value>
+  </data>
+  <data name="QuickLinks" xml:space="preserve">
+    <value>Quick Links</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Register</value>
+  </data>
+  <data name="Reliable" xml:space="preserve">
+    <value>Reliable</value>
+  </data>
+  <data name="Reviews" xml:space="preserve">
+    <value>Reviews</value>
   </data>
   <data name="Room" xml:space="preserve">
     <value>Room</value>
@@ -195,8 +274,32 @@
   <data name="ScheduleView" xml:space="preserve">
     <value>Schedule, view, and manage appointments for patients</value>
   </data>
+  <data name="Services" xml:space="preserve">
+    <value>Services</value>
+  </data>
+  <data name="Simplify" xml:space="preserve">
+    <value>Simplify scheduling, patient records, and billing with a system designed to keep your clinic running smoothly.</value>
+  </data>
+  <data name="Simplifybookings" xml:space="preserve">
+    <value>Simplify bookings with a system that ensures seamless scheduling for vets and clients.</value>
+  </data>
+  <data name="Smart" xml:space="preserve">
+    <value>Smart</value>
+  </data>
+  <data name="SmartTools" xml:space="preserve">
+    <value>Smart Tools</value>
+  </data>
+  <data name="Solutions" xml:space="preserve">
+    <value>Solutions</value>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
+  </data>
+  <data name="ThatYouCan" xml:space="preserve">
+    <value>That You Can</value>
+  </data>
+  <data name="Trust" xml:space="preserve">
+    <value>Trust!</value>
   </data>
   <data name="Try" xml:space="preserve">
     <value>Try again later or contact support.</value>
@@ -207,7 +310,16 @@
   <data name="VetClinicManagementSystem" xml:space="preserve">
     <value>Vet Clinic Management System</value>
   </data>
+  <data name="VeterinaryCare" xml:space="preserve">
+    <value>Vaterinary Care</value>
+  </data>
   <data name="ViewAndManage" xml:space="preserve">
     <value>View and manage all doctors working at the clinic.</value>
+  </data>
+  <data name="WeAreAlways" xml:space="preserve">
+    <value>We are always ready to help you &amp; your pets</value>
+  </data>
+  <data name="WeProvide" xml:space="preserve">
+    <value>We provide expert medical services for your pets, ensuring their health and well-being at every stage of life.</value>
   </data>
 </root>

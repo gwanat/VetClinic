@@ -117,17 +117,38 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AboutUs" xml:space="preserve">
+    <value>O Nas</value>
+  </data>
+  <data name="AccessDetailed" xml:space="preserve">
+    <value>Uzyskaj dostęp do szczegółowych historii zdrowia i planów lecznia dla każdego</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>Akcje</value>
   </data>
   <data name="AddRoom" xml:space="preserve">
     <value>Dodaj pokój</value>
   </data>
+  <data name="AppointmentManagement" xml:space="preserve">
+    <value>Zarządzanie Terminami</value>
+  </data>
   <data name="Appointments" xml:space="preserve">
     <value>Wizyty</value>
   </data>
+  <data name="AppointmentScheduling" xml:space="preserve">
+    <value>Planowanie Wizyt</value>
+  </data>
+  <data name="BusyVets" xml:space="preserve">
+    <value>Zapracowanych Weterynarzy</value>
+  </data>
   <data name="CheckAvail" xml:space="preserve">
     <value>Sprawdzaj dostępność i zarządzaj salami do zabiegów i operacji.</value>
+  </data>
+  <data name="Comprehensive" xml:space="preserve">
+    <value>Kompleksowe</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>Kontakt</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Usuń</value>
@@ -141,11 +162,26 @@
   <data name="Edit" xml:space="preserve">
     <value>Edytuj</value>
   </data>
+  <data name="EfficientTools" xml:space="preserve">
+    <value>Wydajne narzędzia do śledzenia, organizowania i priorytezacji pilnych przypadków, w celu zapenienia odpowiedniej opieki.</value>
+  </data>
+  <data name="EffOrg" xml:space="preserve">
+    <value>Efektywnie organizuj rezerwacje klientów i zarządzaj nimi dzięki aktualizacjom dostępności w czasie rzeczywistym.</value>
+  </data>
+  <data name="EmergencyCases" xml:space="preserve">
+    <value>Nagłe Przpadki</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>Błąd</value>
   </data>
   <data name="ErrorOccurred" xml:space="preserve">
     <value>Wystąpił błąd</value>
+  </data>
+  <data name="FAQ" xml:space="preserve">
+    <value>FAQ</value>
+  </data>
+  <data name="For" xml:space="preserve">
+    <value>Dla</value>
   </data>
   <data name="Hello" xml:space="preserve">
     <value>Cześć</value>
@@ -156,11 +192,20 @@
   <data name="KeepTrack" xml:space="preserve">
     <value>Śledź wszystkich pacjentów objętych opieką.</value>
   </data>
+  <data name="LEARNMORE" xml:space="preserve">
+    <value>DOWIEDZ SIĘ WIĘCEJ</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>Zaloguj się</value>
   </data>
   <data name="Logout" xml:space="preserve">
     <value>Wyloguj się</value>
+  </data>
+  <data name="Manage" xml:space="preserve">
+    <value>Zarządzaj harmonogramami wizyt u weterynarza, informując i przygotowując swój zespół i klientów.</value>
+  </data>
+  <data name="ManageAll" xml:space="preserve">
+    <value>Zarządzaj całą dokumentacją medyczną zwierząt na jednej wygodnej platformie.</value>
   </data>
   <data name="ManageAppointments" xml:space="preserve">
     <value>Zarządzaj Wizytami</value>
@@ -174,14 +219,47 @@
   <data name="ManageRooms" xml:space="preserve">
     <value>Zarządzaj Salami</value>
   </data>
+  <data name="Monitor" xml:space="preserve">
+    <value>Monitoruj harmonogramy personelu, aby uniknąć nakłądania się działań i opóźnień.</value>
+  </data>
+  <data name="Optimized" xml:space="preserve">
+    <value>Zoptymalizowane harmonogramy</value>
+  </data>
+  <data name="OurStaff" xml:space="preserve">
+    <value>Nasza Ekipa</value>
+  </data>
+  <data name="OurSystem" xml:space="preserve">
+    <value>Nasz system usprawnia działania Twojej kliniki, dzięki czemu możesz skupić się na zapewnieniu najlepszej opieki każdemu zwierzęciu.</value>
+  </data>
+  <data name="OurVeterinary" xml:space="preserve">
+    <value>Nasz system usprawnia operacje, zapewniając efektywne planowanie, opiekę nad pacjentem i prowadzenie dokumentacji dla lekarzy weterynarii. Pomagamy klientom zwiększyć produktywność, usprawnić komunikację z klientem i zapewnić wyjątkową obsługę zwierzętom domowym i ich właścicielom.</value>
+  </data>
+  <data name="PatientRecords" xml:space="preserve">
+    <value>Historia Zdrowia</value>
+  </data>
   <data name="Patients" xml:space="preserve">
     <value>Pacjenci</value>
+  </data>
+  <data name="Payments" xml:space="preserve">
+    <value>Płatności</value>
+  </data>
+  <data name="PetHealth" xml:space="preserve">
+    <value>usługi w zakresie zdrowia</value>
+  </data>
+  <data name="Procedures" xml:space="preserve">
+    <value>Procedury</value>
+  </data>
+  <data name="QuickLinks" xml:space="preserve">
+    <value>Na skróty</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Zarejestruj się</value>
   </data>
   <data name="Reliable" xml:space="preserve">
-    <value />
+    <value>Niezawodna</value>
+  </data>
+  <data name="Reviews" xml:space="preserve">
+    <value>Opinie</value>
   </data>
   <data name="Room" xml:space="preserve">
     <value>Pokój</value>
@@ -195,8 +273,32 @@
   <data name="ScheduleView" xml:space="preserve">
     <value>Planuj, wyświetlaj i zarządzaj wizytami pacjentów.</value>
   </data>
+  <data name="Services" xml:space="preserve">
+    <value>zwierząt domowych</value>
+  </data>
+  <data name="Simplify" xml:space="preserve">
+    <value>Uprość planowanie, dokumentację pacjentów i rozliczenia dzięki systemowi zaprojektowanemu z myślą o płynnym działaniu kliniki.</value>
+  </data>
+  <data name="Simplifybookings" xml:space="preserve">
+    <value>Uprość rezerwacje dzięki systemowi, który zapewnia bezproblemowe planowanie dla weterynarzy i dla klientów.</value>
+  </data>
+  <data name="Smart" xml:space="preserve">
+    <value>Inteligentne</value>
+  </data>
+  <data name="SmartTools" xml:space="preserve">
+    <value>Inteligętne Narzędzia</value>
+  </data>
+  <data name="Solutions" xml:space="preserve">
+    <value>Rozwiązania</value>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
+  </data>
+  <data name="ThatYouCan" xml:space="preserve">
+    <value>Której Możesz</value>
+  </data>
+  <data name="Trust" xml:space="preserve">
+    <value>Zaufać</value>
   </data>
   <data name="Try" xml:space="preserve">
     <value>Spróbuj ponownie</value>
@@ -207,7 +309,16 @@
   <data name="VetClinicManagementSystem" xml:space="preserve">
     <value>System Zarządzania Kliniką Weterynaryjną</value>
   </data>
+  <data name="VeterinaryCare" xml:space="preserve">
+    <value>Opieka Weterynaryjna</value>
+  </data>
   <data name="ViewAndManage" xml:space="preserve">
     <value>Przeglądaj i zarządzaj doktorami w kilnice.</value>
+  </data>
+  <data name="WeAreAlways" xml:space="preserve">
+    <value>Jesteśmy zawsze gotowi, aby pomóc tobie oraz twoim zwierzętom</value>
+  </data>
+  <data name="WeProvide" xml:space="preserve">
+    <value>Świadczymy fachowe usługi medyczne dla Twoich pupili, dbając o ich zdrowie i dobre samopoczucie na każdym etapie życia.</value>
   </data>
 </root>
