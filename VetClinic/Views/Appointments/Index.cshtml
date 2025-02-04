@@ -1,13 +1,13 @@
 ﻿@model List<Appointment>
 
 @section title {
-    <h2 style="font-family: 'Times New Roman', Times, serif;">Appointments</h2>
+    <h2>Appointments</h2>
 }
 
 <form method="get" asp-action="Index">
     <div class="row mb-3">
         <div class="col-4">
-            <label for="doctorFilter" class="col-form-label fw-bold">Filter by Doctor</label>
+            <label for="doctorFilter" class="col-form-label fw-bold" style="padding:10px"> Filter by Doctor </label>
             <select id="doctorFilter" name="doctorId" class="form-control">
                 <option value="">All</option>
                 @foreach (var doctor in ViewBag.Doctors)
@@ -17,7 +17,7 @@
             </select>
         </div>
         <div class="col-4">
-            <label for="patientFilter" class="col-form-label fw-bold">Filter by Patient</label>
+            <label for="patientFilter" class="col-form-label fw-bold" style="padding:10px"> Filter by Patient </label>
             <select id="patientFilter" name="patientId" class="form-control">
                 <option value="">All</option>
                 @foreach (var patient in ViewBag.Patients)
@@ -26,8 +26,8 @@
                 }
             </select>
         </div>
-        <div class="col-4 mt-4">
-            <button type="submit" class="btn btn-primary mt-2">Filter</button>
+        <div class="col-4">
+            <button type="submit" class="btn py-2">Filter</button>
         </div>
     </div>
 </form>
@@ -57,8 +57,8 @@
                     <td class="align-middle text-center">@(appointment.Patient != null ? appointment.Patient.PatientName : "N/A")</td>
                     <td class="align-middle text-center">@(appointment.Room != null ? appointment.Room.RoomNumber : "N/A")</td>
                     <td class="align-middle text-center">
-                        <a class="btn btn-outline-primary" asp-controller="Appointments" asp-action="Edit" asp-route-id="@appointment.AppointmentId"><i class="bi bi-pencil-square"></i> Edit</a>
-                        <a class="btn btn-outline-danger" asp-controller="Appointments" asp-action="Delete" asp-route-id="@appointment.AppointmentId" onclick="return confirmDelete()"><i class="bi bi-trash"></i> Delete</a>
+                        <a class="btn" asp-controller="Appointments" asp-action="Edit" asp-route-id="@appointment.AppointmentId"><i class="bi bi-pencil-square"></i> Edit</a>
+                        <a class="btn" asp-controller="Appointments" asp-action="Delete" asp-route-id="@appointment.AppointmentId" onclick="return confirmDelete()"><i class="bi bi-trash"></i> Delete</a>
                     </td>
                 </tr>
             }
@@ -69,7 +69,7 @@ else
 {
     <p>No appointments found.</p>
 }
-<a class="btn btn-outline-success" asp-controller="appointments" asp-action="add"><i class="bi bi-plus-circle"></i> Add Appointment</a>
+<a class="btn" asp-controller="appointments" asp-action="add"><i class="bi bi-plus-circle"></i> Add Appointment</a>
 
 @section Scripts {
     <script>

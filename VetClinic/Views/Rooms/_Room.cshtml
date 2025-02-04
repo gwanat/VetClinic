@@ -46,14 +46,20 @@
         <div class="col-2">
             <label class="fw-bold">This room is occupied</label>
         </div>
-        <div class="col-6 d-flex align-items-center">
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" asp-for="IsOccupied" value="true" id="occupiedYes" />
-                <label class="form-check-label fw-bold" for="occupiedYes">Yes</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" asp-for="IsOccupied" value="false" id="occupiedNo" />
-                <label class="form-check-label fw-bold" for="occupiedNo">No</label>
+        <div class="col-6">
+            <div class="row">
+                <div class="col-auto">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" asp-for="IsOccupied" value="true" id="occupiedYes" />
+                        <label class="form-check-label fw-bold" for="occupiedYes">Yes</label>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" asp-for="IsOccupied" value="false" id="occupiedNo" />
+                        <label class="form-check-label fw-bold" for="occupiedNo">No</label>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -1,7 +1,7 @@
 ﻿@model List<Room>
 
 @section title {
-    <h2 style="font-family: 'Times New Roman', Times, serif; ">Rooms</h2>
+    <h2>Rooms</h2>
 }
 
 @if (Model != null && Model.Count() > 0)
@@ -25,8 +25,8 @@
                     <td class="align-middle text-center">@(room.IsOccupied ? "Occupied" : "Not occupied")</td>
                     <td class="align-middle text-center">@room.Description</td>
                     <td class="align-middle text-center">
-                        <a class="btn btn-outline-primary" asp-controller="rooms" asp-action="edit" asp-route-id="@room.RoomId"><i class="bi bi-pencil-square"></i> @VetClinic.Resources.Resource.Edit</a>
-                        <a class="btn btn-outline-danger" asp-controller="rooms" asp-action="delete" asp-route-id="@room.RoomId" onclick="return confirmDelete()"><i class="bi bi-trash"></i> @VetClinic.Resources.Resource.Delete</a>
+                        <a class="btn" asp-controller="rooms" asp-action="edit" asp-route-id="@room.RoomId"><i class="bi bi-pencil-square"></i> @VetClinic.Resources.Resource.Edit</a>
+                        <a class="btn" asp-controller="rooms" asp-action="delete" asp-route-id="@room.RoomId" onclick="return confirmDelete()"><i class="bi bi-trash"></i> @VetClinic.Resources.Resource.Delete</a>
                     </td>
                 </tr>
             }
@@ -34,7 +34,7 @@
     </table>
 }
 <br />
-<a class="btn btn-outline-success" asp-controller="rooms" asp-action="add"><i class="bi bi-plus-circle"></i> @VetClinic.Resources.Resource.AddRoom</a>
+<a class="btn" asp-controller="rooms" asp-action="add"><i class="bi bi-plus-circle"></i> @VetClinic.Resources.Resource.AddRoom</a>
 
 @section Scripts {
     <script>

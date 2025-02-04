@@ -1,5 +1,5 @@
 ﻿@section title {
-    <h1>@VetClinic.Resources.Resource.VetClinicManagementSystem</h1>
+    <h1 style="text-align:center">@VetClinic.Resources.Resource.VetClinicManagementSystem</h1>
 }
 
 <div class="container mt-4">
@@ -7,7 +7,7 @@
     {
         @if (User.HasClaim("Position", "Admin"))
         {
-            <a class="nav-link text-dark btn btn-light my-4 w-100" asp-controller="doctors" asp-action="index">
+            <a class="nav-link btn my-4 w-100" asp-controller="doctors" asp-action="index">
                 <section id="doctors">
                     <h2 class="text-center">@VetClinic.Resources.Resource.ManageDoctors</h2>
                     <p class="lead text-center">@VetClinic.Resources.Resource.ViewAndManage</p>
@@ -17,7 +17,7 @@
 
         @if (User.HasClaim("Position", "Admin") || User.HasClaim("Position", "Doctor"))
         {
-            <a class="nav-link text-dark btn btn-light my-4 w-100" asp-controller="patients" asp-action="index">
+            <a class="nav-link btn my-4 w-100" asp-controller="patients" asp-action="index">
                 <section id="patients">
                     <h2 class="text-center">@VetClinic.Resources.Resource.ManagePatients</h2>
                     <p class="lead text-center">@VetClinic.Resources.Resource.KeepTrack</p>
@@ -27,7 +27,7 @@
 
         @if (User.HasClaim("Position", "Admin"))
         {
-            <a class="nav-link text-dark btn btn-light my-4 w-100" asp-controller="rooms" asp-action="index">
+            <a class="nav-link btn my-4 w-100" asp-controller="rooms" asp-action="index">
                 <section id="rooms">
                     <h2 class="text-center">@VetClinic.Resources.Resource.ManageRooms</h2>
                     <p class="lead text-center">@VetClinic.Resources.Resource.CheckAvail</p>
@@ -37,7 +37,7 @@
 
         @if (User.HasClaim("Position", "Admin") || User.HasClaim("Position", "Doctor"))
         {
-            <a class="nav-link text-dark btn btn-light my-4 w-100" asp-controller="appointments" asp-action="index">
+            <a class="nav-link btn my-4 w-100" asp-controller="appointments" asp-action="index">
                 <section id="appointments">
                     <h2 class="text-center">@VetClinic.Resources.Resource.ManageAppointments</h2>
                     <p class="lead text-center">@VetClinic.Resources.Resource.ScheduleView</p>
@@ -54,8 +54,9 @@
 						<div class="row">
 							<div class="col-lg-7">
 								<div class="text">
-									<h1>Compassionate <span>Veterinary Care</span> That You Can <span>Trust!</span></h1>
+									<h1>Reliable <span>Veterinary Care</span> That You Can <span>Trust!</span></h1>
 									<p>We provide expert medical services for your pets, ensuring their health and well-being at every stage of life. </p>
+									<br />
 									<div class="button">
 										<a class=" btn btn-outline-primary my-2 my-sm-0" id="register" asp-area="Identity" asp-page="/Account/Register">
 											<i class="bi bi-person-plus"></i> @VetClinic.Resources.Resource.Register
@@ -76,6 +77,7 @@
 								<div class="text">
 									<h1>Comprehensive <span>Pet Health</span> Services</h1>
 									<p>From vaccinations to surgery, our dedicated team offers a full range of treatments tailored to your pet's needs.</p>
+									<br />
 									<div class="button">
 										<a class=" btn btn-outline-primary my-2 my-sm-0" id="register" asp-area="Identity" asp-page="/Account/Register">
 											<i class="bi bi-person-plus"></i> @VetClinic.Resources.Resource.Register
@@ -96,6 +98,7 @@
 								<div class="text">
 									<h1>We cover <span>Emergency</span> &<span> Routine Check-ups</span></h1>
 									<p>Available when you need us most—because your pet’s health is our priority. Book an appointment today! </p>
+									<br />
 									<div class="button">
 										<a class=" btn btn-outline-primary my-2 my-sm-0" id="register" asp-area="Identity" asp-page="/Account/Register">
 											<i class="bi bi-person-plus"></i> @VetClinic.Resources.Resource.Register

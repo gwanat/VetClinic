@@ -1,7 +1,7 @@
 ﻿@model List<Patient>
 
 @section title {
-    <h2 style="font-family: 'Times New Roman', Times, serif;">Patients</h2>
+    <h2>Patients</h2>
 }
 
 <div id="searcharea">
@@ -14,7 +14,7 @@
                 <input type="text" name="searchOwnerName" class="form-control" placeholder="Search by owner's name" value="@ViewBag.SearchOwnerName" />
             </div>
             <div class="col-2">
-                <button type="submit" class="btn btn-outline-primary">Search</button>
+                <button type="submit" class="btn btn-sm btn-primary py-2">Search</button>
             </div>
         </div>
     </form>
@@ -49,8 +49,8 @@
                         <td class="align-middle text-center">@patient.Diagnosis</td>
                         <td class="align-middle text-center action-column">
                             <div class="button-container">
-                                <a class="btn btn-outline-primary" asp-controller="patients" asp-action="edit" asp-route-id="@patient.PatientId"><i class="bi bi-pencil-square"></i> Edit</a>
-                                <a class="btn btn-outline-danger" asp-controller="patients" asp-action="delete" asp-route-id="@patient.PatientId" onclick="return confirmDelete()"><i class="bi bi-trash"></i> Delete</a>
+                                <a class="btn" asp-controller="patients" asp-action="edit" asp-route-id="@patient.PatientId"><i class="bi bi-pencil-square"></i> Edit</a>
+                                <a class="btn" asp-controller="patients" asp-action="delete" asp-route-id="@patient.PatientId" onclick="return confirmDelete()"><i class="bi bi-trash"></i> Delete</a>
                             </div>
                         </td>
                     </tr>
@@ -61,8 +61,8 @@
 }
 <br />
 <div>
-    <a class="btn btn-outline-success" asp-controller="patients" asp-action="add"><i class="bi bi-plus-circle"></i> Add Patient</a>
-    <button class="btn btn-outline-secondary" onclick="printPatients()"><i class="bi bi-printer"></i> Print</button>
+    <a class="btn" asp-controller="patients" asp-action="add"><i class="bi bi-plus-circle"></i> Add Patient</a>
+    <button class="btn" onclick="printPatients()"><i class="bi bi-printer"></i> Print</button>
 </div>
 
 @section Scripts {

@@ -126,6 +126,9 @@
   <data name="Appointments" xml:space="preserve">
     <value>Appointments</value>
   </data>
+  <data name="carousel1header1" xml:space="preserve">
+    <value />
+  </data>
   <data name="CheckAvail" xml:space="preserve">
     <value>Check availability and manage rooms for treatments and surgeries</value>
   </data>

@@ -1,7 +1,7 @@
 ﻿@model List<Doctor>
 
 @section title {
-    <h2 style="font-family: 'Times New Roman', Times, serif; ">Doctors</h2>
+    <h2>Doctors</h2>
 }
 
 @if (Model != null && Model.Count() > 0)
@@ -22,8 +22,8 @@
                     <td class="align-middle text-center">@doctor.Name</td>
                     <td class="align-middle text-center">@doctor.Specialty</td>
                     <td class="align-middle text-center">
-                        <a class="btn btn-outline-primary" asp-controller="doctors" asp-action="edit" asp-route-id="@doctor.DoctorId"><i class="bi bi-pencil-square"></i> Edit</a>
-                        <a class="btn btn-outline-danger" asp-controller="doctors" asp-action="delete" asp-route-doctorid="@doctor.DoctorId" onclick="return confirmDelete()"><i class="bi bi-trash"></i> Delete </a>
+                        <a class="btn" asp-controller="doctors" asp-action="edit" asp-route-id="@doctor.DoctorId"><i class="bi bi-pencil-square"></i> Edit</a>
+                        <a class="btn" asp-controller="doctors" asp-action="delete" asp-route-doctorid="@doctor.DoctorId" onclick="return confirmDelete()"><i class="bi bi-trash"></i> Delete </a>
                     </td>
                     
                 </tr>
@@ -32,7 +32,7 @@
     </table>
 }
 <br />
-<a class="btn btn-outline-success" asp-controller="doctors" asp-action="add"><i class="bi bi-plus-circle"></i> Add Doctor</a>
+<a class="btn" asp-controller="doctors" asp-action="add"><i class="bi bi-plus-circle"></i> Add Doctor</a>
 
 @section Scripts {
     <script>

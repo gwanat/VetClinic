@@ -180,6 +180,9 @@
   <data name="Register" xml:space="preserve">
     <value>Zarejestruj się</value>
   </data>
+  <data name="Reliable" xml:space="preserve">
+    <value />
+  </data>
   <data name="Room" xml:space="preserve">
     <value>Pokój</value>
   </data>
