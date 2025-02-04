@@ -1,31 +1,69 @@
 ﻿@section title {
     <h1>@VetClinic.Resources.Resource.VetClinicManagementSystem</h1>
 }
-<div class="container mt-4">
-    <a class="nav-link text-dark btn btn-light my-4 w-100" asp-controller="doctors" asp-action="index">
-        <section id="doctors">
-            <h2 class="text-center">@VetClinic.Resources.Resource.ManageDoctors</h2>
-            <p class="lead text-center">@VetClinic.Resources.Resource.ViewAndManage</p>
-        </section>
-    </a>
-    <a class="nav-link text-dark btn btn-light my-4 w-100" asp-controller="patients" asp-action="index">
-        <section id="patients">
-            <h2 class="text-center">@VetClinic.Resources.Resource.ManagePatients</h2>
-            <p class="lead text-center">@VetClinic.Resources.Resource.KeepTrack</p>
-        </section>
-    </a>
-    <a class="nav-link text-dark btn btn-light my-4 w-100" asp-controller="rooms" asp-action="index">
-        <section id="rooms">
-            <h2 class="text-center">@VetClinic.Resources.Resource.ManageRooms</h2>
-            <p class="lead text-center">@VetClinic.Resources.Resource.CheckAvail</p>
-        </section>
-    </a>
-    <a class="nav-link text-dark btn btn-light my-4 w-100" asp-controller="appointments" asp-action="index">
-        <section id="appointments">
-            <h2 class="text-center">@VetClinic.Resources.Resource.ManageAppointments</h2>
-            <p class="lead text-center">@VetClinic.Resources.Resource.ScheduleView</p>
-        </section>
-    </a>
-</div>
 
-    
+<div class="container mt-4">
+    @if (User.Identity.IsAuthenticated)
+    {
+        @if (User.HasClaim("Position", "Admin"))
+        {
+            <a class="nav-link text-dark btn btn-light my-4 w-100" asp-controller="doctors" asp-action="index">
+                <section id="doctors">
+                    <h2 class="text-center">@VetClinic.Resources.Resource.ManageDoctors</h2>
+                    <p class="lead text-center">@VetClinic.Resources.Resource.ViewAndManage</p>
+                </section>
+            </a>
+        }
+
+        @if (User.HasClaim("Position", "Admin") || User.HasClaim("Position", "Doctor"))
+        {
+            <a class="nav-link text-dark btn btn-light my-4 w-100" asp-controller="patients" asp-action="index">
+                <section id="patients">
+                    <h2 class="text-center">@VetClinic.Resources.Resource.ManagePatients</h2>
+                    <p class="lead text-center">@VetClinic.Resources.Resource.KeepTrack</p>
+                </section>
+            </a>
+        }
+
+        @if (User.HasClaim("Position", "Admin"))
+        {
+            <a class="nav-link text-dark btn btn-light my-4 w-100" asp-controller="rooms" asp-action="index">
+                <section id="rooms">
+                    <h2 class="text-center">@VetClinic.Resources.Resource.ManageRooms</h2>
+                    <p class="lead text-center">@VetClinic.Resources.Resource.CheckAvail</p>
+                </section>
+            </a>
+        }
+
+        @if (User.HasClaim("Position", "Admin") || User.HasClaim("Position", "Doctor"))
+        {
+            <a class="nav-link text-dark btn btn-light my-4 w-100" asp-controller="appointments" asp-action="index">
+                <section id="appointments">
+                    <h2 class="text-center">@VetClinic.Resources.Resource.ManageAppointments</h2>
+                    <p class="lead text-center">@VetClinic.Resources.Resource.ScheduleView</p>
+                </section>
+            </a>
+        }
+    }
+    else
+    {
+        <div class="jumbotron text-center">
+            <h1 class="display-4">Welcome to the Vet Clinic Management System!</h1>
+            <p class="lead">Manage your appointments, patients, doctors, and rooms all in one place.</p>
+            <hr class="my-4">
+            <p>To access full functionality, please login or register.</p>
+            <a class="btn btn-primary btn-lg"
+               asp-area="Identity"
+               asp-page="/Account/Login"
+               role="button">
+                <i class="bi bi-box-arrow-in-right"></i> @VetClinic.Resources.Resource.Login
+            </a>
+            <a class="btn btn-secondary btn-lg"
+               asp-area="Identity"
+               asp-page="/Account/Register"
+               role="button">
+                <i class="bi bi-person-plus"></i> @VetClinic.Resources.Resource.Register
+            </a>
+        </div>
+    }
+</div>

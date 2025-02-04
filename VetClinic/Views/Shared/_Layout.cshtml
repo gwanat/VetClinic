@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@using VetClinic.Areas.Identity.Data
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -14,14 +19,19 @@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Vet Clinic</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item mx-2">
-                            <a class="nav-link text-muted" asp-controller="Home" asp-action="Index">
+                            <a class="nav-link text-muted"
+                               asp-area=""
+                               asp-controller="Home"
+                               asp-action="Index">
                                 <i class="bi bi-house-fill"></i> @VetClinic.Resources.Resource.Home
                             </a>
                         </li>
@@ -31,22 +41,34 @@
                             @if (User.HasClaim("Position", "Admin"))
                             {
                                 <li class="nav-item mx-2">
-                                    <a class="nav-link text-muted" asp-controller="Doctors" asp-action="Index">
+                                    <a class="nav-link text-muted"
+                                       asp-area=""
+                                       asp-controller="Doctors"
+                                       asp-action="Index">
                                         <i class="bi bi-person-fill"></i> @VetClinic.Resources.Resource.Doctors
                                     </a>
                                 </li>
                                 <li class="nav-item mx-2">
-                                    <a class="nav-link text-muted" asp-controller="Patients" asp-action="Index">
+                                    <a class="nav-link text-muted"
+                                       asp-area=""
+                                       asp-controller="Patients"
+                                       asp-action="Index">
                                         <i class="bi bi-bug-fill"></i> @VetClinic.Resources.Resource.Patients
                                     </a>
                                 </li>
                                 <li class="nav-item mx-2">
-                                    <a class="nav-link text-muted" asp-controller="Rooms" asp-action="Index">
+                                    <a class="nav-link text-muted"
+                                       asp-area=""
+                                       asp-controller="Rooms"
+                                       asp-action="Index">
                                         <i class="bi bi-door-closed-fill"></i> @VetClinic.Resources.Resource.Rooms
                                     </a>
                                 </li>
                                 <li class="nav-item mx-2">
-                                    <a class="nav-link text-muted" asp-controller="Appointments" asp-action="Index">
+                                    <a class="nav-link text-muted"
+                                       asp-area=""
+                                       asp-controller="Appointments"
+                                       asp-action="Index">
                                         <i class="bi bi-file-earmark-medical-fill"></i> @VetClinic.Resources.Resource.Appointments
                                     </a>
                                 </li>
@@ -55,12 +77,18 @@
                             @if (User.HasClaim("Position", "Doctor"))
                             {
                                 <li class="nav-item mx-2">
-                                    <a class="nav-link text-muted" asp-controller="Patients" asp-action="Index">
+                                    <a class="nav-link text-muted"
+                                       asp-area=""
+                                       asp-controller="Patients"
+                                       asp-action="Index">
                                         <i class="bi bi-bug-fill"></i> @VetClinic.Resources.Resource.Patients
                                     </a>
                                 </li>
                                 <li class="nav-item mx-2">
-                                    <a class="nav-link text-muted" asp-controller="Appointments" asp-action="Index">
+                                    <a class="nav-link text-muted"
+                                       asp-area=""
+                                       asp-controller="Appointments"
+                                       asp-action="Index">
                                         <i class="bi bi-file-earmark-medical-fill"></i> @VetClinic.Resources.Resource.Appointments
                                     </a>
                                 </li>
@@ -69,9 +97,9 @@
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
-
                 <div class="dropdown">
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                       data-bs-toggle="dropdown" aria-expanded="false">
                         @if (Thread.CurrentThread.CurrentCulture.ToString() == "en")
                         {
                             <span>English</span>
@@ -83,10 +111,22 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <li>
-                            <a class="dropdown-item" asp-controller="Home" asp-action="ChangeLanguage" asp-route-lang="en">English</a>
+                            <a class="dropdown-item"
+                               asp-area=""
+                               asp-controller="Home"
+                               asp-action="ChangeLanguage"
+                               asp-route-lang="en">
+                                English
+                            </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" asp-controller="Home" asp-action="ChangeLanguage" asp-route-lang="pl">Polish</a>
+                            <a class="dropdown-item"
+                               asp-area=""
+                               asp-controller="Home"
+                               asp-action="ChangeLanguage"
+                               asp-route-lang="pl">
+                                Polish
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -106,7 +146,6 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 <footer class="bg-bright text-secondary text-center py-3">
