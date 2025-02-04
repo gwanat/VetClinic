@@ -118,204 +118,204 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutUs" xml:space="preserve">
-    <value>O Nas</value>
+    <value>A propos</value>
   </data>
   <data name="AccessDetailed" xml:space="preserve">
-    <value>Uzyskaj dostęp do szczegółowych historii zdrowia i planów leczenia dla każdego zwierzęcia w ciągu kilku sekund.</value>
+    <value>Accédez aux antécédents médicaux détaillés et aux plans de traitement de chaque animal en quelques secondes.ealth histories and treatment plans for every pet in seconds.</value>
   </data>
   <data name="Actions" xml:space="preserve">
-    <value>Akcje</value>
+    <value>Actes</value>
   </data>
   <data name="AddRoom" xml:space="preserve">
-    <value>Dodaj pokój</value>
+    <value>Ajouter une salle</value>
   </data>
   <data name="AppointmentManagement" xml:space="preserve">
-    <value>Zarządzanie Terminami</value>
+    <value>Gestion des rendez-vous</value>
   </data>
   <data name="Appointments" xml:space="preserve">
-    <value>Wizyty</value>
+    <value>Rendez-vous</value>
   </data>
   <data name="AppointmentScheduling" xml:space="preserve">
-    <value>Planowanie Wizyt</value>
+    <value>Prise de rendez-vous</value>
   </data>
   <data name="BusyVets" xml:space="preserve">
-    <value>Zapracowanych Weterynarzy</value>
+    <value>vétérinaires occupés</value>
   </data>
   <data name="CheckAvail" xml:space="preserve">
-    <value>Sprawdzaj dostępność i zarządzaj salami do zabiegów i operacji.</value>
+    <value>Vérifiez la disponibilité et gérez les salles pour les traitements et les chirurgies.</value>
   </data>
   <data name="Comprehensive" xml:space="preserve">
-    <value>Kompleksowe</value>
+    <value>Services</value>
   </data>
   <data name="ContactUs" xml:space="preserve">
-    <value>Kontakt</value>
+    <value>Contactez-nous</value>
   </data>
   <data name="Delete" xml:space="preserve">
-    <value>Usuń</value>
+    <value>Supprimer</value>
   </data>
   <data name="Description" xml:space="preserve">
-    <value>Opis</value>
+    <value>Description</value>
   </data>
   <data name="Doctors" xml:space="preserve">
-    <value>Lekarze</value>
+    <value>Médecins</value>
   </data>
   <data name="Edit" xml:space="preserve">
-    <value>Edytuj</value>
+    <value>Modifier</value>
   </data>
   <data name="EfficientTools" xml:space="preserve">
-    <value>Wydajne narzędzia do śledzenia, organizowania i priorytetyzacji pilnych przypadków, zapewniające zwierzętom potrzebną opiekę na czas.</value>
+    <value>Des outils efficaces pour suivre, organiser et hiérarchiser les cas urgents, garantissant ainsi que les animaux reçoivent les soins dont ils ont besoin au bon moment.</value>
   </data>
   <data name="EffOrg" xml:space="preserve">
-    <value>Efektywnie organizuj rezerwacje klientów i zarządzaj nimi dzięki aktualizacjom dostępności w czasie rzeczywistym.</value>
+    <value>Organisez et gérez efficacement les réservations des clients avec des mises à jour de disponibilité en temps réel.</value>
   </data>
   <data name="EmergencyCases" xml:space="preserve">
-    <value>Nagłe Przypadki</value>
+    <value>Cas d'urgence</value>
   </data>
   <data name="Error" xml:space="preserve">
-    <value>Błąd</value>
+    <value>Erreur</value>
   </data>
   <data name="ErrorOccurred" xml:space="preserve">
-    <value>Wystąpił błąd</value>
+    <value>Une erreur s'est produite</value>
   </data>
   <data name="FAQ" xml:space="preserve">
     <value>FAQ</value>
   </data>
   <data name="For" xml:space="preserve">
-    <value>Dla</value>
+    <value>pour les</value>
   </data>
   <data name="Hello" xml:space="preserve">
-    <value>Cześć</value>
+    <value>Bonjour</value>
   </data>
   <data name="Home" xml:space="preserve">
-    <value>Strona Główna</value>
+    <value>Accueil</value>
   </data>
   <data name="KeepTrack" xml:space="preserve">
-    <value>Śledź wszystkich pacjentów objętych opieką.</value>
+    <value>Gardez une trace de tous les patients sous soins.</value>
   </data>
   <data name="LEARNMORE" xml:space="preserve">
-    <value>DOWIEDZ SIĘ WIĘCEJ</value>
+    <value>EN SAVOIR PLUS</value>
   </data>
   <data name="Login" xml:space="preserve">
-    <value>Zaloguj się</value>
+    <value>Se connecter</value>
   </data>
   <data name="Logout" xml:space="preserve">
-    <value>Wyloguj się</value>
+    <value>Déconnexion</value>
   </data>
   <data name="Manage" xml:space="preserve">
-    <value>Zarządzaj harmonogramami i wizytami weterynarzy, informując i przygotowując swój zespół i klientów.</value>
+    <value>Gérez les horaires et les rendez-vous vétérinaires, tenant votre équipe et vos clients informés et préparés.</value>
   </data>
   <data name="ManageAll" xml:space="preserve">
-    <value>Zarządzaj całą dokumentacją medyczną zwierząt na jednej wygodnej platformie.</value>
+    <value>Gérez tous les dossiers médicaux de vos animaux de compagnie sur une seule plateforme pratique.</value>
   </data>
   <data name="ManageAppointments" xml:space="preserve">
-    <value>Zarządzaj Wizytami</value>
+    <value>Gérer les rendez-vous</value>
   </data>
   <data name="ManageDoctors" xml:space="preserve">
-    <value>Zarządzaj Lekarzami</value>
+    <value>Gérer les médecins</value>
   </data>
   <data name="ManagePatients" xml:space="preserve">
-    <value>Zarządzaj Pacjentami</value>
+    <value>Gérer les patients</value>
   </data>
   <data name="ManageRooms" xml:space="preserve">
-    <value>Zarządzaj Salami</value>
+    <value>Gérer les salles</value>
   </data>
   <data name="Monitor" xml:space="preserve">
-    <value>Monitoruj harmonogramy personelu, aby uniknąć nakładania się działań i opóźnień.</value>
+    <value>Surveiller les horaires du personnel pour éviter les chevauchements et les retards.</value>
   </data>
   <data name="Optimized" xml:space="preserve">
-    <value>Zoptymalizowane harmonogramy</value>
+    <value>Des horaires Optimisés, de Meilleurs Soins</value>
   </data>
   <data name="OurStaff" xml:space="preserve">
-    <value>Nasza Ekipa</value>
+    <value>Notre personnel</value>
   </data>
   <data name="OurSystem" xml:space="preserve">
-    <value>Nasz system usprawnia działanie Twojej kliniki, dzięki czemu możesz skupić się na zapewnieniu najlepszej opieki każdemu futrzanemu przyjacielowi.</value>
+    <value>Notre système rationalise les opérations de votre clinique afin que vous puissiez vous concentrer sur la prestation des meilleurs soins à chaque animal.</value>
   </data>
   <data name="OurVeterinary" xml:space="preserve">
-    <value>Nasz system zarządzania kliniką weterynaryjną usprawnia operacje, zapewniając efektywne planowanie, opiekę nad pacjentem i prowadzenie dokumentacji dla weterynarzy. Pomagamy klinikom zwiększyć produktywność, poprawić komunikację z klientami i zapewnić wyjątkową obsługę zwierzętom i ich właścicielom.</value>
+    <value>Notre système de gestion de clinique vétérinaire rationalise les opérations, garantissant une planification efficace, des soins aux patients et une tenue des dossiers pour les vétérinaires. Nous aidons les cliniques à améliorer leur productivité, la communication avec les clients et à fournir un service exceptionnel aux animaux de compagnie et à leurs propriétaires.</value>
   </data>
   <data name="PatientRecords" xml:space="preserve">
-    <value>Historia Zdrowia</value>
+    <value>Dossiers des patients</value>
   </data>
   <data name="Patients" xml:space="preserve">
-    <value>Pacjenci</value>
+    <value>Patients</value>
   </data>
   <data name="Payments" xml:space="preserve">
-    <value>Płatności</value>
+    <value>Paiements</value>
   </data>
   <data name="PetHealth" xml:space="preserve">
-    <value>usługi w zakresie zdrowia</value>
+    <value>de santé pour animaux</value>
   </data>
   <data name="Procedures" xml:space="preserve">
-    <value>Procedury</value>
+    <value>Procédures</value>
   </data>
   <data name="Register" xml:space="preserve">
-    <value>Zarejestruj się</value>
+    <value>S'inscrire</value>
   </data>
   <data name="Reliable" xml:space="preserve">
-    <value>Niezawodna</value>
+    <value>Des soins vétérinaires</value>
   </data>
   <data name="Reviews" xml:space="preserve">
-    <value>Opinie</value>
+    <value>Avis</value>
   </data>
   <data name="Room" xml:space="preserve">
-    <value>Pokój</value>
+    <value>Salle</value>
   </data>
   <data name="RoomNumber" xml:space="preserve">
-    <value>Numer Pokoju</value>
+    <value>Numéro de salle</value>
   </data>
   <data name="Rooms" xml:space="preserve">
-    <value>Sale</value>
+    <value>Salles</value>
   </data>
   <data name="ScheduleView" xml:space="preserve">
-    <value>Planuj, wyświetlaj i zarządzaj wizytami pacjentów.</value>
+    <value>Planifier, visualiser et gérer les rendez-vous des patients</value>
   </data>
   <data name="Services" xml:space="preserve">
-    <value>zwierząt domowych</value>
+    <value>compréhensifs</value>
   </data>
   <data name="Simplify" xml:space="preserve">
-    <value>Uprość planowanie, dokumentację pacjentów i rozliczenia dzięki systemowi zaprojektowanemu z myślą o płynnym działaniu kliniki.</value>
+    <value>Simplifiez la planification, les dossiers des patients et la facturation grâce à un système conçu pour assurer le bon fonctionnement de votre clinique.</value>
   </data>
   <data name="Simplifybookings" xml:space="preserve">
-    <value>Uprość rezerwacje dzięki systemowi, który zapewnia bezproblemowe planowanie dla weterynarzy i dla klientów.</value>
+    <value>Simplifiez les réservations avec un système qui garantit une planification transparente pour les vétérinaires et les clients.</value>
   </data>
   <data name="Smart" xml:space="preserve">
-    <value>Inteligentne</value>
+    <value>Solutions</value>
   </data>
   <data name="SmartTools" xml:space="preserve">
-    <value>Inteligentne Narzędzia</value>
+    <value>Outils intelligents</value>
   </data>
   <data name="Solutions" xml:space="preserve">
-    <value>Rozwiązania</value>
+    <value>intelligentes</value>
   </data>
   <data name="Status" xml:space="preserve">
-    <value>Status</value>
+    <value>Statut</value>
   </data>
   <data name="ThatYouCan" xml:space="preserve">
-    <value>Której Możesz</value>
+    <value>vous pouvez</value>
   </data>
   <data name="Trust" xml:space="preserve">
-    <value>Zaufać</value>
+    <value>faire confiance !</value>
   </data>
   <data name="Try" xml:space="preserve">
-    <value>Spróbuj ponownie</value>
+    <value>Réessayez plus tard ou contactez le support.</value>
   </data>
   <data name="Type" xml:space="preserve">
-    <value>Typ</value>
+    <value>Type</value>
   </data>
   <data name="VetClinicManagementSystem" xml:space="preserve">
-    <value>System Zarządzania Kliniką Weterynaryjną</value>
+    <value>Système de gestion de Clinique Vétérinaire</value>
   </data>
   <data name="VeterinaryCare" xml:space="preserve">
-    <value>Opieka Weterynaryjna</value>
+    <value>fiables auxquels</value>
   </data>
   <data name="ViewAndManage" xml:space="preserve">
-    <value>Przeglądaj i zarządzaj doktorami w kilnice.</value>
+    <value>Affichez et gérez tous les médecins travaillant à la clinique.</value>
   </data>
   <data name="WeAreAlways" xml:space="preserve">
-    <value>Jesteśmy Zawsze Gotowi, Aby Pomóc Tobie oraz Twoim Zwierzętom</value>
+    <value>Nous sommes toujours prêts à vous aider, vous et vos animaux de compagnie</value>
   </data>
   <data name="WeProvide" xml:space="preserve">
-    <value>Świadczymy fachowe usługi medyczne dla Twoich pupili, dbając o ich zdrowie i dobre samopoczucie na każdym etapie życia.</value>
+    <value>Nous offrons des services médicaux d'experts pour vos animaux de compagnie, assurant leur santé et leur bien-être à chaque étape de leur vie.</value>
   </data>
 </root>
