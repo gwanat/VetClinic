@@ -117,11 +117,50 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Actions" xml:space="preserve">
+    <value>Akcje</value>
+  </data>
+  <data name="AddRoom" xml:space="preserve">
+    <value>Dodaj pokój</value>
+  </data>
+  <data name="Appointments" xml:space="preserve">
+    <value>Wizyty</value>
+  </data>
   <data name="CheckAvail" xml:space="preserve">
     <value>Sprawdzaj dostępność i zarządzaj salami do zabiegów i operacji.</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Usuń</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Opis</value>
+  </data>
+  <data name="Doctors" xml:space="preserve">
+    <value>Lekarze</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edytuj</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Błąd</value>
+  </data>
+  <data name="ErrorOccurred" xml:space="preserve">
+    <value>Wystąpił błąd</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Cześć</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Strona Główna</value>
+  </data>
   <data name="KeepTrack" xml:space="preserve">
     <value>Śledź wszystkich pacjentów objętych opieką.</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Zaloguj się</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Wyloguj się</value>
   </data>
   <data name="ManageAppointments" xml:space="preserve">
     <value>Zarządzaj Wizytami</value>
@@ -135,8 +174,32 @@
   <data name="ManageRooms" xml:space="preserve">
     <value>Zarządzaj Salami</value>
   </data>
+  <data name="Patients" xml:space="preserve">
+    <value>Pacjenci</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Zarejestruj się</value>
+  </data>
+  <data name="Room" xml:space="preserve">
+    <value>Pokój</value>
+  </data>
+  <data name="RoomNumber" xml:space="preserve">
+    <value>Numer Pokoju</value>
+  </data>
+  <data name="Rooms" xml:space="preserve">
+    <value>Sale</value>
+  </data>
   <data name="ScheduleView" xml:space="preserve">
     <value>Planuj, wyświetlaj i zarządzaj wizytami pacjentów.</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Try" xml:space="preserve">
+    <value>Spróbuj ponownie</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Typ</value>
   </data>
   <data name="VetClinicManagementSystem" xml:space="preserve">
     <value>System Zarządzania Kliniką Weterynaryjną</value>

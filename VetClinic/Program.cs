@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using VetClinic.Models;
 using VetClinic.Data;
 using VetClinic.Areas.Identity.Data;
+using Microsoft.OpenApi.Models;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +29,8 @@ builder.Services.AddDbContext<VetClinicContext>(options =>
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<AccountContext>();
 
+
+
 builder.Services.AddRazorPages();
 
 builder.Services.AddAuthorization(options =>
@@ -35,8 +39,35 @@ builder.Services.AddAuthorization(options =>
     options.AddPolicy("Doctors", p => p.RequireClaim("Position", "Doctor"));
     options.AddPolicy("AdminOrDoctor", p => p.RequireClaim("Position", "Admin", "Doctor"));
 });
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { 
+        Title = "Vet Clicnic API", 
+        Version = "v1",
+        Description = "An API to perform Vet Clinic operations",
+        Contact = new OpenApiContact
+        {
+            Name = "To ja",
+            Email = "contact@email.com"
+        }
+    });
+
+    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+    c.IncludeXmlComments(xmlPath);
+});
+
 
 var app = builder.Build();
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Vet Clinic API v1");
+    });
+}
 
 if (!app.Environment.IsDevelopment())
 {
@@ -64,6 +95,20 @@ app.Use(async (context, next) =>
     }
     await next.Invoke();
 });
+
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<VetClinicContext>();
+    try
+    {
+        dbContext.Database.EnsureCreated();
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("Database connection failed: " + ex.Message);
+    }
+}
+
 
 app.UseAuthentication();
 app.UseAuthorization();

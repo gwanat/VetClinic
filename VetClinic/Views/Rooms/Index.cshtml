@@ -9,11 +9,11 @@
     <table class="table table-striped">
         <thead>
             <tr class="text-center">
-                <th>Room Number</th>
-                <th>Type</th>
-                <th>Status</th>
-                <th>Description</th>
-                <th>Actions</th>
+                <th>@VetClinic.Resources.Resource.RoomNumber</th>
+                <th>@VetClinic.Resources.Resource.Type</th>
+                <th>@VetClinic.Resources.Resource.Status</th>
+                <th>@VetClinic.Resources.Resource.Description</th>
+                <th>@VetClinic.Resources.Resource.Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -25,8 +25,8 @@
                     <td class="align-middle text-center">@(room.IsOccupied ? "Occupied" : "Not occupied")</td>
                     <td class="align-middle text-center">@room.Description</td>
                     <td class="align-middle text-center">
-                        <a class="btn btn-outline-primary" asp-controller="rooms" asp-action="edit" asp-route-id="@room.RoomId"><i class="bi bi-pencil-square"></i> Edit</a>
-                        <a class="btn btn-outline-danger" asp-controller="rooms" asp-action="delete" asp-route-id="@room.RoomId" onclick="return confirmDelete()"><i class="bi bi-trash"></i> Delete</a>
+                        <a class="btn btn-outline-primary" asp-controller="rooms" asp-action="edit" asp-route-id="@room.RoomId"><i class="bi bi-pencil-square"></i> @VetClinic.Resources.Resource.Edit</a>
+                        <a class="btn btn-outline-danger" asp-controller="rooms" asp-action="delete" asp-route-id="@room.RoomId" onclick="return confirmDelete()"><i class="bi bi-trash"></i> @VetClinic.Resources.Resource.Delete</a>
                     </td>
                 </tr>
             }
@@ -34,7 +34,7 @@
     </table>
 }
 <br />
-<a class="btn btn-outline-success" asp-controller="rooms" asp-action="add"><i class="bi bi-plus-circle"></i> Add Room</a>
+<a class="btn btn-outline-success" asp-controller="rooms" asp-action="add"><i class="bi bi-plus-circle"></i> @VetClinic.Resources.Resource.AddRoom</a>
 
 @section Scripts {
     <script>

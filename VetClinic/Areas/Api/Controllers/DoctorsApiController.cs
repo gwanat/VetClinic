@@ -17,7 +17,10 @@ namespace VetClinic.Areas.Api.Controllers
             _context = context;
         }
 
-        // GET: api/doctors
+        /// <summary>
+        /// Retrieves all doctors.
+        /// </summary>
+        /// <returns>List of doctors.</returns>
         [HttpGet]
         public ActionResult<IEnumerable<Doctor>> GetDoctors()
         {
@@ -25,13 +28,17 @@ namespace VetClinic.Areas.Api.Controllers
             return Ok(doctors);
         }
 
-        // GET: api/doctors/{id}
+        /// <summary>
+        /// Retrieves a doctor by ID.
+        /// </summary>
+        /// <param name="id">The ID of the doctor.</param>
+        /// <returns>The doctor details.</returns>
         [HttpGet("{id}")]
         public ActionResult<Doctor> GetDoctorById(int id)
         {
             var doctor = _context.Doctors
-                .Include(d => d.Patients) 
-                .Include(d => d.Appointments) 
+                .Include(d => d.Patients)
+                .Include(d => d.Appointments)
                 .FirstOrDefault(d => d.DoctorId == id);
 
             if (doctor == null)
@@ -40,7 +47,11 @@ namespace VetClinic.Areas.Api.Controllers
             return Ok(doctor);
         }
 
-        // POST: api/doctors
+        /// <summary>
+        /// Creates a new doctor.
+        /// </summary>
+        /// <param name="doctor">Doctor object to create.</param>
+        /// <returns>The created doctor.</returns>
         [HttpPost]
         public ActionResult<Doctor> CreateDoctor([FromBody] Doctor doctor)
         {
@@ -53,7 +64,12 @@ namespace VetClinic.Areas.Api.Controllers
             return CreatedAtAction(nameof(GetDoctorById), new { id = doctor.DoctorId }, doctor);
         }
 
-        // PUT: api/doctors/{id}
+        /// <summary>
+        /// Updates an existing doctor.
+        /// </summary>
+        /// <param name="id">The ID of the doctor.</param>
+        /// <param name="doctor">Updated doctor object.</param>
+        /// <returns>The updated doctor.</returns>
         [HttpPut("{id}")]
         public IActionResult UpdateDoctor(int id, [FromBody] Doctor doctor)
         {
@@ -71,7 +87,11 @@ namespace VetClinic.Areas.Api.Controllers
             return Ok(existingDoctor);
         }
 
-        // DELETE: api/doctors/{id}
+        /// <summary>
+        /// Deletes a doctor by ID.
+        /// </summary>
+        /// <param name="id">The ID of the doctor.</param>
+        /// <returns>No content if deletion is successful.</returns>
         [HttpDelete("{id}")]
         public IActionResult DeleteDoctor(int id)
         {
@@ -92,6 +112,5 @@ namespace VetClinic.Areas.Api.Controllers
 
             return NoContent();
         }
-
     }
 }

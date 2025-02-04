@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vet Clinic Management System</title>
+    <title>@VetClinic.Resources.Resource.VetClinicManagementSystem</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
@@ -21,23 +21,55 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item mx-2">
-                            <a class="nav-link text-muted" asp-controller="home" asp-action="index"><i class="bi bi-house-fill"></i> Home</a>
+                            <a class="nav-link text-muted" asp-controller="Home" asp-action="Index">
+                                <i class="bi bi-house-fill"></i> @VetClinic.Resources.Resource.Home
+                            </a>
                         </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link text-muted" asp-controller="doctors" asp-action="index"><i class="bi bi-person-fill"></i> Doctors</a>
-                        </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link text-muted" asp-controller="patients" asp-action="index"><i class="bi bi-bug-fill"></i> Patients</a>
-                        </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link text-muted" asp-controller="rooms" asp-action="index"><i class="bi bi-door-closed-fill"></i> Rooms</a>
-                        </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link text-muted" asp-controller="appointments" asp-action="index"><i class="bi bi-file-earmark-medical-fill"></i> Appointments</a>
-                        </li>
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            @if (User.HasClaim("Position", "Admin"))
+                            {
+                                <li class="nav-item mx-2">
+                                    <a class="nav-link text-muted" asp-controller="Doctors" asp-action="Index">
+                                        <i class="bi bi-person-fill"></i> @VetClinic.Resources.Resource.Doctors
+                                    </a>
+                                </li>
+                                <li class="nav-item mx-2">
+                                    <a class="nav-link text-muted" asp-controller="Patients" asp-action="Index">
+                                        <i class="bi bi-bug-fill"></i> @VetClinic.Resources.Resource.Patients
+                                    </a>
+                                </li>
+                                <li class="nav-item mx-2">
+                                    <a class="nav-link text-muted" asp-controller="Rooms" asp-action="Index">
+                                        <i class="bi bi-door-closed-fill"></i> @VetClinic.Resources.Resource.Rooms
+                                    </a>
+                                </li>
+                                <li class="nav-item mx-2">
+                                    <a class="nav-link text-muted" asp-controller="Appointments" asp-action="Index">
+                                        <i class="bi bi-file-earmark-medical-fill"></i> @VetClinic.Resources.Resource.Appointments
+                                    </a>
+                                </li>
+                            }
+
+                            @if (User.HasClaim("Position", "Doctor"))
+                            {
+                                <li class="nav-item mx-2">
+                                    <a class="nav-link text-muted" asp-controller="Patients" asp-action="Index">
+                                        <i class="bi bi-bug-fill"></i> @VetClinic.Resources.Resource.Patients
+                                    </a>
+                                </li>
+                                <li class="nav-item mx-2">
+                                    <a class="nav-link text-muted" asp-controller="Appointments" asp-action="Index">
+                                        <i class="bi bi-file-earmark-medical-fill"></i> @VetClinic.Resources.Resource.Appointments
+                                    </a>
+                                </li>
+                            }
+                        }
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
+
                 <div class="dropdown">
                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                         @if (Thread.CurrentThread.CurrentCulture.ToString() == "en")
@@ -46,18 +78,22 @@
                         }
                         else
                         {
-                            <span>Polish</span>
+                            <span>Polski</span>
                         }
                     </a>
-
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <li><a class="dropdown-item asp-controller="Home" asp-action="ChangeLanguage" asp-route-lang="en">English</a></li>
-                        <li><a class="dropdown-item asp-controller="Home" asp-action="ChangeLanguage" asp-route-lang="pl">Polish</a></li>
+                        <li>
+                            <a class="dropdown-item" asp-controller="Home" asp-action="ChangeLanguage" asp-route-lang="en">English</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" asp-controller="Home" asp-action="ChangeLanguage" asp-route-lang="pl">Polish</a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+
     <div class="container">
         <div class="pb-3">
             @RenderSection("title", false)
