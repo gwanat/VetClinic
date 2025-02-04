@@ -139,7 +139,7 @@
     <value>Appointment Scheduling</value>
   </data>
   <data name="BusyVets" xml:space="preserve">
-    <value>Busy Vets</value>
+    <value>Busy Vets Who Love Their Pets</value>
   </data>
   <data name="CheckAvail" xml:space="preserve">
     <value>Check availability and manage rooms for treatments and surgeries</value>
@@ -278,7 +278,7 @@ care they need right on time.</value>
     <value>Services</value>
   </data>
   <data name="Simplify" xml:space="preserve">
-    <value>Simplify scheduling, patient records, and billing with a system designed to keep your clinic running smoothly.</value>
+    <value>Simplify scheduling, patient records, and billing with a system designed to keep your clinic running smoothly. </value>
   </data>
   <data name="Simplifybookings" xml:space="preserve">
     <value>Simplify bookings with a system that ensures seamless scheduling for vets and clients.</value>

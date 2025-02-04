@@ -124,7 +124,7 @@ namespace VetClinic.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Busy Vets.
+        ///   Looks up a localized string similar to Busy Vets who love their pets.
         /// </summary>
         public static string BusyVets {
             get {
@@ -278,7 +278,7 @@ namespace VetClinic.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Keep track of all patients under care..
+        ///   Looks up a localized string similar to Keep track of all patients under care.
         /// </summary>
         public static string KeepTrack {
             get {
@@ -539,7 +539,7 @@ namespace VetClinic.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Simplify scheduling, patient records, and billing with a system designed to keep your clinic running smoothly..
+        ///   Looks up a localized string similar to Simplify scheduling, patient records, and billing with a system designed to keep your clinic running smoothly. .
         /// </summary>
         public static string Simplify {
             get {
@@ -647,7 +647,7 @@ namespace VetClinic.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to View and manage all doctors working at the clinic..
+        ///   Looks up a localized string similar to View and manage all doctors working at the clinic.
         /// </summary>
         public static string ViewAndManage {
             get {
