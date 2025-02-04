@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutUs" xml:space="preserve">
+    <value>À propos</value>
+  </data>
+  <data name="AccessDetailed" xml:space="preserve">
+    <value>Accédez aux antécédents médicaux détaillés et aux plans de traitement de chaque animal en quelques secondes.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Actes</value>
+  </data>
+  <data name="AddRoom" xml:space="preserve">
+    <value>Ajouter une salle</value>
+  </data>
+  <data name="AppointmentManagement" xml:space="preserve">
+    <value>Gestion des rendez-vous</value>
+  </data>
+  <data name="Appointments" xml:space="preserve">
+    <value>Rendez-vous</value>
+  </data>
+  <data name="AppointmentScheduling" xml:space="preserve">
+    <value>Prise de rendez-vous</value>
+  </data>
+  <data name="BusyVets" xml:space="preserve">
+    <value>vétérinaires occupés</value>
+  </data>
+  <data name="CheckAvail" xml:space="preserve">
+    <value>Vérifiez la disponibilité et gérez les salles pour les traitements et les chirurgies.</value>
+  </data>
+  <data name="Comprehensive" xml:space="preserve">
+    <value>Services</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>Contactez-nous</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Doctors" xml:space="preserve">
+    <value>Médecins</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="EfficientTools" xml:space="preserve">
+    <value>Des outils efficaces pour suivre, garantissant ainsi que les animaux reçoivent les soins dont ils ont besoin au bon moment.</value>
+  </data>
+  <data name="EffOrg" xml:space="preserve">
+    <value>Organisez et gérez efficacement les réservations des clients avec des mises à jour de disponibilité en temps réel.</value>
+  </data>
+  <data name="EmergencyCases" xml:space="preserve">
+    <value>Cas d'urgence</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Erreur</value>
+  </data>
+  <data name="ErrorOccurred" xml:space="preserve">
+    <value>Une erreur s'est produite</value>
+  </data>
+  <data name="FAQ" xml:space="preserve">
+    <value>FAQ</value>
+  </data>
+  <data name="For" xml:space="preserve">
+    <value>pour les</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Bonjour</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Accueil</value>
+  </data>
+  <data name="KeepTrack" xml:space="preserve">
+    <value>Gardez une trace de tous les patients sous soins.</value>
+  </data>
+  <data name="LEARNMORE" xml:space="preserve">
+    <value>EN SAVOIR PLUS</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Se connecter</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Déconnexion</value>
+  </data>
+  <data name="Manage" xml:space="preserve">
+    <value>Gérez les horaires et les rendez-vous vétérinaires, tenant votre équipe et vos clients informés et préparés.</value>
+  </data>
+  <data name="ManageAll" xml:space="preserve">
+    <value>Gérez tous les dossiers médicaux de vos animaux de compagnie sur une seule plateforme pratique.</value>
+  </data>
+  <data name="ManageAppointments" xml:space="preserve">
+    <value>Gérer les rendez-vous</value>
+  </data>
+  <data name="ManageDoctors" xml:space="preserve">
+    <value>Gérer les médecins</value>
+  </data>
+  <data name="ManagePatients" xml:space="preserve">
+    <value>Gérer les patients</value>
+  </data>
+  <data name="ManageRooms" xml:space="preserve">
+    <value>Gérer les salles</value>
+  </data>
+  <data name="Monitor" xml:space="preserve">
+    <value>Surveiller les horaires du personnel pour éviter les chevauchements et les retards.</value>
+  </data>
+  <data name="Optimized" xml:space="preserve">
+    <value>Des horaires Optimisés, de Meilleurs Soins</value>
+  </data>
+  <data name="OurStaff" xml:space="preserve">
+    <value>Notre personnel</value>
+  </data>
+  <data name="OurSystem" xml:space="preserve">
+    <value>Notre système rationalise les opérations de votre clinique afin que vous puissiez vous concentrer sur la prestation des meilleurs soins à chaque animal.</value>
+  </data>
+  <data name="OurVeterinary" xml:space="preserve">
+    <value>Notre système de gestion de clinique vétérinaire rationalise les opérations, garantissant une planification efficace, des soins aux patients et une tenue des dossiers pour les vétérinaires. Nous aidons les cliniques à améliorer leur productivité, la communication avec les clients et à fournir un service exceptionnel aux animaux de compagnie et à leurs propriétaires.</value>
+  </data>
+  <data name="PatientRecords" xml:space="preserve">
+    <value>Dossiers des patients</value>
+  </data>
+  <data name="Patients" xml:space="preserve">
+    <value>Patients</value>
+  </data>
+  <data name="Payments" xml:space="preserve">
+    <value>Paiements</value>
+  </data>
+  <data name="PetHealth" xml:space="preserve">
+    <value>de santé pour animaux</value>
+  </data>
+  <data name="Procedures" xml:space="preserve">
+    <value>Procédures</value>
+  </data>
+  <data name="QuickLinks" xml:space="preserve">
+    <value>Liens Rapides</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>S'inscrire</value>
+  </data>
+  <data name="Reliable" xml:space="preserve">
+    <value>Des soins vétérinaires</value>
+  </data>
+  <data name="Reviews" xml:space="preserve">
+    <value>Avis</value>
+  </data>
+  <data name="Room" xml:space="preserve">
+    <value>Salle</value>
+  </data>
+  <data name="RoomNumber" xml:space="preserve">
+    <value>Numéro de salle</value>
+  </data>
+  <data name="Rooms" xml:space="preserve">
+    <value>Salles</value>
+  </data>
+  <data name="ScheduleView" xml:space="preserve">
+    <value>Planifier, visualiser et gérer les rendez-vous des patients</value>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>compréhensifs</value>
+  </data>
+  <data name="Simplify" xml:space="preserve">
+    <value>Simplifiez la planification, les dossiers des patients et la facturation grâce à un système conçu pour assurer le bon fonctionnement de votre clinique.</value>
+  </data>
+  <data name="Simplifybookings" xml:space="preserve">
+    <value>Simplifiez les réservations avec un système qui garantit une planification transparente pour les vétérinaires et les clients.</value>
+  </data>
+  <data name="Smart" xml:space="preserve">
+    <value>Solutions</value>
+  </data>
+  <data name="SmartTools" xml:space="preserve">
+    <value>Outlis intelligents</value>
+  </data>
+  <data name="Solutions" xml:space="preserve">
+    <value>intelligentes</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Statut</value>
+  </data>
+  <data name="ThatYouCan" xml:space="preserve">
+    <value>vous pouvez</value>
+  </data>
+  <data name="Trust" xml:space="preserve">
+    <value>faire confiance !</value>
+  </data>
+  <data name="Try" xml:space="preserve">
+    <value>Réessayez plus tard ou contactez le support.</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="VetClinicManagementSystem" xml:space="preserve">
+    <value>Système de gestion de Clinique Vétérinaire</value>
+  </data>
+  <data name="VeterinaryCare" xml:space="preserve">
+    <value>fiables auxquels</value>
+  </data>
+  <data name="ViewAndManage" xml:space="preserve">
+    <value>Affichez et gérez tous les médecins travaillant à la clinique.</value>
+  </data>
+  <data name="WeAreAlways" xml:space="preserve">
+    <value>Nous sommes toujours prêts à vous aider, vous et vos animaux de compagnie.</value>
+  </data>
+  <data name="WeProvide" xml:space="preserve">
+    <value>Nous offrons des services médicaux d'experts pour vos animaux de compagnie, assurant leur santé et leur bien-être à chaque étape de leur vie.</value>
+  </data>
+</root>

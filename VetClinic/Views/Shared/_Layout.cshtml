@@ -113,15 +113,23 @@
                     <partial name="_LoginPartial" />
                 </div>
                 <div class="dropdown">
-                    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                        data-bs-toggle="dropdown" aria-expanded="false">
-                        @if (Thread.CurrentThread.CurrentCulture.ToString() == "en")
+                        @if (Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName == "en")
                         {
                             <span>English</span>
                         }
-                        else
+                        else if (Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName == "pl")
                         {
                             <span>Polski</span>
+                        }
+                        else if (Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName == "fr")
+                        {
+                            <span>Français</span>
+                        }
+                        else
+                        {
+                            <span>Language</span> 
                         }
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -140,11 +148,21 @@
                                asp-controller="Home"
                                asp-action="ChangeLanguage"
                                asp-route-lang="pl">
-                                Polish
+                                Polski
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item"
+                               asp-area=""
+                               asp-controller="Home"
+                               asp-action="ChangeLanguage"
+                               asp-route-lang="fr">
+                                Français
                             </a>
                         </li>
                     </ul>
                 </div>
+
             </div>
         </nav>
     </header>
