@@ -142,7 +142,7 @@
     <value>vétérinaires occupés</value>
   </data>
   <data name="CheckAvail" xml:space="preserve">
-    <value>Vérifiez la disponibilité et gérez les salles pour les traitements et les chirurgies.</value>
+    <value>Vérifiez la disponibilité et gérez les salles pour les traitements et les chirurgies</value>
   </data>
   <data name="Comprehensive" xml:space="preserve">
     <value>Services</value>
@@ -190,7 +190,7 @@
     <value>Accueil</value>
   </data>
   <data name="KeepTrack" xml:space="preserve">
-    <value>Gardez une trace de tous les patients sous soins.</value>
+    <value>Gardez une trace de tous les patients sous soins</value>
   </data>
   <data name="LEARNMORE" xml:space="preserve">
     <value>EN SAVOIR PLUS</value>
@@ -313,7 +313,7 @@
     <value>fiables auxquels</value>
   </data>
   <data name="ViewAndManage" xml:space="preserve">
-    <value>Affichez et gérez tous les médecins travaillant à la clinique.</value>
+    <value>Affichez et gérez tous les médecins travaillant à la clinique</value>
   </data>
   <data name="WeAreAlways" xml:space="preserve">
     <value>Nous sommes toujours prêts à vous aider, vous et vos animaux de compagnie.</value>

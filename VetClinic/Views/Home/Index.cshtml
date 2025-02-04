@@ -3,48 +3,48 @@
 }
 
 <div class="container mt-4">
-    @if (User.Identity.IsAuthenticated)
-    {
-        @if (User.HasClaim("Position", "Admin"))
-        {
-            <a class="nav-link btn my-4 w-100" asp-controller="doctors" asp-action="index">
-                <section id="doctors">
-                    <h2 class="text-center">@VetClinic.Resources.Resource.ManageDoctors</h2>
-                    <p class="lead text-center">@VetClinic.Resources.Resource.ViewAndManage</p>
-                </section>
-            </a>
-        }
+	@if (User.Identity.IsAuthenticated)
+	{
+		@if (User.HasClaim("Position", "Admin"))
+		{
+			<a class="management-card" asp-controller="doctors" asp-action="index">
+				<section id="doctors">
+					<h2>@VetClinic.Resources.Resource.ManageDoctors</h2>
+					<p>@VetClinic.Resources.Resource.ViewAndManage</p>
+				</section>
+			</a>
+		}
 
-        @if (User.HasClaim("Position", "Admin") || User.HasClaim("Position", "Doctor"))
-        {
-            <a class="nav-link btn my-4 w-100" asp-controller="patients" asp-action="index">
-                <section id="patients">
-                    <h2 class="text-center">@VetClinic.Resources.Resource.ManagePatients</h2>
-                    <p class="lead text-center">@VetClinic.Resources.Resource.KeepTrack</p>
-                </section>
-            </a>
-        }
+		@if (User.HasClaim("Position", "Admin") || User.HasClaim("Position", "Doctor"))
+		{
+			<a class="management-card" asp-controller="patients" asp-action="index">
+				<section id="patients">
+					<h2>@VetClinic.Resources.Resource.ManagePatients</h2>
+					<p>@VetClinic.Resources.Resource.KeepTrack</p>
+				</section>
+			</a>
+		}
 
-        @if (User.HasClaim("Position", "Admin"))
-        {
-            <a class="nav-link btn my-4 w-100" asp-controller="rooms" asp-action="index">
-                <section id="rooms">
-                    <h2 class="text-center">@VetClinic.Resources.Resource.ManageRooms</h2>
-                    <p class="lead text-center">@VetClinic.Resources.Resource.CheckAvail</p>
-                </section>
-            </a>
-        }
+		@if (User.HasClaim("Position", "Admin"))
+		{
+			<a class="management-card" asp-controller="rooms" asp-action="index">
+				<section id="rooms">
+					<h2>@VetClinic.Resources.Resource.ManageRooms</h2>
+					<p>@VetClinic.Resources.Resource.CheckAvail</p>
+				</section>
+			</a>
+		}
 
-        @if (User.HasClaim("Position", "Admin") || User.HasClaim("Position", "Doctor"))
-        {
-            <a class="nav-link btn my-4 w-100" asp-controller="appointments" asp-action="index">
-                <section id="appointments">
-                    <h2 class="text-center">@VetClinic.Resources.Resource.ManageAppointments</h2>
-                    <p class="lead text-center">@VetClinic.Resources.Resource.ScheduleView</p>
-                </section>
-            </a>
-        }
-    }
+		@if (User.HasClaim("Position", "Admin") || User.HasClaim("Position", "Doctor"))
+		{
+			<a class="management-card" asp-controller="appointments" asp-action="index">
+				<section id="appointments">
+					<h2>@VetClinic.Resources.Resource.ManageAppointments</h2>
+					<p>@VetClinic.Resources.Resource.ScheduleView</p>
+				</section>
+			</a>
+		}
+	}
     else
     {
 		<section class="slider">

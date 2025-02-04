@@ -191,7 +191,7 @@ care they need right on time.</value>
     <value>Home</value>
   </data>
   <data name="KeepTrack" xml:space="preserve">
-    <value>Keep track of all patients under care.</value>
+    <value>Keep track of all patients under care</value>
   </data>
   <data name="LEARNMORE" xml:space="preserve">
     <value>LEARN MORE</value>
@@ -314,7 +314,7 @@ care they need right on time.</value>
     <value>Vaterinary Care</value>
   </data>
   <data name="ViewAndManage" xml:space="preserve">
-    <value>View and manage all doctors working at the clinic.</value>
+    <value>View and manage all doctors working at the clinic</value>
   </data>
   <data name="WeAreAlways" xml:space="preserve">
     <value>We are always ready to help you &amp; your pets</value>

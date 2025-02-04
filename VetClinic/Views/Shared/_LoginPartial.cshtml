@@ -12,8 +12,8 @@
             
     </li>
     <li class="nav-item">
-        <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                <button id="logout" type="submit" class="btn my-2 my-sm-0">
+        <form id="logoutForm" class="d-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button id="logout" type="submit" class="btn my-2 py-2 my-sm-0">
                     <i class="bi bi-box-arrow-right"></i> @VetClinic.Resources.Resource.Logout
                 </button>
                 <span style="padding: 5px;"></span>
@@ -24,13 +24,13 @@
 else
 {
     <li class="nav-item">
-            <a class="btn btn-outline-primary my-2 my-sm-0" id="register" asp-area="Identity" asp-page="/Account/Register">
+            <a class="btn btn-outline-primary my-2 py-2 my-sm-0" id="register" asp-area="Identity" asp-page="/Account/Register">
                 <i class="bi bi-person-plus"></i> @VetClinic.Resources.Resource.Register
         </a>
             <span style="padding: 5px;"></span>
     </li>
     <li class="nav-item">
-            <a class="btn btn-outline-primary my-2 my-sm-0" id="login" asp-area="Identity" asp-page="/Account/Login">
+            <a class="btn btn-outline-primary my-2 py-2 my-sm-0" id="login" asp-area="Identity" asp-page="/Account/Login">
                 <i class="bi bi-box-arrow-in-right"></i> @VetClinic.Resources.Resource.Login
         </a>
             <span style="padding: 5px;"></span>

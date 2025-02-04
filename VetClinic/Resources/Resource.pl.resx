@@ -142,7 +142,7 @@
     <value>Zapracowanych Weterynarzy</value>
   </data>
   <data name="CheckAvail" xml:space="preserve">
-    <value>Sprawdzaj dostępność i zarządzaj salami do zabiegów i operacji.</value>
+    <value>Sprawdzaj dostępność i zarządzaj salami do zabiegów i operacji</value>
   </data>
   <data name="Comprehensive" xml:space="preserve">
     <value>Kompleksowe</value>
@@ -190,7 +190,7 @@
     <value>Strona Główna</value>
   </data>
   <data name="KeepTrack" xml:space="preserve">
-    <value>Śledź wszystkich pacjentów objętych opieką.</value>
+    <value>Śledź wszystkich pacjentów objętych opieką</value>
   </data>
   <data name="LEARNMORE" xml:space="preserve">
     <value>DOWIEDZ SIĘ WIĘCEJ</value>
@@ -271,7 +271,7 @@
     <value>Sale</value>
   </data>
   <data name="ScheduleView" xml:space="preserve">
-    <value>Planuj, wyświetlaj i zarządzaj wizytami pacjentów.</value>
+    <value>Planuj, wyświetlaj i zarządzaj wizytami pacjentów</value>
   </data>
   <data name="Services" xml:space="preserve">
     <value>zwierząt domowych</value>
@@ -313,7 +313,7 @@
     <value>Opieka Weterynaryjna</value>
   </data>
   <data name="ViewAndManage" xml:space="preserve">
-    <value>Przeglądaj i zarządzaj doktorami w kilnice.</value>
+    <value>Przeglądaj i zarządzaj doktorami w kilnice</value>
   </data>
   <data name="WeAreAlways" xml:space="preserve">
     <value>Jesteśmy zawsze gotowi, aby pomóc tobie oraz twoim zwierzętom</value>
